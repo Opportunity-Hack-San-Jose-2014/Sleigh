@@ -14,6 +14,8 @@
 		2B0537AD19E9CC3C005FE95E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0537AC19E9CC3C005FE95E /* Images.xcassets */; };
 		2B0537B019E9CC3C005FE95E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0537AE19E9CC3C005FE95E /* LaunchScreen.xib */; };
 		2B0537BC19E9CC3C005FE95E /* SleighTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537BB19E9CC3C005FE95E /* SleighTests.m */; };
+		2B2DE81419E9E4FA004E8A7F /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE81319E9E4FA004E8A7F /* DashboardViewController.m */; };
+		2B2DE81819E9E583004E8A7F /* UserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE81719E9E583004E8A7F /* UserDataManager.m */; };
 		F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E261560044794A20A447A5E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +43,11 @@
 		2B0537B519E9CC3C005FE95E /* SleighTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleighTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0537BA19E9CC3C005FE95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0537BB19E9CC3C005FE95E /* SleighTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleighTests.m; sourceTree = "<group>"; };
-		2B0537C519E9CE2D005FE95E /* Sleigh.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sleigh.pch; sourceTree = "<group>"; };
+		2B2DE81219E9E4FA004E8A7F /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		2B2DE81319E9E4FA004E8A7F /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		2B2DE81519E9E50B004E8A7F /* Sleigh.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sleigh.pch; sourceTree = SOURCE_ROOT; };
+		2B2DE81619E9E583004E8A7F /* UserDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataManager.h; sourceTree = "<group>"; };
+		2B2DE81719E9E583004E8A7F /* UserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataManager.m; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,13 +95,17 @@
 			isa = PBXGroup;
 			children = (
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
-				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
+				2B2DE81219E9E4FA004E8A7F /* DashboardViewController.h */,
 				2B0537A619E9CC3C005FE95E /* LoginViewController.h */,
+				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
+				2B2DE81319E9E4FA004E8A7F /* DashboardViewController.m */,
 				2B0537A719E9CC3C005FE95E /* LoginViewController.m */,
-				2B0537A919E9CC3C005FE95E /* Main.storyboard */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
 				2B0537AE19E9CC3C005FE95E /* LaunchScreen.xib */,
+				2B0537A919E9CC3C005FE95E /* Main.storyboard */,
 				2B05379F19E9CC3C005FE95E /* Supporting Files */,
+				2B2DE81619E9E583004E8A7F /* UserDataManager.h */,
+				2B2DE81719E9E583004E8A7F /* UserDataManager.m */,
 			);
 			path = Sleigh;
 			sourceTree = "<group>";
@@ -103,9 +113,9 @@
 		2B05379F19E9CC3C005FE95E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2B2DE81519E9E50B004E8A7F /* Sleigh.pch */,
 				2B0537A019E9CC3C005FE95E /* Info.plist */,
 				2B0537A119E9CC3C005FE95E /* main.m */,
-				2B0537C519E9CE2D005FE95E /* Sleigh.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -271,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0537A819E9CC3C005FE95E /* LoginViewController.m in Sources */,
+				2B2DE81819E9E583004E8A7F /* UserDataManager.m in Sources */,
 				2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */,
 				2B0537A219E9CC3C005FE95E /* main.m in Sources */,
+				2B2DE81419E9E4FA004E8A7F /* DashboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,21 +9,24 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+
+@property(weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property(weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property(weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
 }
 
-- (IBAction)loginButtonTapped:(id)sender {
-    //pretend async call is made then call this
-    [self performSegueWithIdentifier:@"loginSuccessful" sender:self];
+- (IBAction)loginButtonTapped:(id)sender
+{
+	//pretend async call is made then call this
+	[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
 }
 
 @end

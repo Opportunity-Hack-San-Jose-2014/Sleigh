@@ -118,7 +118,7 @@
         <!--Dashboard-->
         <scene sceneID="DoJ-vr-39h">
             <objects>
-                <viewController id="5PJ-3T-A2u" sceneMemberID="viewController">
+                <viewController id="5PJ-3T-A2u" customClass="DashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FEf-fS-fIr"/>
                         <viewControllerLayoutGuide type="bottom" id="hKh-t8-5rk"/>
@@ -186,6 +186,11 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="wde-kb-Mbo">
                         <barButtonItem key="backBarButtonItem" title="Logout" id="ih3-vy-6a8"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="buttonsViewHeight" destination="IGx-3F-AYC" id="xQa-Gj-d9M"/>
+                        <outlet property="donorButton" destination="Yc1-9e-cnf" id="ZVp-4H-scV"/>
+                        <outlet property="driverButton" destination="Jby-OY-P0h" id="6Kh-Tc-ahm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nBm-fG-ERR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -207,7 +212,7 @@
                                 <rect key="frame" x="0.0" y="120" width="600" height="400"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="syO-Pg-7mW">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="145" height="139"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -217,10 +222,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="145" height="139"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
