@@ -14,6 +14,7 @@
 		2B0537AD19E9CC3C005FE95E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0537AC19E9CC3C005FE95E /* Images.xcassets */; };
 		2B0537B019E9CC3C005FE95E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B0537AE19E9CC3C005FE95E /* LaunchScreen.xib */; };
 		2B0537BC19E9CC3C005FE95E /* SleighTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537BB19E9CC3C005FE95E /* SleighTests.m */; };
+		F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E261560044794A20A447A5E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		2B0537B519E9CC3C005FE95E /* SleighTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleighTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0537BA19E9CC3C005FE95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0537BB19E9CC3C005FE95E /* SleighTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleighTests.m; sourceTree = "<group>"; };
+		2B0537C519E9CE2D005FE95E /* Sleigh.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sleigh.pch; sourceTree = "<group>"; };
+		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +71,8 @@
 				2B05379E19E9CC3C005FE95E /* Sleigh */,
 				2B0537B819E9CC3C005FE95E /* SleighTests */,
 				2B05379D19E9CC3C005FE95E /* Products */,
+				E996331675AE4D58B14CD7AE /* Pods.xcconfig */,
+				74DF3107199944AD8D7A0EFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +105,7 @@
 			children = (
 				2B0537A019E9CC3C005FE95E /* Info.plist */,
 				2B0537A119E9CC3C005FE95E /* main.m */,
+				2B0537C519E9CE2D005FE95E /* Sleigh.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -119,6 +127,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		74DF3107199944AD8D7A0EFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E261560044794A20A447A5E1 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B0537BF19E9CC3C005FE95E /* Build configuration list for PBXNativeTarget "Sleigh" */;
 			buildPhases = (
+				0D48679587204D3286B893EB /* Check Pods Manifest.lock */,
 				2B05379819E9CC3C005FE95E /* Sources */,
 				2B05379919E9CC3C005FE95E /* Frameworks */,
 				2B05379A19E9CC3C005FE95E /* Resources */,
+				AA748720699B4CA38FF0C4D5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +232,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D48679587204D3286B893EB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AA748720699B4CA38FF0C4D5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2B05379819E9CC3C005FE95E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -286,6 +337,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sleigh.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -297,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -326,13 +379,15 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sleigh.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -341,6 +396,7 @@
 		};
 		2B0537C019E9CC3C005FE95E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E996331675AE4D58B14CD7AE /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sleigh/Info.plist;
@@ -351,6 +407,7 @@
 		};
 		2B0537C119E9CC3C005FE95E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E996331675AE4D58B14CD7AE /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Sleigh/Info.plist;
@@ -412,6 +469,7 @@
 				2B0537C119E9CC3C005FE95E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B0537C219E9CC3C005FE95E /* Build configuration list for PBXNativeTarget "SleighTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +478,7 @@
 				2B0537C419E9CC3C005FE95E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
