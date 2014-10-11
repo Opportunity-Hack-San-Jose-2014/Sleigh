@@ -17,9 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UILabel appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:18.0]];
-    [[UITextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:16.0]];
+	[[UITextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:16.0]];
 
-    return YES;
+	[self.window setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
+
+	return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

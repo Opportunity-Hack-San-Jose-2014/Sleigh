@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  LoginViewController.m
 //  Sleigh
 //
 //  Created by Mike Maietta on 10/11/14.
@@ -9,6 +9,9 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -16,12 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)loginButtonTapped:(id)sender {
+    //pretend async call is made then call this
+    [self performSegueWithIdentifier:@"loginSuccessful" sender:self];
 }
 
 @end
