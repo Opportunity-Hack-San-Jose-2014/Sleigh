@@ -10,10 +10,6 @@
 #import "UserDataManager.h"
 #import "DonatedItem.h"
 
-#define kItemsInProgress @"ItemsInProgress"
-
-#define kItemsAvailable @"ItemsAvailable"
-
 @interface UserDataManager ()
 
 @property(nonatomic, strong) NSMutableArray *userItems;
@@ -47,14 +43,22 @@
 
 - (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(NSError *error))completionBlock
 {
-	[PFUser logInWithUsernameInBackground:username password:password
+	[PFUser logInWithUsernameInBackground:username
+								 password:password
 									block:^(PFUser *user, NSError *error)
 									{
 										if (user)
 										{
-											self.userItems = [NSMutableArray new];
+											if ([user objectForKey:@"isActivated"])
+											{
+												self.userItems = [NSMutableArray new];
+												completionBlock(nil);
+											}
+											else
+												completionBlock([NSError errorWithDomain:@"ParseActivation" code:1 userInfo:@{NSLocalizedDescriptionKey : kAccountNotActivatedError}]);
 										}
-										completionBlock(error);
+										else
+											completionBlock(error);
 									}];
 }
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kAccountNotActivatedError @"Account is not Activated"
+
 @class DonatedItem;
 
 @interface UserDataManager : NSObject

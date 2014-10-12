@@ -19,23 +19,22 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-	[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
-}
-
 - (void)demoData
 {
 	self.usernameTextField.text = @"driver_account";
 	self.passwordTextField.text = @"testing";
 }
 
+- (IBAction)logoutButtonTapped:(id)sender
+{
+	[[UserDataManager sharedInstance] logoutUser];
+}
+
 - (IBAction)loginButtonTapped:(id)sender
 {
 	NSString *username = self.usernameTextField.text;
 	NSString *password = self.passwordTextField.text;
-    
+
 	if (username.length > 0 && password.length > 0)
 		[self loginUser:username withPassword:password];
 	else
@@ -47,6 +46,8 @@
 													otherButtonTitles:nil];
 
 		[myAlertView show];
+
+		[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 	}
 }
 
@@ -60,12 +61,17 @@
 											[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
 										else
 										{
+											NSString *errorMessage;
+											if ([[error.userInfo objectForKey:NSLocalizedDescriptionKey] isEqualToString:kAccountNotActivatedError])
+												errorMessage = kAccountNotActivatedError;
+											else
+												errorMessage = @"User credentials incorrect, please try again.";
+
 											UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-																								  message:@"User credentials incorrect, please try again."
+																								  message:errorMessage
 																								 delegate:nil
 																						cancelButtonTitle:@"OK"
 																						otherButtonTitles:nil];
-
 											[myAlertView show];
 										}
 									}];
