@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Parse/Parse.h>
 
 typedef enum : NSUInteger
 {
@@ -17,19 +18,21 @@ typedef enum : NSUInteger
 	ItemStatusDelivered
 } ItemStatus;
 
-@interface DonatedItem : NSObject
+@interface DonatedItem : PFObject <PFSubclassing>
 
-@property(nonatomic, strong) NSString *itemCode;
-@property(nonatomic, strong) NSString *itemAddress;
-@property(nonatomic, strong) NSString *itemPhoneNumber;
-@property(nonatomic, strong) NSString *itemImageUrl;
-@property(nonatomic, strong) NSString *itemAvailabilitySchedule;
-@property(nonatomic, strong) NSDate *itemListingDate;
+@property(retain) NSString *itemCode;
+@property(retain) NSString *itemAddress;
+@property(retain) NSString *itemPhoneNumber;
+@property(retain) NSString *itemImageUrl;
+@property(retain) NSString *itemAvailabilitySchedule;
+@property(retain) NSDate *itemListingDate;
 
-@property(nonatomic) int itemStatusCode;
+@property int itemStatusCode;
 
-@property(nonatomic, strong) NSNumber *donorId;
-@property(nonatomic, strong) NSNumber *driverId;
+@property(retain) PFUser *itemDriverId;
+@property(retain) PFUser *itemDonorId;
+
++ (NSString *)parseClassName;
 
 - (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber;
 

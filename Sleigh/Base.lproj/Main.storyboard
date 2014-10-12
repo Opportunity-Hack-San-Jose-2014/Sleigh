@@ -104,13 +104,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Welcome to Family Giving Tree" id="9gg-fM-8NQ">
-                        <barButtonItem key="backBarButtonItem" title="Logout" id="tjY-f2-xDR">
-                            <connections>
-                                <action selector="logoutButtonTapped:" destination="4fu-xy-qtb" id="sKb-ae-wCt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Welcome to Family Giving Tree" id="9gg-fM-8NQ"/>
                     <connections>
                         <outlet property="loginButton" destination="MAt-8Y-rPU" id="2gn-Ua-MFq"/>
                         <outlet property="passwordTextField" destination="xSb-zD-HnM" id="Mvq-ZR-I5b"/>

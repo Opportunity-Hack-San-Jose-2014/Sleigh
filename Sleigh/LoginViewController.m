@@ -25,11 +25,6 @@
 	self.passwordTextField.text = @"testing";
 }
 
-- (IBAction)logoutButtonTapped:(id)sender
-{
-	[[UserDataManager sharedInstance] logoutUser];
-}
-
 - (IBAction)loginButtonTapped:(id)sender
 {
 	NSString *username = self.usernameTextField.text;

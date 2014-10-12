@@ -20,13 +20,17 @@
 
 - (void)logoutUser;
 
-- (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *items))completionBlock;
+- (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(NSError *))completionBlock;
 
-- (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(BOOL success))completionBlock;
+- (void)updateDonatedItem:(DonatedItem *)item statusCode:(int)status withCompletionBlock:(void (^)(NSError *))completionBlock;
 
-- (void)updateDonatedItem:(DonatedItem *)item statusCode:(int)status withCompletionBlock:(void (^)(BOOL success))completionBlock;
+//- (void)allDonorItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock;
+//
+//- (void)allDriverItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock;
+
+- (NSArray *)allDriverItems;
 
 - (NSArray *)allDonorItems;
 
-- (NSArray *)allDriverItems;
+- (void)deleteItem:(DonatedItem *)item;
 @end

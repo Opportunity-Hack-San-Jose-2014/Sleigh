@@ -6,9 +6,30 @@
 //  Copyright (c) 2014 Wolfpack. All rights reserved.
 //
 
+#import <Parse/PFObject+Subclass.h>
 #import "DonatedItem.h"
 
+
+
 @implementation DonatedItem
+
+@dynamic itemCode;
+@dynamic itemAddress;
+@dynamic itemPhoneNumber;
+@dynamic itemImageUrl;
+@dynamic itemAvailabilitySchedule;
+@dynamic itemListingDate;
+@dynamic itemStatusCode;
+@dynamic itemDriverId;
+@dynamic itemDonorId;
+
++ (void)load {
+    [self registerSubclass];
+}
+
++ (NSString *)parseClassName {
+    return NSStringFromClass([self class]);
+}
 
 - (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber
 {
@@ -24,6 +45,13 @@
 
 		self.itemListingDate = [NSDate date];
 		self.itemStatusCode = ItemStatusPickupReady;
+
+		// Set ACL permissions for added security
+		PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
+		[postACL setPublicReadAccess:YES];
+		[self setACL:postACL];
+
+        self.itemDonorId = [PFUser currentUser];
 	}
 	return self;
 }
@@ -31,6 +59,7 @@
 - (void)updateItemStatusWithIndex:(int)index
 {
 	self.itemStatusCode = index;
+	self.itemDriverId = [PFUser currentUser];
 }
 
 - (NSString *)currentStatusString

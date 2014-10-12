@@ -8,6 +8,7 @@
 
 #import "DashboardViewController.h"
 #import "ContainerViewController.h"
+#import "UserDataManager.h"
 
 @interface DashboardViewController ()
 
@@ -17,6 +18,24 @@
 @end
 
 @implementation DashboardViewController
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+	
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+																   style:UIBarButtonItemStyleBordered
+																  target:self
+																  action:@selector(logoutUser:)];
+    self.navigationItem.leftBarButtonItem = backButton;
+
+}
+
+- (void)logoutUser:(id)sender
+{
+	[[UserDataManager sharedInstance] logoutUser];
+	[self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 - (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender
 {

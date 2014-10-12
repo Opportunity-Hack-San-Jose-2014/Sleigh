@@ -62,7 +62,7 @@
 
 - (IBAction)deleteButtonTapped:(id)sender
 {
-
+	[[UserDataManager sharedInstance] deleteItem:self.donatedItem];
 }
 
 - (IBAction)updateItemStatusButtonTapped:(id)sender
@@ -183,22 +183,25 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-	[[UserDataManager sharedInstance] updateDonatedItem:self.donatedItem
-											 statusCode:buttonIndex
-									withCompletionBlock:^(BOOL success)
-									{
-										if (success)
-											[self reloadData];
-										else
+	if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"] == NO)
+	{
+		[[UserDataManager sharedInstance] updateDonatedItem:self.donatedItem
+												 statusCode:buttonIndex
+										withCompletionBlock:^(NSError *success)
 										{
-											UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-																								  message:@"Couldn't save to server, please try again."
-																								 delegate:nil
-																						cancelButtonTitle:@"OK"
-																						otherButtonTitles:nil];
-											[myAlertView show];
-										}
-									}];
+											if (success == nil)
+												[self reloadData];
+											else
+											{
+												UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+																									  message:@"Couldn't save to server, please try again."
+																									 delegate:nil
+																							cancelButtonTitle:@"OK"
+																							otherButtonTitles:nil];
+												[myAlertView show];
+											}
+										}];
+	}
 }
 
 @end

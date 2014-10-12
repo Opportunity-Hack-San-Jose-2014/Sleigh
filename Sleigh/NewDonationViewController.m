@@ -62,9 +62,9 @@
 																			  schedule:schedule
 																		   phoneNumber:phoneNumber];
 
-		[[UserDataManager sharedInstance] saveDonatedItemToDatabase:newDonation withCompletionBlock:^(BOOL success)
+		[[UserDataManager sharedInstance] saveDonatedItemToDatabase:newDonation withCompletionBlock:^(NSError *success)
 		{
-			if (success)
+			if (success == nil)
 				[self.navigationController popViewControllerAnimated:YES];
 			else
 			{

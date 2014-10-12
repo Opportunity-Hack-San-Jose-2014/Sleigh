@@ -52,6 +52,10 @@
 											if ([user objectForKey:@"isActivated"])
 											{
 												self.userItems = [NSMutableArray new];
+												[self queryServerForAllUserItemsWithCompletionBlock:^(NSArray *objects, NSError *error)
+												{
+													self.userItems = [objects mutableCopy];
+												}];
 												completionBlock(nil);
 											}
 											else
@@ -81,51 +85,85 @@
 
 #pragma mark - Server Queries
 
-- (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *items))completionBlock
+- (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
 {
-	//grab all items for user id
-	completionBlock(self.userItems);
-}
-
-- (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(BOOL success))completionBlock
-{
-	//save async to server
-	BOOL isSuccessful = YES;
-
-	if (isSuccessful)
+	PFQuery *query = [DonatedItem query];
+	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
 	{
-		if (self.isDemo)
-			[self addMultipleDemoItemCopies:item];
-		else
-			[self.userItems addObject:item];
-	}
-
-	completionBlock(isSuccessful);
+		completionBlock(objects, error);
+	}];
 }
 
-- (void)updateDonatedItem:(DonatedItem *)item statusCode:(int)status withCompletionBlock:(void (^)(BOOL success))completionBlock
+- (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(NSError *error))completionBlock
 {
-	//save async to server
-	BOOL isSuccessful = YES;
+	[item saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+	{
+		if (succeeded)
+			[self.userItems addObject:item];
+		completionBlock(error);
+	}];
+}
 
-	if (isSuccessful)
-		[item updateItemStatusWithIndex:status];
-	completionBlock(isSuccessful);
+- (void)updateDonatedItem:(DonatedItem *)item statusCode:(int)status withCompletionBlock:(void (^)(NSError *error))completionBlock
+{
+	[item updateItemStatusWithIndex:status];
+	[item saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+	{
+		completionBlock(error);
+	}];
+}
+
+- (void)deleteItem:(DonatedItem *)item
+{
+	[item deleteInBackground];
 }
 
 #pragma mark - Item Management
 
-- (NSArray *)allDonorItems
-{
-	return self.userItems;
-}
+//- (void)allDonorItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
+//{
+//	PFQuery *query = [DonatedItem query];
+//	[query whereKey:@"itemDonorId" equalTo:[PFUser currentUser]];
+//
+//	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+//	{
+//		completionBlock(objects, error);
+//	}];
+//}
+//
+//- (void)allDriverItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
+//{
+//	PFQuery *query = [DonatedItem query];
+//
+//	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+//	{
+//		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDriverId == %@", [PFUser currentUser]];
+//		NSArray *pickupItems = [objects filteredArrayUsingPredicate:predicate];
+//
+//		NSMutableArray *availableItems = [objects mutableCopy];
+//		[availableItems removeObjectsInArray:pickupItems];
+//
+//		completionBlock(@[pickupItems, availableItems], error);
+//	}];
+//}
 
 - (NSArray *)allDriverItems
 {
-	return @[
-			[NSArray new],
-			self.userItems
-	];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDriverId == %@", [PFUser currentUser]];
+	NSArray *pickupItems = [self.userItems filteredArrayUsingPredicate:predicate];
+
+	NSMutableArray *availableItems = [self.userItems mutableCopy];
+	[availableItems removeObjectsInArray:pickupItems];
+
+    return @[pickupItems, availableItems];
+}
+
+- (NSArray *)allDonorItems
+{
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDonorId == %@", [PFUser currentUser]];
+	NSArray *donorItems = [self.userItems filteredArrayUsingPredicate:predicate];
+
+	return donorItems;
 }
 
 @end
