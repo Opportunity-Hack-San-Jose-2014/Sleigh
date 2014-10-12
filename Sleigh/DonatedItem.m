@@ -20,6 +20,8 @@
 		self.itemAvailabilitySchedule = schedule;
 		self.itemPhoneNumber = phoneNumber;
 
+		self.itemImageUrl = @"http://middleearthnews.com/wp-content/uploads/2014/04/The-Lego-Movie.jpg";
+
 		self.itemListingDate = [NSDate date];
 		self.itemStatusCode = ItemStatusPickupReady;
 	}

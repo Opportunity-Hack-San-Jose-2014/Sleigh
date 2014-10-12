@@ -27,7 +27,6 @@
 
 - (void)setImageWithImageURL:(NSString *)urlString
 {
-	urlString = @"http://middleearthnews.com/wp-content/uploads/2014/04/The-Lego-Movie.jpg";
 	[self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
 	{
 		if (image)

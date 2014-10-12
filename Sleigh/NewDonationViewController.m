@@ -32,7 +32,7 @@
 	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignAllResponders)];
 	[self.view addGestureRecognizer:tapGestureRecognizer];
 
-	[self performSelector:@selector(demoData) withObject:nil afterDelay:2];
+	[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 }
 
 - (void)demoData

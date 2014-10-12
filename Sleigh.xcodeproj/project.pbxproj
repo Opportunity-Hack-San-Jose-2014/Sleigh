@@ -20,10 +20,16 @@
 		2B2DE81F19E9F0BE004E8A7F /* DonorDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE81E19E9F0BE004E8A7F /* DonorDashboardViewController.m */; };
 		2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */; };
 		2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE83919EA01F8004E8A7F /* DonatedItem.m */; };
-		2B2DE84319EA2A9F004E8A7F /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84219EA2A9F004E8A7F /* ItemViewController.m */; };
 		2B2DE84919EA327F004E8A7F /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84619EA327F004E8A7F /* ContainerViewController.m */; };
 		2B2DE84A19EA327F004E8A7F /* EmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84819EA327F004E8A7F /* EmptySegue.m */; };
 		2B2DE84E19EA32D7004E8A7F /* DriverDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84D19EA32D7004E8A7F /* DriverDashboardViewController.m */; };
+		2BDAE75719EA5BE7008FA1FA /* ItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */; };
+		2BDAE75A19EA6413008FA1FA /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE75919EA6413008FA1FA /* UIView+Additions.m */; };
+		2BE6861D19EA67DD00FFE4B4 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6861C19EA67DD00FFE4B4 /* ImageCell.m */; };
+		2BE6861F19EA680400FFE4B4 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6861E19EA680400FFE4B4 /* ImageCell.xib */; };
+		2BE6862319EA683600FFE4B4 /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6862119EA683600FFE4B4 /* InfoCell.m */; };
+		2BE6862419EA683600FFE4B4 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6862219EA683600FFE4B4 /* InfoCell.xib */; };
+		2BE6862719EA6DD200FFE4B4 /* BaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6862619EA6DD200FFE4B4 /* BaseTableViewCell.m */; };
 		F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E261560044794A20A447A5E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +70,6 @@
 		2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDonationViewController.m; sourceTree = "<group>"; };
 		2B2DE83819EA01F8004E8A7F /* DonatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonatedItem.h; sourceTree = "<group>"; };
 		2B2DE83919EA01F8004E8A7F /* DonatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonatedItem.m; sourceTree = "<group>"; };
-		2B2DE84119EA2A9F004E8A7F /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
-		2B2DE84219EA2A9F004E8A7F /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		2B2DE84519EA327F004E8A7F /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
 		2B2DE84619EA327F004E8A7F /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
 		2B2DE84719EA327F004E8A7F /* EmptySegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptySegue.h; sourceTree = "<group>"; };
@@ -73,6 +77,18 @@
 		2B2DE84C19EA32D7004E8A7F /* DriverDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverDashboardViewController.h; sourceTree = "<group>"; };
 		2B2DE84D19EA32D7004E8A7F /* DriverDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverDashboardViewController.m; sourceTree = "<group>"; };
 		2B3F4FDA19EA3B34002FF874 /* RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGB.h; sourceTree = "<group>"; };
+		2BDAE75519EA5BE7008FA1FA /* ItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewController.h; sourceTree = "<group>"; };
+		2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewController.m; sourceTree = "<group>"; };
+		2BDAE75819EA6413008FA1FA /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		2BDAE75919EA6413008FA1FA /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		2BE6861B19EA67DD00FFE4B4 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		2BE6861C19EA67DD00FFE4B4 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		2BE6861E19EA680400FFE4B4 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		2BE6862019EA683600FFE4B4 /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = "<group>"; };
+		2BE6862119EA683600FFE4B4 /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = "<group>"; };
+		2BE6862219EA683600FFE4B4 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = "<group>"; };
+		2BE6862519EA6DD200FFE4B4 /* BaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewCell.h; sourceTree = "<group>"; };
+		2BE6862619EA6DD200FFE4B4 /* BaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewCell.m; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +138,8 @@
 				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
 				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
+				2BDAE75819EA6413008FA1FA /* UIView+Additions.h */,
+				2BDAE75919EA6413008FA1FA /* UIView+Additions.m */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
 				2B2DE83E19EA1BD6004E8A7F /* Classes */,
 				2B0537AE19E9CC3C005FE95E /* LaunchScreen.xib */,
@@ -213,12 +231,12 @@
 		2B2DE83E19EA1BD6004E8A7F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2B2DE84019EA2A18004E8A7F /* View Item */,
 				2B0537A619E9CC3C005FE95E /* LoginViewController.h */,
 				2B0537A719E9CC3C005FE95E /* LoginViewController.m */,
 				2B2DE81919E9E64D004E8A7F /* Dashboard */,
 				2B2DE83B19EA01FC004E8A7F /* Data Management */,
 				2B2DE82019E9F33D004E8A7F /* New Donation */,
+				2B2DE84019EA2A18004E8A7F /* View Item */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -226,8 +244,9 @@
 		2B2DE84019EA2A18004E8A7F /* View Item */ = {
 			isa = PBXGroup;
 			children = (
-				2B2DE84119EA2A9F004E8A7F /* ItemViewController.h */,
-				2B2DE84219EA2A9F004E8A7F /* ItemViewController.m */,
+				2BE6861A19EA67C600FFE4B4 /* Cells */,
+				2BDAE75519EA5BE7008FA1FA /* ItemTableViewController.h */,
+				2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */,
 			);
 			name = "View Item";
 			sourceTree = "<group>";
@@ -241,6 +260,21 @@
 				2B2DE84819EA327F004E8A7F /* EmptySegue.m */,
 			);
 			name = "Custom Child Segues";
+			sourceTree = "<group>";
+		};
+		2BE6861A19EA67C600FFE4B4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2BE6861B19EA67DD00FFE4B4 /* ImageCell.h */,
+				2BE6861C19EA67DD00FFE4B4 /* ImageCell.m */,
+				2BE6861E19EA680400FFE4B4 /* ImageCell.xib */,
+				2BE6862019EA683600FFE4B4 /* InfoCell.h */,
+				2BE6862119EA683600FFE4B4 /* InfoCell.m */,
+				2BE6862219EA683600FFE4B4 /* InfoCell.xib */,
+				2BE6862519EA6DD200FFE4B4 /* BaseTableViewCell.h */,
+				2BE6862619EA6DD200FFE4B4 /* BaseTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		74DF3107199944AD8D7A0EFB /* Frameworks */ = {
@@ -334,6 +368,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0537AB19E9CC3C005FE95E /* Main.storyboard in Resources */,
+				2BE6862419EA683600FFE4B4 /* InfoCell.xib in Resources */,
+				2BE6861F19EA680400FFE4B4 /* ImageCell.xib in Resources */,
 				2B0537B019E9CC3C005FE95E /* LaunchScreen.xib in Resources */,
 				2B0537AD19E9CC3C005FE95E /* Images.xcassets in Resources */,
 			);
@@ -386,18 +422,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BE6862719EA6DD200FFE4B4 /* BaseTableViewCell.m in Sources */,
 				2B2DE81C19E9E67B004E8A7F /* DonatedItemCell.m in Sources */,
 				2B0537A819E9CC3C005FE95E /* LoginViewController.m in Sources */,
 				2B2DE84E19EA32D7004E8A7F /* DriverDashboardViewController.m in Sources */,
+				2BDAE75A19EA6413008FA1FA /* UIView+Additions.m in Sources */,
 				2B2DE81819E9E583004E8A7F /* UserDataManager.m in Sources */,
 				2B2DE84A19EA327F004E8A7F /* EmptySegue.m in Sources */,
+				2BE6862319EA683600FFE4B4 /* InfoCell.m in Sources */,
 				2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */,
 				2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */,
 				2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */,
+				2BE6861D19EA67DD00FFE4B4 /* ImageCell.m in Sources */,
 				2B0537A219E9CC3C005FE95E /* main.m in Sources */,
 				2B2DE84919EA327F004E8A7F /* ContainerViewController.m in Sources */,
-				2B2DE84319EA2A9F004E8A7F /* ItemViewController.m in Sources */,
 				2B2DE81419E9E4FA004E8A7F /* DashboardViewController.m in Sources */,
+				2BDAE75719EA5BE7008FA1FA /* ItemTableViewController.m in Sources */,
 				2B2DE81F19E9F0BE004E8A7F /* DonorDashboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

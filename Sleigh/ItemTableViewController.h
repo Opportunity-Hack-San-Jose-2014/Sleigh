@@ -1,5 +1,5 @@
 //
-//  ItemViewController.h
+//  ItemScrollViewController.h
 //  Sleigh
 //
 //  Created by Mike Maietta on 10/11/14.
@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DonatedItem.h"
 
-@class DonatedItem;
+@class ItemView;
 
-@interface ItemViewController : UIViewController
+@interface ItemTableViewController : UIViewController
 
 @property(nonatomic, strong) DonatedItem *donatedItem;
+
 @end
