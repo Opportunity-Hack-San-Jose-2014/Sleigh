@@ -32,7 +32,7 @@
 	if ([segue.identifier isEqualToString:kViewItemIdentifier])
 	{
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-		DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allDonorItems] objectAtIndex:indexPath.item];
+		DonatedItem *donatedItem = [[[[UserDataManager sharedInstance] allDriverItems] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
 		ItemTableViewController *viewController = [[(UINavigationController *) segue.destinationViewController childViewControllers] firstObject];
 		viewController.donatedItem = donatedItem;
@@ -57,7 +57,7 @@
 - (void)updateOverlayVisibility
 {
 	NSArray *driverItems = [[UserDataManager sharedInstance] allDriverItems];
-	int count = [[driverItems objectAtIndex:0] count];
+	NSUInteger count = [[driverItems objectAtIndex:0] count];
 	count += [[driverItems objectAtIndex:1] count];
 	self.overlayView.alpha = (count == 0);
 }
@@ -87,6 +87,8 @@
 	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
 
 	[cell.imageView sd_setImageWithURL:[NSURL URLWithString:donatedItem.itemImageUrl]];
+    cell.imageView.frame = CGRectMake(0, 0, cell.width, cell.height);
+    cell.contentMode = UIViewContentModeScaleAspectFit;
 
 	cell.textLabel.text = donatedItem.itemAddress;
 	cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16];

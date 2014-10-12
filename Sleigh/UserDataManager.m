@@ -13,7 +13,6 @@
 @interface UserDataManager ()
 
 @property(nonatomic, strong) NSMutableArray *userItems;
-@property(nonatomic) BOOL isDemo;
 @end
 
 @implementation UserDataManager
@@ -27,16 +26,6 @@
 		sharedInstance = [[self alloc] init];
 	});
 	return sharedInstance;
-}
-
-- (instancetype)init
-{
-	self = [super init];
-	if (self)
-	{
-		self.isDemo = YES;
-	}
-	return self;
 }
 
 #pragma mark - User Management
