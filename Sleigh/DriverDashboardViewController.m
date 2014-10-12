@@ -11,6 +11,7 @@
 #import "UserDataManager.h"
 #import "ItemTableViewController.h"
 #import "UIView+Additions.h"
+#import "DriverItemCell.h"
 
 @interface DriverDashboardViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -20,6 +21,15 @@
 @end
 
 @implementation DriverDashboardViewController
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    NSString *className = NSStringFromClass([DriverItemCell class]);
+    UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
+    [self.tableView registerNib:nib forCellReuseIdentifier:className];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -81,22 +91,12 @@
 {
 	static NSString *cellIdentifier = @"DriverItemCell";
 
-	DonatedItem *donatedItem = [[[[UserDataManager sharedInstance] allDriverItems] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+	DriverItemCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
 
-	[cell.imageView sd_setImageWithURL:[NSURL URLWithString:donatedItem.itemImageUrl]];
-	cell.imageView.frame = CGRectMake(0, 0, cell.width, cell.height);
-	cell.contentMode = UIViewContentModeScaleAspectFit;
-
-	cell.textLabel.text = donatedItem.itemAddress;
-	cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16];
-	cell.textLabel.numberOfLines = 2;
-
-	cell.detailTextLabel.text = donatedItem.itemAvailabilitySchedule;
-	cell.detailTextLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16];
-	cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+    DonatedItem *donatedItem = [[[[UserDataManager sharedInstance] allDriverItems] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	[cell setCellWithItem:donatedItem];
 
 	return cell;
 }

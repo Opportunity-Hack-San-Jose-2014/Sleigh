@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="DriverItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ag-Az-nFu">
+                        <rect key="frame" x="5" y="5" width="89.5" height="89.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8ag-Az-nFu" secondAttribute="height" id="5k5-5t-m08"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxy-uf-RcH" userLabel="Detail">
+                        <rect key="frame" x="114" y="72.5" width="196" height="22"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIi-bB-x3n" userLabel="Title">
+                        <rect key="frame" x="114" y="5" width="196" height="62.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8ag-Az-nFu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="0N0-Nc-tJG"/>
+                    <constraint firstItem="TIi-bB-x3n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="55P-QP-w4J"/>
+                    <constraint firstAttribute="bottom" secondItem="mxy-uf-RcH" secondAttribute="bottom" constant="5" id="GeL-mT-rpU"/>
+                    <constraint firstAttribute="bottom" secondItem="8ag-Az-nFu" secondAttribute="bottom" constant="5" id="LSA-Td-8YW"/>
+                    <constraint firstItem="mxy-uf-RcH" firstAttribute="top" secondItem="TIi-bB-x3n" secondAttribute="bottom" constant="5" id="M8e-XD-rap"/>
+                    <constraint firstItem="TIi-bB-x3n" firstAttribute="leading" secondItem="8ag-Az-nFu" secondAttribute="trailing" constant="20" id="O43-GR-ZWC"/>
+                    <constraint firstAttribute="trailing" secondItem="TIi-bB-x3n" secondAttribute="trailing" constant="10" id="WUs-o4-rph"/>
+                    <constraint firstItem="mxy-uf-RcH" firstAttribute="top" secondItem="TIi-bB-x3n" secondAttribute="bottom" constant="5" id="dW3-qF-Fih"/>
+                    <constraint firstItem="TIi-bB-x3n" firstAttribute="trailing" secondItem="mxy-uf-RcH" secondAttribute="trailing" id="krF-eD-lSL"/>
+                    <constraint firstItem="TIi-bB-x3n" firstAttribute="leading" secondItem="mxy-uf-RcH" secondAttribute="leading" id="u43-0F-wGo"/>
+                    <constraint firstItem="8ag-Az-nFu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="uJc-hy-bSU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cellDetailLabel" destination="mxy-uf-RcH" id="KEt-Rv-cdg"/>
+                <outlet property="cellImageView" destination="8ag-Az-nFu" id="Dnu-FZ-rln"/>
+                <outlet property="cellTitleLabel" destination="TIi-bB-x3n" id="MGP-NU-v41"/>
+            </connections>
+            <point key="canvasLocation" x="272" y="393"/>
+        </tableViewCell>
+    </objects>
+</document>

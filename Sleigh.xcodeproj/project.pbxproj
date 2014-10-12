@@ -47,6 +47,8 @@
 		2BE6949B19EB0444007CEF77 /* add_photo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6949819EB0444007CEF77 /* add_photo.png */; };
 		2BE6949C19EB0444007CEF77 /* logo_bigger.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6949919EB0444007CEF77 /* logo_bigger.png */; };
 		2BE6949D19EB0444007CEF77 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE6949A19EB0444007CEF77 /* logo.png */; };
+		2BE694A119EB19F5007CEF77 /* DriverItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6949F19EB19F5007CEF77 /* DriverItemCell.m */; };
+		2BE694A219EB19F5007CEF77 /* DriverItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2BE694A019EB19F5007CEF77 /* DriverItemCell.xib */; };
 		F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E261560044794A20A447A5E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,9 @@
 		2BE6949819EB0444007CEF77 /* add_photo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_photo.png; sourceTree = "<group>"; };
 		2BE6949919EB0444007CEF77 /* logo_bigger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_bigger.png; sourceTree = "<group>"; };
 		2BE6949A19EB0444007CEF77 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		2BE6949E19EB19F5007CEF77 /* DriverItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverItemCell.h; sourceTree = "<group>"; };
+		2BE6949F19EB19F5007CEF77 /* DriverItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverItemCell.m; sourceTree = "<group>"; };
+		2BE694A019EB19F5007CEF77 /* DriverItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverItemCell.xib; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -276,6 +281,9 @@
 			children = (
 				2B2DE84C19EA32D7004E8A7F /* DriverDashboardViewController.h */,
 				2B2DE84D19EA32D7004E8A7F /* DriverDashboardViewController.m */,
+				2BE6949E19EB19F5007CEF77 /* DriverItemCell.h */,
+				2BE6949F19EB19F5007CEF77 /* DriverItemCell.m */,
+				2BE694A019EB19F5007CEF77 /* DriverItemCell.xib */,
 			);
 			name = Driver;
 			sourceTree = "<group>";
@@ -435,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE6949B19EB0444007CEF77 /* add_photo.png in Resources */,
+				2BE694A219EB19F5007CEF77 /* DriverItemCell.xib in Resources */,
 				2B0537AB19E9CC3C005FE95E /* Main.storyboard in Resources */,
 				2BE6949C19EB0444007CEF77 /* logo_bigger.png in Resources */,
 				2BE6862419EA683600FFE4B4 /* InfoCell.xib in Resources */,
@@ -498,6 +507,7 @@
 				2B2DE84E19EA32D7004E8A7F /* DriverDashboardViewController.m in Sources */,
 				2BDAE75A19EA6413008FA1FA /* UIView+Additions.m in Sources */,
 				2B2DE81819E9E583004E8A7F /* UserDataManager.m in Sources */,
+				2BE694A119EB19F5007CEF77 /* DriverItemCell.m in Sources */,
 				2B2DE84A19EA327F004E8A7F /* EmptySegue.m in Sources */,
 				2BE6862319EA683600FFE4B4 /* InfoCell.m in Sources */,
 				2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */,
