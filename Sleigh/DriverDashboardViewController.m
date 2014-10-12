@@ -87,8 +87,8 @@
 	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
 
 	[cell.imageView sd_setImageWithURL:[NSURL URLWithString:donatedItem.itemImageUrl]];
-    cell.imageView.frame = CGRectMake(0, 0, cell.width, cell.height);
-    cell.contentMode = UIViewContentModeScaleAspectFit;
+	cell.imageView.frame = CGRectMake(0, 0, cell.width, cell.height);
+	cell.contentMode = UIViewContentModeScaleAspectFit;
 
 	cell.textLabel.text = donatedItem.itemAddress;
 	cell.textLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16];

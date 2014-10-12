@@ -14,6 +14,7 @@
 
 @property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewTopOffset;
 @property(nonatomic, strong) ContainerViewController *containerViewController;
 @end
 
@@ -29,6 +30,13 @@
 																  action:@selector(logoutUser:)];
 	self.navigationItem.leftBarButtonItem = backButton;
 
+	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
+    {
+        self.containerViewTopOffset.constant = 0;
+        self.title=@"My Donated Items";
+    }
+    else
+        self.title=@"My Item Dashboard";
 }
 
 - (void)logoutUser:(id)sender

@@ -125,7 +125,7 @@
             </objects>
             <point key="canvasLocation" x="-610" y="-399"/>
         </scene>
-        <!--Dashboard-->
+        <!--Dashboard View Controller-->
         <scene sceneID="DoJ-vr-39h">
             <objects>
                 <viewController id="5PJ-3T-A2u" customClass="DashboardViewController" sceneMemberID="viewController">
@@ -137,12 +137,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-2b-J3c">
-                                <rect key="frame" x="0.0" y="124" width="600" height="476"/>
-                                <connections>
-                                    <segue destination="kg4-lR-06M" kind="embed" identifier="embedContainer" id="cP2-PM-4YI"/>
-                                </connections>
-                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWO-WW-L5B">
                                 <rect key="frame" x="0.0" y="64" width="600" height="60"/>
                                 <subviews>
@@ -165,6 +159,12 @@
                                     <constraint firstItem="d2M-cD-V1V" firstAttribute="leading" secondItem="mWO-WW-L5B" secondAttribute="leading" constant="50" id="ZuU-ce-GWw"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-2b-J3c">
+                                <rect key="frame" x="0.0" y="124" width="600" height="476"/>
+                                <connections>
+                                    <segue destination="kg4-lR-06M" kind="embed" identifier="embedContainer" id="cP2-PM-4YI"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -178,8 +178,8 @@
                             <constraint firstItem="hKh-t8-5rk" firstAttribute="top" secondItem="eH6-2b-J3c" secondAttribute="bottom" id="wyu-F7-pwr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="wde-kb-Mbo"/>
                     <connections>
+                        <outlet property="containerViewTopOffset" destination="MwY-kB-yX5" id="YKJ-Ul-EVm"/>
                         <outlet property="segmentedControl" destination="d2M-cD-V1V" id="AYE-ZC-5Gf"/>
                     </connections>
                 </viewController>
@@ -426,7 +426,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-CR-IwV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Caw-CR-IwV">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -596,7 +596,7 @@
                                     <outlet property="delegate" destination="HXK-aN-3c1" id="X3f-Xm-lBV"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmN-ZF-iHm">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmN-ZF-iHm">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There doesn't seem to be any items available for pickup in your local area, please try again later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnM-4r-ujh">
@@ -663,6 +663,6 @@
         <image name="logo_bigger.png" width="643" height="576"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FJj-6e-mvN"/>
+        <segue reference="rcf-gb-WZu"/>
     </inferredMetricsTieBreakers>
 </document>

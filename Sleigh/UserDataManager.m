@@ -60,6 +60,11 @@
 	[PFUser logOut];
 }
 
+- (BOOL)isUserDriver
+{
+	return [[[PFUser currentUser] objectForKey:@"isDriver"] boolValue];
+}
+
 #pragma mark - Server Queries
 
 - (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock

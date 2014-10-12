@@ -21,6 +21,8 @@
 
 - (void)logoutUser;
 
+- (BOOL)isUserDriver;
+
 - (void)deleteItem:(DonatedItem *)item;
 
 - (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(NSError *))completionBlock;
