@@ -24,7 +24,7 @@ typedef enum : NSUInteger
 @property(nonatomic, strong) NSString *itemPhoneNumber;
 @property(nonatomic, strong) NSString *itemImageUrl;
 @property(nonatomic, strong) NSString *itemAvailabilitySchedule;
-@property (nonatomic, strong) NSDate *itemListingDate;
+@property(nonatomic, strong) NSDate *itemListingDate;
 
 @property(nonatomic) ItemStatus itemStatusCode;
 

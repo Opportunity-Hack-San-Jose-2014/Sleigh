@@ -7,13 +7,13 @@
 //
 
 #import "DashboardViewController.h"
+#import "ContainerViewController.h"
 
 @interface DashboardViewController ()
 
-@property(weak, nonatomic) IBOutlet UIButton *driverButton;
-@property(weak, nonatomic) IBOutlet UIButton *donorButton;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint *buttonsViewHeight;
+@property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
+@property(nonatomic, strong) ContainerViewController * containerViewController;
 @end
 
 @implementation DashboardViewController
@@ -21,8 +21,18 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-
 }
 
+- (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender
+{
+		[self.containerViewController swapViewControllers];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"embedContainer"]) {
+        self.containerViewController = segue.destinationViewController;
+    }
+}
 
 @end

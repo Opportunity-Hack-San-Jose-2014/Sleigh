@@ -20,7 +20,7 @@
 		self.itemAvailabilitySchedule = schedule;
 		self.itemPhoneNumber = phoneNumber;
 
-        self.itemListingDate = [NSDate date];
+		self.itemListingDate = [NSDate date];
 		self.itemStatusCode = ItemStatusPickupReady;
 	}
 	return self;

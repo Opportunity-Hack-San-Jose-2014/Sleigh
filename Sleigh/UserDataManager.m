@@ -59,14 +59,18 @@
 	BOOL isSuccessful = YES;
 
 	if (isSuccessful)
-		[self.userItems addObject:item];
+    {
+        for (int i = 0; i < 8; i ++) {
+            [self.userItems addObject:item];
+        }
+    }
 
 	completionBlock(isSuccessful);
 }
 
 #pragma mark - Item Management
 
--(NSArray *)allUserItems
+- (NSArray *)allUserItems
 {
 	return self.userItems;
 }

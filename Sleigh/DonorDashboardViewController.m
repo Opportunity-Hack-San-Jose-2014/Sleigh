@@ -14,7 +14,8 @@
 #define kAnimationDuration 0.4
 
 @interface DonorDashboardViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
@@ -22,19 +23,19 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [self reloadData];
+	[super viewWillAppear:animated];
+	[self reloadData];
 }
 
 - (void)reloadData
 {
-    [UIView transitionWithView:self.collectionView
-                      duration:kAnimationDuration
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^(void)
-     {
-         [self.collectionView reloadData];
-     } completion:nil];
+	[UIView transitionWithView:self.collectionView
+					  duration:kAnimationDuration
+					   options:UIViewAnimationOptionTransitionCrossDissolve
+					animations:^(void)
+					{
+						[self.collectionView reloadData];
+					} completion:nil];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -44,7 +45,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	DonatedItem * donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
+	DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
 
 	DonatedItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DonatedItemCell class]) forIndexPath:indexPath];
 	[cell setCellWithItem:donatedItem];

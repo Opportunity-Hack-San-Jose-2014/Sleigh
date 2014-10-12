@@ -22,9 +22,9 @@
 - (void)setCellWithItem:(DonatedItem *)item
 {
 	[self setImageWithImageURL:item.itemImageUrl];
-    self.dateLabel.text= [NSDateFormatter localizedStringFromDate:item.itemListingDate
-														dateStyle:NSDateFormatterMediumStyle
-														timeStyle:NSDateFormatterNoStyle];
+	self.dateLabel.text = [NSDateFormatter localizedStringFromDate:item.itemListingDate
+														 dateStyle:NSDateFormatterMediumStyle
+														 timeStyle:NSDateFormatterNoStyle];
 }
 
 - (void)setImageWithImageURL:(NSString *)urlString

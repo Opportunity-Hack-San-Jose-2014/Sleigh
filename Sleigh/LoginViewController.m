@@ -42,22 +42,22 @@
 - (void)loginUser:(NSString *)username withPassword:(NSString *)password
 {
 	[[UserDataManager sharedInstance] loginUserWithName:username
-												andPassword:password
-										withCompletionBlock:^(BOOL success)
+											andPassword:password
+									withCompletionBlock:^(BOOL success)
+									{
+										if (success)
+											[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
+										else
 										{
-											if (success)
-												[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
-											else
-											{
-												UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-																									  message:@"User credentials incorrect, please try again."
-																									 delegate:nil
-																							cancelButtonTitle:@"OK"
-																							otherButtonTitles:nil];
+											UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+																								  message:@"User credentials incorrect, please try again."
+																								 delegate:nil
+																						cancelButtonTitle:@"OK"
+																						otherButtonTitles:nil];
 
-												[myAlertView show];
-											}
-										}];
+											[myAlertView show];
+										}
+									}];
 }
 
 @end

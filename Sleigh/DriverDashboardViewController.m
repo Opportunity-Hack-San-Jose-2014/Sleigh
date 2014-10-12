@@ -1,18 +1,18 @@
 //
-//  ItemViewController.m
+//  DriverDashboardViewController.m
 //  Sleigh
 //
 //  Created by Mike Maietta on 10/11/14.
 //  Copyright (c) 2014 Wolfpack. All rights reserved.
 //
 
-#import "ItemViewController.h"
+#import "DriverDashboardViewController.h"
 
-@interface ItemViewController ()
+@interface DriverDashboardViewController ()
 
 @end
 
-@implementation ItemViewController
+@implementation DriverDashboardViewController
 
 - (void)viewDidLoad
 {
