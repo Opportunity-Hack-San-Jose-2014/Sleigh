@@ -13,6 +13,7 @@
 @property(weak, nonatomic) IBOutlet UIImageView *imageView;
 @property(weak, nonatomic) IBOutlet UITextField *itemCodeTextField;
 @property(weak, nonatomic) IBOutlet UITextField *itemAddressTextField;
+@property(weak, nonatomic) IBOutlet UITextField *itemAvailabilityTextField;
 
 @end
 
@@ -39,23 +40,13 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
-//- (IBAction)selectPhoto:(UIButton *)sender
-//{
-//
-//	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//	picker.delegate = self;
-//	picker.allowsEditing = YES;
-//	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//
-//	[self presentViewController:picker animated:YES completion:NULL];
-//}
-
 #pragma mark - Keyboard methods
 
 - (void)resignAllResponders
 {
 	[self.itemAddressTextField resignFirstResponder];
 	[self.itemCodeTextField resignFirstResponder];
+	[self.itemAvailabilityTextField resignFirstResponder];
 }
 
 - (void)keyboardDidShow:(NSNotification *)notification

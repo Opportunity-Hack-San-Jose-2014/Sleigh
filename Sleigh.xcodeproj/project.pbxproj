@@ -19,6 +19,7 @@
 		2B2DE81C19E9E67B004E8A7F /* DonatedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE81B19E9E67B004E8A7F /* DonatedItemCell.m */; };
 		2B2DE81F19E9F0BE004E8A7F /* DonorDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE81E19E9F0BE004E8A7F /* DonorDashboardViewController.m */; };
 		2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */; };
+		2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE83919EA01F8004E8A7F /* DonatedItem.m */; };
 		F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E261560044794A20A447A5E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,8 @@
 		2B2DE81E19E9F0BE004E8A7F /* DonorDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonorDashboardViewController.m; sourceTree = "<group>"; };
 		2B2DE82119E9F364004E8A7F /* NewDonationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDonationViewController.h; sourceTree = "<group>"; };
 		2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDonationViewController.m; sourceTree = "<group>"; };
+		2B2DE83819EA01F8004E8A7F /* DonatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonatedItem.h; sourceTree = "<group>"; };
+		2B2DE83919EA01F8004E8A7F /* DonatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonatedItem.m; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,18 +106,17 @@
 		2B05379E19E9CC3C005FE95E /* Sleigh */ = {
 			isa = PBXGroup;
 			children = (
-				2B2DE82019E9F33D004E8A7F /* New Donation */,
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
-				2B2DE81919E9E64D004E8A7F /* Dashboard */,
 				2B0537A619E9CC3C005FE95E /* LoginViewController.h */,
 				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
 				2B0537A719E9CC3C005FE95E /* LoginViewController.m */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
+				2B2DE81919E9E64D004E8A7F /* Dashboard */,
+				2B2DE83B19EA01FC004E8A7F /* Data Management */,
 				2B0537AE19E9CC3C005FE95E /* LaunchScreen.xib */,
 				2B0537A919E9CC3C005FE95E /* Main.storyboard */,
+				2B2DE82019E9F33D004E8A7F /* New Donation */,
 				2B05379F19E9CC3C005FE95E /* Supporting Files */,
-				2B2DE81619E9E583004E8A7F /* UserDataManager.h */,
-				2B2DE81719E9E583004E8A7F /* UserDataManager.m */,
 			);
 			path = Sleigh;
 			sourceTree = "<group>";
@@ -150,10 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				2B2DE81219E9E4FA004E8A7F /* DashboardViewController.h */,
-				2B2DE81319E9E4FA004E8A7F /* DashboardViewController.m */,
 				2B2DE81A19E9E67B004E8A7F /* DonatedItemCell.h */,
-				2B2DE81B19E9E67B004E8A7F /* DonatedItemCell.m */,
 				2B2DE81D19E9F0BE004E8A7F /* DonorDashboardViewController.h */,
+				2B2DE81319E9E4FA004E8A7F /* DashboardViewController.m */,
+				2B2DE81B19E9E67B004E8A7F /* DonatedItemCell.m */,
 				2B2DE81E19E9F0BE004E8A7F /* DonorDashboardViewController.m */,
 			);
 			name = Dashboard;
@@ -166,6 +168,17 @@
 				2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */,
 			);
 			name = "New Donation";
+			sourceTree = "<group>";
+		};
+		2B2DE83B19EA01FC004E8A7F /* Data Management */ = {
+			isa = PBXGroup;
+			children = (
+				2B2DE83819EA01F8004E8A7F /* DonatedItem.h */,
+				2B2DE81619E9E583004E8A7F /* UserDataManager.h */,
+				2B2DE83919EA01F8004E8A7F /* DonatedItem.m */,
+				2B2DE81719E9E583004E8A7F /* UserDataManager.m */,
+			);
+			name = "Data Management";
 			sourceTree = "<group>";
 		};
 		74DF3107199944AD8D7A0EFB /* Frameworks */ = {
@@ -316,6 +329,7 @@
 				2B2DE81819E9E583004E8A7F /* UserDataManager.m in Sources */,
 				2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */,
 				2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */,
+				2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */,
 				2B0537A219E9CC3C005FE95E /* main.m in Sources */,
 				2B2DE81419E9E4FA004E8A7F /* DashboardViewController.m in Sources */,
 				2B2DE81F19E9F0BE004E8A7F /* DonorDashboardViewController.m in Sources */,
