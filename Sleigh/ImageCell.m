@@ -14,7 +14,6 @@
 - (void)setCellTitle:(NSString *)title andData:(NSString *)data
 {
 	[super setCellTitle:title andData:data];
-
 	[self.imageView sd_setImageWithURL:[NSURL URLWithString:self.dataString]];
 }
 

@@ -19,8 +19,11 @@
 
 @interface ItemTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property(weak, nonatomic) IBOutlet UIView *donorButtonView;
+@property(weak, nonatomic) IBOutlet UIView *driverButtonsView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) NSArray *itemDetailCellsToDisplay;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomInset;
 @end
 
 @implementation ItemTableViewController
@@ -33,6 +36,17 @@
 	[self.navigationItem setLeftBarButtonItem:closeButton animated:YES];
 
 	[self setupItemDetailCells];
+
+    if (self.itemContext == ViewItemContextDonor)
+    {
+        self.driverButtonsView.hidden = YES;
+		self.tableViewBottomInset.constant = self.donorButtonView.height;
+    }
+    else if (self.itemContext == ViewItemContextDriver)
+    {
+        self.donorButtonView.hidden = YES;
+		self.tableViewBottomInset.constant = self.driverButtonsView.height;
+    }
 }
 
 - (void)dismissViewController
@@ -42,8 +56,8 @@
 
 - (IBAction)callPhone:(id)sender
 {
-    NSString *phoneDeepLink = [NSString stringWithFormat:@"tel:%@", self.donatedItem.itemPhoneNumber];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneDeepLink]];
+	NSString *phoneDeepLink = [NSString stringWithFormat:@"tel:%@", self.donatedItem.itemPhoneNumber];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneDeepLink]];
 }
 
 #pragma mark - Table View Cells
@@ -70,6 +84,7 @@
 
 	BaseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:className];
 	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
+	[cell setNeedsLayout];
 
 	[cell setCellTitle:[cellConfig objectForKey:kCellTitle] andData:[cellConfig objectForKey:kCellData]];
 

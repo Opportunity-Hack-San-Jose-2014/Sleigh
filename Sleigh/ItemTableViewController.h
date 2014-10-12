@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "DonatedItem.h"
 
-@class ItemView;
+typedef enum : NSInteger
+{
+	ViewItemContextDonor = 0,
+	ViewItemContextDriver
+} ViewItemContext;
 
 @interface ItemTableViewController : UIViewController
 
 @property(nonatomic, strong) DonatedItem *donatedItem;
+@property(nonatomic) ViewItemContext *itemContext;
 
 @end
