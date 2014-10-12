@@ -59,11 +59,12 @@
 	BOOL isSuccessful = YES;
 
 	if (isSuccessful)
-    {
-        for (int i = 0; i < 8; i ++) {
-            [self.userItems addObject:item];
-        }
-    }
+	{
+		for (int i = 0; i < 8; i++)
+		{
+			[self.userItems addObject:item];
+		}
+	}
 
 	completionBlock(isSuccessful);
 }

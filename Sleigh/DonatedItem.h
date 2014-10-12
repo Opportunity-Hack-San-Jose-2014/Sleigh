@@ -32,4 +32,6 @@ typedef enum : NSUInteger
 @property(nonatomic, strong) NSNumber *driverId;
 
 - (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber;
+
+- (NSString *)currentStatusString;
 @end

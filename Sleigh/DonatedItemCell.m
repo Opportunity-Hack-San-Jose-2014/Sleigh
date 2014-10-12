@@ -13,7 +13,7 @@
 @interface DonatedItemCell ()
 
 @property(weak, nonatomic) IBOutlet UIImageView *imageView;
-@property(weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property(weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -22,9 +22,7 @@
 - (void)setCellWithItem:(DonatedItem *)item
 {
 	[self setImageWithImageURL:item.itemImageUrl];
-	self.dateLabel.text = [NSDateFormatter localizedStringFromDate:item.itemListingDate
-														 dateStyle:NSDateFormatterMediumStyle
-														 timeStyle:NSDateFormatterNoStyle];
+	self.statusLabel.text = [item currentStatusString];
 }
 
 - (void)setImageWithImageURL:(NSString *)urlString

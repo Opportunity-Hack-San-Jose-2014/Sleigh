@@ -45,8 +45,7 @@
 	{
 		self.donorDashboardViewController = segue.destinationViewController;
 	}
-
-	if ([segue.identifier isEqualToString:SegueIdentifierSecond])
+	else if ([segue.identifier isEqualToString:SegueIdentifierSecond])
 	{
 		self.driverDashboardViewController = segue.destinationViewController;
 	}
@@ -56,9 +55,7 @@
 	{
 		// If this is not the first time we're loading this.
 		if (self.childViewControllers.count > 0)
-		{
 			[self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:self.donorDashboardViewController];
-		}
 		else
 		{
 			// If this is the very first time we're loading this we need to do
@@ -67,12 +64,11 @@
 			UIView *destView = ((UIViewController *) segue.destinationViewController).view;
 			destView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 			destView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+
 			[self.view addSubview:destView];
 			[segue.destinationViewController didMoveToParentViewController:self];
 		}
 	}
-		// By definition the second view controller will always be swapped with the
-		// first one.
 	else if ([segue.identifier isEqualToString:SegueIdentifierSecond])
 	{
 		[self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:self.driverDashboardViewController];
@@ -88,12 +84,17 @@
 	[fromViewController willMoveToParentViewController:nil];
 	[self addChildViewController:toViewController];
 
-	[self transitionFromViewController:fromViewController toViewController:toViewController duration:1.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:nil completion:^(BOOL finished)
-	{
-		[fromViewController removeFromParentViewController];
-		[toViewController didMoveToParentViewController:self];
-		self.transitionInProgress = NO;
-	}];
+	[self transitionFromViewController:fromViewController
+					  toViewController:toViewController
+							  duration:0.3
+							   options:UIViewAnimationOptionTransitionCrossDissolve
+							animations:nil
+							completion:^(BOOL finished)
+							{
+								[fromViewController removeFromParentViewController];
+								[toViewController didMoveToParentViewController:self];
+								self.transitionInProgress = NO;
+							}];
 }
 
 - (void)swapViewControllers

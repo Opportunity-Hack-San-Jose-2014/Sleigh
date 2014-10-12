@@ -13,26 +13,22 @@
 
 @property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
-@property(nonatomic, strong) ContainerViewController * containerViewController;
+@property(nonatomic, strong) ContainerViewController *containerViewController;
 @end
 
 @implementation DashboardViewController
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-}
-
 - (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender
 {
-		[self.containerViewController swapViewControllers];
+	[self.containerViewController swapViewControllers];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"embedContainer"]) {
-        self.containerViewController = segue.destinationViewController;
-    }
+	if ([segue.identifier isEqualToString:@"embedContainer"])
+	{
+		self.containerViewController = segue.destinationViewController;
+	}
 }
 
 @end

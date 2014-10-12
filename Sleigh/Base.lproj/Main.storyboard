@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gx0-74-2Fh">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -235,8 +234,8 @@
                                             <constraint firstAttribute="trailing" secondItem="q1K-St-fRO" secondAttribute="trailing" id="kGc-Sa-GRH"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="dateLabel" destination="q1K-St-fRO" id="8DK-Mz-LAs"/>
                                             <outlet property="imageView" destination="gd2-kZ-Hyp" id="qsH-yi-Acb"/>
+                                            <outlet property="statusLabel" destination="q1K-St-fRO" id="JxD-fa-64J"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

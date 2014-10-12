@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RGB.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,17 @@
 {
 	[[UILabel appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:18.0]];
 	[[UITextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:16.0]];
+
+	[[UISegmentedControl appearance] setTitleTextAttributes:@{
+			 NSForegroundColorAttributeName : [UIColor whiteColor],
+			 NSFontAttributeName            : [UIFont fontWithName:@"AvenirNext-Bold" size:16.0]
+	 }
+												   forState:UIControlStateSelected];
+	[[UISegmentedControl appearance] setTitleTextAttributes:@{
+			 NSForegroundColorAttributeName : RGB(0, 122, 255),
+			 NSFontAttributeName            : [UIFont fontWithName:@"AvenirNext-Regular" size:16.0]
+	 }
+												   forState:UIControlStateNormal];
 
 	[self.window setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
 

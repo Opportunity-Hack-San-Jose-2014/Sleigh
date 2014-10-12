@@ -26,4 +26,23 @@
 	return self;
 }
 
+- (NSString *)currentStatusString
+{
+	switch (self.itemStatusCode)
+	{
+		case ItemStatusPickupReady:
+			return @"Ready for Pickup";
+		case ItemStatusDriverEnRoute:
+			return @"Driver en Route";
+		case ItemStatusPickedUp:
+			return @"Item picked up";
+		case ItemStatusWarehouse:
+			return @"Item at Warehouse";
+		case ItemStatusDelivered:
+			return @"Ready for Pickup";
+		default:
+			return @"";
+	}
+}
+
 @end

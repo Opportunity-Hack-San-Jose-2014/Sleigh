@@ -72,6 +72,7 @@
 		2B2DE84819EA327F004E8A7F /* EmptySegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptySegue.m; sourceTree = "<group>"; };
 		2B2DE84C19EA32D7004E8A7F /* DriverDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverDashboardViewController.h; sourceTree = "<group>"; };
 		2B2DE84D19EA32D7004E8A7F /* DriverDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverDashboardViewController.m; sourceTree = "<group>"; };
+		2B3F4FDA19EA3B34002FF874 /* RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGB.h; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +119,7 @@
 		2B05379E19E9CC3C005FE95E /* Sleigh */ = {
 			isa = PBXGroup;
 			children = (
+				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
 				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
