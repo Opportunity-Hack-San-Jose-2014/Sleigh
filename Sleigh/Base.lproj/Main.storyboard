@@ -103,7 +103,11 @@
                             <constraint firstItem="ZM6-TB-8id" firstAttribute="top" secondItem="HtS-tV-UcE" secondAttribute="bottom" constant="20" id="ypI-Vn-HWG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Welcome to Family Giving Tree" id="9gg-fM-8NQ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Welcome to Family Giving Tree" id="9gg-fM-8NQ">
+                        <barButtonItem key="backBarButtonItem" title="Logout" id="tjY-f2-xDR"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="loginButton" destination="MAt-8Y-rPU" id="2gn-Ua-MFq"/>
                         <outlet property="passwordTextField" destination="xSb-zD-HnM" id="Mvq-ZR-I5b"/>
@@ -183,9 +187,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="wde-kb-Mbo">
-                        <barButtonItem key="backBarButtonItem" title="Logout" id="ih3-vy-6a8"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Dashboard" id="wde-kb-Mbo"/>
                     <connections>
                         <outlet property="buttonsViewHeight" destination="IGx-3F-AYC" id="xQa-Gj-d9M"/>
                         <outlet property="donorButton" destination="Yc1-9e-cnf" id="ZVp-4H-scV"/>
@@ -196,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="90" y="-399"/>
         </scene>
-        <!--View Controller-->
+        <!--Donor Dashboard View Controller-->
         <scene sceneID="m3D-fI-9VY">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5wE-0l-F08" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="5wE-0l-F08" customClass="DonorDashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="00j-Gu-vnM"/>
                         <viewControllerLayoutGuide type="bottom" id="A0X-gr-mZf"/>
@@ -241,6 +243,9 @@
                                 <state key="normal" title="Donate an Item">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="zHF-Gv-vO6" kind="show" id="dbp-e6-lZC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -258,7 +263,92 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWK-TT-afm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="-440"/>
+            <point key="canvasLocation" x="891" y="-439"/>
+        </scene>
+        <!--Donate Item-->
+        <scene sceneID="pHn-aE-1op">
+            <objects>
+                <viewController id="zHF-Gv-vO6" customClass="NewDonationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IyD-pm-dcU"/>
+                        <viewControllerLayoutGuide type="bottom" id="bbs-zU-6cR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3cE-TX-piB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="520"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z6L-zk-CMI">
+                                <rect key="frame" x="20" y="20" width="560" height="212"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-OL-t3F" userLabel="Item Code # Text Field">
+                                <rect key="frame" x="80" y="272.5" width="440" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pickup Address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lip-Ou-Cyn">
+                                <rect key="frame" x="80" y="322.5" width="440" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xYj-np-acQ" userLabel="Pickup Address Text Field">
+                                <rect key="frame" x="80" y="353" width="440" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YK9-7D-UrT">
+                                <rect key="frame" x="100" y="463" width="400" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Submit Pickup">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonTapped:" destination="zHF-Gv-vO6" eventType="touchUpInside" id="UDx-aI-KPo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDw-6Z-Ad2">
+                                <rect key="frame" x="80" y="242" width="440" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xYj-np-acQ" firstAttribute="top" secondItem="Lip-Ou-Cyn" secondAttribute="bottom" constant="10" id="3hx-3K-WNT"/>
+                            <constraint firstItem="XDw-6Z-Ad2" firstAttribute="top" secondItem="z6L-zk-CMI" secondAttribute="bottom" constant="10" id="4qg-vm-QjF"/>
+                            <constraint firstItem="z6L-zk-CMI" firstAttribute="top" secondItem="IyD-pm-dcU" secondAttribute="bottom" constant="20" id="8jF-rI-i0D"/>
+                            <constraint firstAttribute="trailing" secondItem="XDw-6Z-Ad2" secondAttribute="trailing" constant="80" id="ALX-3o-r2f"/>
+                            <constraint firstItem="z6L-zk-CMI" firstAttribute="leading" secondItem="3cE-TX-piB" secondAttribute="leading" constant="20" id="AhA-xF-uyU"/>
+                            <constraint firstItem="XDw-6Z-Ad2" firstAttribute="leading" secondItem="3cE-TX-piB" secondAttribute="leading" constant="80" id="CI6-hK-2mS"/>
+                            <constraint firstAttribute="trailing" secondItem="z6L-zk-CMI" secondAttribute="trailing" constant="20" id="CoR-FR-X80"/>
+                            <constraint firstItem="YK9-7D-UrT" firstAttribute="leading" secondItem="3cE-TX-piB" secondAttribute="leading" constant="100" id="HFL-fR-Cyf"/>
+                            <constraint firstItem="Lip-Ou-Cyn" firstAttribute="width" secondItem="IIV-OL-t3F" secondAttribute="width" id="LNM-Eh-8mQ"/>
+                            <constraint firstItem="Lip-Ou-Cyn" firstAttribute="top" secondItem="IIV-OL-t3F" secondAttribute="bottom" constant="20" id="NTu-RF-mTL"/>
+                            <constraint firstItem="Lip-Ou-Cyn" firstAttribute="width" secondItem="XDw-6Z-Ad2" secondAttribute="width" id="VyW-8B-jox"/>
+                            <constraint firstItem="IIV-OL-t3F" firstAttribute="top" secondItem="XDw-6Z-Ad2" secondAttribute="bottom" constant="10" id="WoP-31-jeL"/>
+                            <constraint firstAttribute="centerX" secondItem="Lip-Ou-Cyn" secondAttribute="centerX" id="Wov-fH-hhu"/>
+                            <constraint firstItem="YK9-7D-UrT" firstAttribute="top" secondItem="xYj-np-acQ" secondAttribute="bottom" constant="20" id="dhh-VW-By1"/>
+                            <constraint firstItem="bbs-zU-6cR" firstAttribute="top" secondItem="YK9-7D-UrT" secondAttribute="bottom" constant="20" id="ebn-Bl-IES"/>
+                            <constraint firstAttribute="centerX" secondItem="xYj-np-acQ" secondAttribute="centerX" id="fVZ-qN-0pG"/>
+                            <constraint firstAttribute="trailing" secondItem="YK9-7D-UrT" secondAttribute="trailing" constant="100" id="gUs-23-sKN"/>
+                            <constraint firstAttribute="centerX" secondItem="IIV-OL-t3F" secondAttribute="centerX" id="pd2-hd-9aP"/>
+                            <constraint firstItem="Lip-Ou-Cyn" firstAttribute="width" secondItem="xYj-np-acQ" secondAttribute="width" id="q3G-0y-jP4"/>
+                            <constraint firstItem="xYj-np-acQ" firstAttribute="height" secondItem="IIV-OL-t3F" secondAttribute="height" multiplier="3:1" id="yg2-qg-mpw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Donate Item" id="dJo-Wj-WKF"/>
+                    <connections>
+                        <outlet property="imageView" destination="z6L-zk-CMI" id="fqV-kc-Lro"/>
+                        <outlet property="itemAddressTextField" destination="xYj-np-acQ" id="tEI-rK-5Lw"/>
+                        <outlet property="itemCodeTextField" destination="IIV-OL-t3F" id="Oef-zM-Enc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJn-9a-ZhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613" y="-439"/>
         </scene>
     </scenes>
 </document>
