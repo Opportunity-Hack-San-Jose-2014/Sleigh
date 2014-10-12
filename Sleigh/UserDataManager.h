@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@class DonatedItem;
+
 @interface UserDataManager : NSObject
 
 + (UserDataManager *)sharedInstance;
 
+- (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(BOOL success))completionBlock;
 
+- (void)logoutUser;
+
+- (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *items))completionBlock;
+
+- (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(BOOL success))completionBlock;
 @end

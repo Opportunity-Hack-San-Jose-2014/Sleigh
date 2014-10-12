@@ -10,4 +10,19 @@
 
 @implementation DonatedItem
 
+- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber
+{
+	self = [self init];
+	if (self)
+	{
+		self.itemCode = descriptionCode;
+		self.itemAddress = address;
+		self.itemAvailabilitySchedule = schedule;
+		self.itemPhoneNumber = phoneNumber;
+
+		self.itemStatusCode = ItemStatusPickupReady;
+	}
+	return self;
+}
+
 @end

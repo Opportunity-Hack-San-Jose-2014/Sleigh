@@ -302,7 +302,7 @@
                         <viewControllerLayoutGuide type="top" id="IyD-pm-dcU"/>
                         <viewControllerLayoutGuide type="bottom" id="bbs-zU-6cR"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3cE-TX-piB">
+                    <view key="view" contentMode="scaleAspectFit" id="3cE-TX-piB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="520"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -384,6 +384,7 @@
                         <outlet property="itemAddressTextField" destination="xYj-np-acQ" id="tEI-rK-5Lw"/>
                         <outlet property="itemAvailabilityTextField" destination="10b-hb-TJG" id="bUa-lK-urM"/>
                         <outlet property="itemCodeTextField" destination="IIV-OL-t3F" id="Oef-zM-Enc"/>
+                        <outlet property="itemPhoneNumberTextField" destination="9YD-47-i0x" id="Sgm-ie-G8P"/>
                     </connections>
                 </viewController>
             </objects>

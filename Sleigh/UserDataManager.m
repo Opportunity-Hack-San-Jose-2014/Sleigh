@@ -56,7 +56,7 @@
 
 	if (isSuccessful)
 		[self.userItems addObject:item];
-	
+
 	completionBlock(isSuccessful);
 }
 
