@@ -104,8 +104,8 @@
 - (void)deleteItem:(DonatedItem *)item
 {
 	[item deleteInBackground];
-    [self.userItems removeObject:item];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kItemsDownloadedFromServerNotification object:self];
+	[self.userItems removeObject:item];
+	[[NSNotificationCenter defaultCenter] postNotificationName:kItemsDownloadedFromServerNotification object:self];
 }
 
 #pragma mark - Item Management
