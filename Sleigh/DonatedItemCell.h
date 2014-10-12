@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DonatedItem;
+
 @interface DonatedItemCell : UICollectionViewCell
 
+- (void)setCellWithItem:(DonatedItem *)item;
 @end

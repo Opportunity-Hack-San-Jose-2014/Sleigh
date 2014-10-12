@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "UserDataManager.h"
 
 @interface LoginViewController ()
 
@@ -18,15 +19,45 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad
-{
-	[super viewDidLoad];
-}
-
 - (IBAction)loginButtonTapped:(id)sender
 {
-	//pretend async call is made then call this
-	[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
+	NSString *username = self.usernameTextField.text;
+	NSString *password = self.passwordTextField.text;
+//	if (username.length > 0 && password.length > 0)
+//	{
+	[self loginUser:username withPassword:password];
+//	}
+//	else
+//	{
+//		UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+//															  message:@"Please enter your user credentials."
+//															 delegate:nil
+//													cancelButtonTitle:@"OK"
+//													otherButtonTitles:nil];
+//
+//		[myAlertView show];
+//	}
+}
+
+- (void)loginUser:(NSString *)username withPassword:(NSString *)password
+{
+	[[UserDataManager sharedInstance] loginUserWithName:username
+												andPassword:password
+										withCompletionBlock:^(BOOL success)
+										{
+											if (success)
+												[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
+											else
+											{
+												UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+																									  message:@"User credentials incorrect, please try again."
+																									 delegate:nil
+																							cancelButtonTitle:@"OK"
+																							otherButtonTitles:nil];
+
+												[myAlertView show];
+											}
+										}];
 }
 
 @end

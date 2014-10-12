@@ -7,33 +7,48 @@
 //
 
 #import "DonorDashboardViewController.h"
+#import "UserDataManager.h"
+#import "DonatedItem.h"
+#import "DonatedItemCell.h"
 
-@interface DonorDashboardViewController ()
+#define kAnimationDuration 0.4
+
+@interface DonorDashboardViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
 @implementation DonorDashboardViewController
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-	[super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [self reloadData];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)reloadData
 {
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
+    [UIView transitionWithView:self.collectionView
+                      duration:kAnimationDuration
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^(void)
+     {
+         [self.collectionView reloadData];
+     } completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+	return [[[UserDataManager sharedInstance] allUserItems] count];
 }
-*/
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	DonatedItem * donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
+
+	DonatedItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DonatedItemCell class]) forIndexPath:indexPath];
+	[cell setCellWithItem:donatedItem];
+
+	return cell;
+}
 
 @end

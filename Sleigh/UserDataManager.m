@@ -28,6 +28,8 @@
 	return sharedInstance;
 }
 
+#pragma mark - User Management
+
 - (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(BOOL success))completionBlock
 {
 	self.userItems = [NSMutableArray new];
@@ -42,6 +44,8 @@
 {
 	self.username = nil;
 }
+
+#pragma mark - Server Queries
 
 - (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *items))completionBlock
 {
@@ -58,6 +62,13 @@
 		[self.userItems addObject:item];
 
 	completionBlock(isSuccessful);
+}
+
+#pragma mark - Item Management
+
+-(NSArray *)allUserItems
+{
+	return self.userItems;
 }
 
 @end

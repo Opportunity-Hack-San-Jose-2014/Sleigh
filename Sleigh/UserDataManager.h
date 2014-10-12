@@ -21,4 +21,6 @@
 - (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *items))completionBlock;
 
 - (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(BOOL success))completionBlock;
+
+- (NSArray *)allUserItems;
 @end

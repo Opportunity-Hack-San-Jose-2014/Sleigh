@@ -21,21 +21,25 @@
 
 - (void)setCellWithItem:(DonatedItem *)item
 {
-
+	[self setImageWithImageURL:item.itemImageUrl];
+    self.dateLabel.text= [NSDateFormatter localizedStringFromDate:item.itemListingDate
+														dateStyle:NSDateFormatterMediumStyle
+														timeStyle:NSDateFormatterNoStyle];
 }
 
-- (void)setImageView:(UIImageView *)imageView withImageURL:(NSString *)urlString
+- (void)setImageWithImageURL:(NSString *)urlString
 {
-	[imageView sd_setImageWithURL:[NSURL URLWithString:urlString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
+	urlString = @"http://middleearthnews.com/wp-content/uploads/2014/04/The-Lego-Movie.jpg";
+	[self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
 	{
 		if (image)
 		{
-			imageView.alpha = 0.0;
+			self.imageView.alpha = 0.0;
 
 			[UIView animateWithDuration:0.5
 							 animations:^
 							 {
-								 imageView.alpha = 1.0;
+								 self.imageView.alpha = 1.0;
 							 }];
 		}
 	}];
