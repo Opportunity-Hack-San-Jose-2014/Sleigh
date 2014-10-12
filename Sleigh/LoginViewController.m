@@ -57,8 +57,8 @@
 										else
 										{
 											NSString *errorMessage;
-											if ([[error.userInfo objectForKey:NSLocalizedDescriptionKey] isEqualToString:kAccountNotActivatedError])
-												errorMessage = kAccountNotActivatedError;
+											if ([[error.userInfo objectForKey:NSLocalizedDescriptionKey] isEqualToString:kAccountNotActivatedErrorText])
+												errorMessage = kAccountNotActivatedErrorText;
 											else
 												errorMessage = @"User credentials incorrect, please try again.";
 

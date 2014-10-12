@@ -9,8 +9,6 @@
 #import <Parse/PFObject+Subclass.h>
 #import "DonatedItem.h"
 
-
-
 @implementation DonatedItem
 
 @dynamic itemCode;
@@ -23,12 +21,14 @@
 @dynamic itemDriverId;
 @dynamic itemDonorId;
 
-+ (void)load {
-    [self registerSubclass];
++ (void)load
+{
+	[self registerSubclass];
 }
 
-+ (NSString *)parseClassName {
-    return NSStringFromClass([self class]);
++ (NSString *)parseClassName
+{
+	return NSStringFromClass([self class]);
 }
 
 - (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber
@@ -51,7 +51,7 @@
 		[postACL setPublicReadAccess:YES];
 		[self setACL:postACL];
 
-        self.itemDonorId = [PFUser currentUser];
+		self.itemDonorId = [PFUser currentUser];
 	}
 	return self;
 }

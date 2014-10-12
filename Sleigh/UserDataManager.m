@@ -47,22 +47,22 @@
 								 password:password
 									block:^(PFUser *user, NSError *error)
 									{
-										if (user)
+										if (user && [user objectForKey:@"isActivated"])
 										{
-											if ([user objectForKey:@"isActivated"])
+											self.userItems = [NSMutableArray new];
+											[self queryServerForAllUserItemsWithCompletionBlock:^(NSArray *objects, NSError *error)
 											{
-												self.userItems = [NSMutableArray new];
-												[self queryServerForAllUserItemsWithCompletionBlock:^(NSArray *objects, NSError *error)
-												{
-													self.userItems = [objects mutableCopy];
-												}];
-												completionBlock(nil);
-											}
-											else
-												completionBlock([NSError errorWithDomain:@"ParseActivation" code:1 userInfo:@{NSLocalizedDescriptionKey : kAccountNotActivatedError}]);
+												self.userItems = [objects mutableCopy];
+												[[NSNotificationCenter defaultCenter] postNotificationName:kItemsDownloadedFromServerNotification object:self];
+											}];
+											completionBlock(nil);
 										}
 										else
+										{
+											if (error == nil)
+												error = [NSError errorWithDomain:@"ParseActivation" code:1 userInfo:@{NSLocalizedDescriptionKey : kAccountNotActivatedErrorText}];
 											completionBlock(error);
+										}
 									}];
 }
 
@@ -149,18 +149,18 @@
 
 - (NSArray *)allDriverItems
 {
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDriverId == %@", [PFUser currentUser]];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDriverId.objectId == %@", [PFUser currentUser].objectId];
 	NSArray *pickupItems = [self.userItems filteredArrayUsingPredicate:predicate];
 
 	NSMutableArray *availableItems = [self.userItems mutableCopy];
 	[availableItems removeObjectsInArray:pickupItems];
 
-    return @[pickupItems, availableItems];
+	return @[pickupItems, availableItems];
 }
 
 - (NSArray *)allDonorItems
 {
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDonorId == %@", [PFUser currentUser]];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDonorId.objectId == %@", [PFUser currentUser].objectId];
 	NSArray *donorItems = [self.userItems filteredArrayUsingPredicate:predicate];
 
 	return donorItems;

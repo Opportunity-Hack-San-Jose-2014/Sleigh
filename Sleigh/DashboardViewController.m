@@ -19,15 +19,15 @@
 
 @implementation DashboardViewController
 
--(void)viewDidLoad
+- (void)viewDidLoad
 {
-    [super viewDidLoad];
-	
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+	[super viewDidLoad];
+
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
 																   style:UIBarButtonItemStyleBordered
 																  target:self
 																  action:@selector(logoutUser:)];
-    self.navigationItem.leftBarButtonItem = backButton;
+	self.navigationItem.leftBarButtonItem = backButton;
 
 }
 

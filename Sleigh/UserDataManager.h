@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#define kAccountNotActivatedError @"Account is not Activated"
+#define kItemsDownloadedFromServerNotification @"itemsDownloadedFromServerNotification"
+#define kAccountNotActivatedErrorText @"Account is not Activated"
 
 @class DonatedItem;
 
