@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RGB.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -32,6 +33,11 @@
 												   forState:UIControlStateNormal];
 
 //	[self.window setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
+
+    [Parse setApplicationId:@"LdJQPv5TdX8f7W93mAO8FkpcEqe55ciGomTOH4es"
+                  clientKey:@"jQtxcBGGCwiYzZLFiB7tTLBt5uEE4jRPZPNfTRz4"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
 
 	return YES;
 }
