@@ -14,6 +14,7 @@
 
 @interface DonorDashboardViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property(weak, nonatomic) IBOutlet UIView *overlayView;
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -41,12 +42,13 @@
 
 - (void)reloadData
 {
-	[UIView transitionWithView:self.collectionView
+	[UIView transitionWithView:self.view
 					  duration:0.4
 					   options:UIViewAnimationOptionTransitionCrossDissolve
 					animations:^(void)
 					{
 						[self.collectionView reloadData];
+						self.overlayView.alpha = ([[[UserDataManager sharedInstance] allDonorItems] count] == 0);
 					} completion:nil];
 }
 

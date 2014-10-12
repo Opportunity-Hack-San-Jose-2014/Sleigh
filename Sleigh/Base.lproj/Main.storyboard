@@ -193,7 +193,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dRd-cR-oPQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="syO-Pg-7mW">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -245,6 +245,26 @@
                                     <outlet property="delegate" destination="5wE-0l-F08" id="Kwm-gd-1UI"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEb-EU-vQG">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The items you have submitted for donation will appear here.  Please start by tapping the bottom below!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-Bh-rM8">
+                                        <rect key="frame" x="175" y="165" width="250" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="3xe-P3-nPY"/>
+                                            <constraint firstAttribute="height" constant="150" id="njI-z0-t3s"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="n3y-Bh-rM8" secondAttribute="centerX" id="8N0-ou-23J"/>
+                                    <constraint firstAttribute="centerY" secondItem="n3y-Bh-rM8" secondAttribute="centerY" id="mhd-GU-MMk"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7U-Hi-qmv">
                                 <rect key="frame" x="50" y="500" width="500" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -262,18 +282,23 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nEb-EU-vQG" firstAttribute="leading" secondItem="dRd-cR-oPQ" secondAttribute="leading" id="5fT-f6-2Zz"/>
                             <constraint firstAttribute="trailing" secondItem="m7U-Hi-qmv" secondAttribute="trailing" constant="50" id="O2M-8i-i8v"/>
+                            <constraint firstItem="nEb-EU-vQG" firstAttribute="bottom" secondItem="dRd-cR-oPQ" secondAttribute="bottom" id="a6e-kM-0ul"/>
                             <constraint firstItem="dRd-cR-oPQ" firstAttribute="leading" secondItem="7Kq-dM-3Cj" secondAttribute="leading" id="aqU-XR-vhB"/>
                             <constraint firstAttribute="trailing" secondItem="dRd-cR-oPQ" secondAttribute="trailing" id="dyo-rL-ls9"/>
                             <constraint firstItem="m7U-Hi-qmv" firstAttribute="top" secondItem="dRd-cR-oPQ" secondAttribute="bottom" constant="20" id="ewM-1W-GSR"/>
+                            <constraint firstItem="nEb-EU-vQG" firstAttribute="trailing" secondItem="dRd-cR-oPQ" secondAttribute="trailing" id="jvj-Wf-T13"/>
                             <constraint firstItem="dRd-cR-oPQ" firstAttribute="top" secondItem="00j-Gu-vnM" secondAttribute="bottom" id="m4L-Ja-1IS"/>
                             <constraint firstItem="A0X-gr-mZf" firstAttribute="top" secondItem="m7U-Hi-qmv" secondAttribute="bottom" constant="20" id="nZf-eE-6bM"/>
+                            <constraint firstItem="nEb-EU-vQG" firstAttribute="top" secondItem="dRd-cR-oPQ" secondAttribute="top" id="oKU-xg-jYR"/>
                             <constraint firstItem="m7U-Hi-qmv" firstAttribute="leading" secondItem="7Kq-dM-3Cj" secondAttribute="leading" constant="50" id="zL4-N4-QP1"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
                         <outlet property="collectionView" destination="dRd-cR-oPQ" id="hHR-sy-nhu"/>
+                        <outlet property="overlayView" destination="nEb-EU-vQG" id="GWK-0m-jJ2"/>
                         <segue destination="Pdq-w8-RVu" kind="presentation" identifier="viewItem" id="rcf-gb-WZu"/>
                     </connections>
                 </viewController>
@@ -563,23 +588,48 @@
                                     <outlet property="delegate" destination="HXK-aN-3c1" id="X3f-Xm-lBV"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmN-ZF-iHm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There doesn't seem to be any items available for pickup in your local area, please try again later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnM-4r-ujh">
+                                        <rect key="frame" x="143" y="225" width="315" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="JSI-hD-NKA"/>
+                                            <constraint firstAttribute="width" constant="315" id="Qdv-Un-Kgx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="OnM-4r-ujh" secondAttribute="centerX" id="H7O-Dd-168"/>
+                                    <constraint firstAttribute="centerY" secondItem="OnM-4r-ujh" secondAttribute="centerY" id="bJ0-4v-MFL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PO9-hq-ix6" firstAttribute="leading" secondItem="1qC-R6-EkR" secondAttribute="leading" id="0AC-aK-rMa"/>
                             <constraint firstItem="PO9-hq-ix6" firstAttribute="top" secondItem="1l3-8n-nGK" secondAttribute="bottom" id="2kK-ce-wWI"/>
                             <constraint firstAttribute="trailing" secondItem="PO9-hq-ix6" secondAttribute="trailing" id="3rM-z8-SfD"/>
+                            <constraint firstItem="PO9-hq-ix6" firstAttribute="top" secondItem="PmN-ZF-iHm" secondAttribute="top" id="EzU-GZ-RX7"/>
+                            <constraint firstItem="PO9-hq-ix6" firstAttribute="bottom" secondItem="PmN-ZF-iHm" secondAttribute="bottom" id="QXT-e1-b4Z"/>
+                            <constraint firstItem="PO9-hq-ix6" firstAttribute="trailing" secondItem="PmN-ZF-iHm" secondAttribute="trailing" id="jhc-TN-n5O"/>
+                            <constraint firstItem="PO9-hq-ix6" firstAttribute="leading" secondItem="PmN-ZF-iHm" secondAttribute="leading" id="mJ6-Pc-6mc"/>
                             <constraint firstItem="Fh1-wv-mLZ" firstAttribute="top" secondItem="PO9-hq-ix6" secondAttribute="bottom" id="oPD-YQ-D06"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="overlayView" destination="PmN-ZF-iHm" id="o9s-MJ-hFS"/>
                         <outlet property="tableView" destination="PO9-hq-ix6" id="lxX-Z3-3JK"/>
                         <segue destination="Pdq-w8-RVu" kind="presentation" identifier="viewItem" id="FJj-6e-mvN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tg-Hp-NRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="347"/>
+            <point key="canvasLocation" x="862.5" y="347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cxm-i4-z6j">
@@ -601,6 +651,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rcf-gb-WZu"/>
+        <segue reference="FJj-6e-mvN"/>
     </inferredMetricsTieBreakers>
 </document>

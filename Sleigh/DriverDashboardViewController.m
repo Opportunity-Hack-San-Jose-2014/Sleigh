@@ -14,6 +14,7 @@
 
 @interface DriverDashboardViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property(weak, nonatomic) IBOutlet UIView *overlayView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -43,13 +44,27 @@
 
 - (void)reloadData
 {
-	[UIView transitionWithView:self.tableView
+	[UIView transitionWithView:self.view
 					  duration:0.4
 					   options:UIViewAnimationOptionTransitionCrossDissolve
 					animations:^(void)
 					{
-						[self.tableView reloadData];
+						[self updateOverlayVisibility];
+                        [self.tableView reloadData];
 					} completion:nil];
+}
+
+- (void)updateOverlayVisibility
+{
+	NSArray *driverItems = [[UserDataManager sharedInstance] allDriverItems];
+	int count = [[driverItems objectAtIndex:0] count];
+	count += [[driverItems objectAtIndex:1] count];
+	self.overlayView.alpha = (count == 0);
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+	return (section == 0) ? @"Items currently Assigned" : @"Items Available for Pickup";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
