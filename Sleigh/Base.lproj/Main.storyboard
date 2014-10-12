@@ -293,6 +293,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="collectionView" destination="dRd-cR-oPQ" id="hHR-sy-nhu"/>
+                        <segue destination="ceV-Up-7KT" kind="presentation" id="rcf-gb-WZu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWK-TT-afm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -395,6 +396,32 @@
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1613" y="-439"/>
+        </scene>
+        <!--Donated Item-->
+        <scene sceneID="oIn-fq-IVI">
+            <objects>
+                <viewController id="ceV-Up-7KT" customClass="ItemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cz8-p6-cM2"/>
+                        <viewControllerLayoutGuide type="bottom" id="VWh-vG-rD5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yHo-af-cic">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6zP-AF-UFW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Donated Item" id="cAa-CI-bS7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d4b-sN-ChP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Donate Item" id="7Vd-c6-bjX"/>
+            </objects>
+            <point key="canvasLocation" x="1618" y="255"/>
         </scene>
     </scenes>
 </document>

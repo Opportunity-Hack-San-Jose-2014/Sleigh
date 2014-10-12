@@ -20,6 +20,7 @@
 		2B2DE81F19E9F0BE004E8A7F /* DonorDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE81E19E9F0BE004E8A7F /* DonorDashboardViewController.m */; };
 		2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */; };
 		2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE83919EA01F8004E8A7F /* DonatedItem.m */; };
+		2B2DE84319EA2A9F004E8A7F /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84219EA2A9F004E8A7F /* ItemViewController.m */; };
 		F4AD8D5127574D78BDE4E91E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E261560044794A20A447A5E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		2B2DE82219E9F364004E8A7F /* NewDonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDonationViewController.m; sourceTree = "<group>"; };
 		2B2DE83819EA01F8004E8A7F /* DonatedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonatedItem.h; sourceTree = "<group>"; };
 		2B2DE83919EA01F8004E8A7F /* DonatedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonatedItem.m; sourceTree = "<group>"; };
+		2B2DE84119EA2A9F004E8A7F /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		2B2DE84219EA2A9F004E8A7F /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +212,8 @@
 		2B2DE84019EA2A18004E8A7F /* View Item */ = {
 			isa = PBXGroup;
 			children = (
+				2B2DE84119EA2A9F004E8A7F /* ItemViewController.h */,
+				2B2DE84219EA2A9F004E8A7F /* ItemViewController.m */,
 			);
 			name = "View Item";
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */,
 				2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */,
 				2B0537A219E9CC3C005FE95E /* main.m in Sources */,
+				2B2DE84319EA2A9F004E8A7F /* ItemViewController.m in Sources */,
 				2B2DE81419E9E4FA004E8A7F /* DashboardViewController.m in Sources */,
 				2B2DE81F19E9F0BE004E8A7F /* DonorDashboardViewController.m in Sources */,
 			);
