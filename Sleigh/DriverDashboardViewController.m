@@ -64,7 +64,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-	return (section == 0) ? @"Items currently Assigned" : @"Items Available for Pickup";
+	return (section == 0) ? @"Your Assigned Items" : @"Items Available for Pickup";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

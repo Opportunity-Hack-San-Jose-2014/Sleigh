@@ -21,17 +21,14 @@
 
 - (void)logoutUser;
 
+- (void)deleteItem:(DonatedItem *)item;
+
 - (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(NSError *))completionBlock;
 
 - (void)updateDonatedItem:(DonatedItem *)item statusCode:(int)status withCompletionBlock:(void (^)(NSError *))completionBlock;
-
-//- (void)allDonorItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock;
-//
-//- (void)allDriverItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock;
 
 - (NSArray *)allDriverItems;
 
 - (NSArray *)allDonorItems;
 
-- (void)deleteItem:(DonatedItem *)item;
 @end

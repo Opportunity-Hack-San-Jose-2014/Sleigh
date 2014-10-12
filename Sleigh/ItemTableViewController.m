@@ -63,6 +63,7 @@
 - (IBAction)deleteButtonTapped:(id)sender
 {
 	[[UserDataManager sharedInstance] deleteItem:self.donatedItem];
+    [self dismissViewController];
 }
 
 - (IBAction)updateItemStatusButtonTapped:(id)sender

@@ -71,18 +71,6 @@
 	[PFUser logOut];
 }
 
-- (void)addMultipleDemoItemCopies:(DonatedItem *)item
-{
-	for (int i = 0; i < 8; ++i)
-	{
-		DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:item.itemCode
-																			   address:item.itemAddress
-																			  schedule:item.itemAvailabilitySchedule
-																		   phoneNumber:item.itemPhoneNumber];
-		[self.userItems addObject:newDonation];
-	}
-}
-
 #pragma mark - Server Queries
 
 - (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
@@ -116,36 +104,11 @@
 - (void)deleteItem:(DonatedItem *)item
 {
 	[item deleteInBackground];
+    [self.userItems removeObject:item];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kItemsDownloadedFromServerNotification object:self];
 }
 
 #pragma mark - Item Management
-
-//- (void)allDonorItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
-//{
-//	PFQuery *query = [DonatedItem query];
-//	[query whereKey:@"itemDonorId" equalTo:[PFUser currentUser]];
-//
-//	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-//	{
-//		completionBlock(objects, error);
-//	}];
-//}
-//
-//- (void)allDriverItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
-//{
-//	PFQuery *query = [DonatedItem query];
-//
-//	[query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-//	{
-//		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDriverId == %@", [PFUser currentUser]];
-//		NSArray *pickupItems = [objects filteredArrayUsingPredicate:predicate];
-//
-//		NSMutableArray *availableItems = [objects mutableCopy];
-//		[availableItems removeObjectsInArray:pickupItems];
-//
-//		completionBlock(@[pickupItems, availableItems], error);
-//	}];
-//}
 
 - (NSArray *)allDriverItems
 {
