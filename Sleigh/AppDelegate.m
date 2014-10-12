@@ -17,7 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-	[[UILabel appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:18.0]];
+//	[[UILabel appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:18.0]];
 	[[UITextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:16.0]];
 
 	[[UISegmentedControl appearance] setTitleTextAttributes:@{
@@ -31,7 +31,7 @@
 	 }
 												   forState:UIControlStateNormal];
 
-	[self.window setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
+//	[self.window setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
 
 	return YES;
 }

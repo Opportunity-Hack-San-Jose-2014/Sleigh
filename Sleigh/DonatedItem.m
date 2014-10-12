@@ -28,23 +28,31 @@
 	return self;
 }
 
+- (void)updateItemStatusWithIndex:(int)index
+{
+	self.itemStatusCode = index;
+}
+
 - (NSString *)currentStatusString
 {
-	switch (self.itemStatusCode)
+	return [[DonatedItem statusStrings] objectAtIndex:self.itemStatusCode];
+}
+
++ (NSArray *)statusStrings
+{
+	static NSArray *_statusStrings;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^
 	{
-		case ItemStatusPickupReady:
-			return @"Ready for Pickup";
-		case ItemStatusDriverEnRoute:
-			return @"Driver en Route";
-		case ItemStatusPickedUp:
-			return @"Item picked up";
-		case ItemStatusWarehouse:
-			return @"Item at Warehouse";
-		case ItemStatusDelivered:
-			return @"Ready for Pickup";
-		default:
-			return @"";
-	}
+		_statusStrings = @[
+				@"Ready for Pickup",
+				@"Driver en Route",
+				@"Item picked up",
+				@"Item at Warehouse",
+				@"Delivered"
+		];
+	});
+	return _statusStrings;
 }
 
 @end

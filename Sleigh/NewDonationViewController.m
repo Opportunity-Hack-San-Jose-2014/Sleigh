@@ -51,7 +51,6 @@
 
 - (IBAction)submitButtonTapped:(id)sender
 {
-	// pretend async save happens here
 	NSString *schedule = self.itemAvailabilityTextField.text;
 	NSString *address = self.itemAddressTextField.text;
 	NSString *code = self.itemCodeTextField.text;
@@ -98,6 +97,7 @@
 	[self.itemAddressTextField resignFirstResponder];
 	[self.itemCodeTextField resignFirstResponder];
 	[self.itemAvailabilityTextField resignFirstResponder];
+	[self.itemPhoneNumberTextField resignFirstResponder];
 }
 
 - (void)keyboardDidShow:(NSNotification *)notification

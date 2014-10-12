@@ -12,10 +12,6 @@
 #import "DonatedItemCell.h"
 #import "ItemTableViewController.h"
 
-#define kAnimationDuration 0.4
-
-#define kViewItemIdentifier @"viewItem"
-
 @interface DonorDashboardViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -35,17 +31,18 @@
 	if ([segue.identifier isEqualToString:kViewItemIdentifier])
 	{
 		NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
-		DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
+		DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allDonorItems] objectAtIndex:indexPath.item];
 
 		ItemTableViewController *viewController = [[(UINavigationController *) segue.destinationViewController childViewControllers] firstObject];
 		viewController.donatedItem = donatedItem;
+		viewController.itemContext = ViewItemContextDonor;
 	}
 }
 
 - (void)reloadData
 {
 	[UIView transitionWithView:self.collectionView
-					  duration:kAnimationDuration
+					  duration:0.4
 					   options:UIViewAnimationOptionTransitionCrossDissolve
 					animations:^(void)
 					{
@@ -55,12 +52,12 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return [[[UserDataManager sharedInstance] allUserItems] count];
+	return [[[UserDataManager sharedInstance] allDonorItems] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
+	DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allDonorItems] objectAtIndex:indexPath.item];
 
 	DonatedItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DonatedItemCell class]) forIndexPath:indexPath];
 	[cell setCellWithItem:donatedItem];

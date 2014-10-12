@@ -26,12 +26,16 @@ typedef enum : NSUInteger
 @property(nonatomic, strong) NSString *itemAvailabilitySchedule;
 @property(nonatomic, strong) NSDate *itemListingDate;
 
-@property(nonatomic) ItemStatus itemStatusCode;
+@property(nonatomic) int itemStatusCode;
 
 @property(nonatomic, strong) NSNumber *donorId;
 @property(nonatomic, strong) NSNumber *driverId;
 
 - (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber;
+
++ (NSArray *)statusStrings;
+
+- (void)updateItemStatusWithIndex:(int)index;
 
 - (NSString *)currentStatusString;
 @end

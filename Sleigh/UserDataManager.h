@@ -22,5 +22,9 @@
 
 - (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(BOOL success))completionBlock;
 
-- (NSArray *)allUserItems;
+- (void)updateDonatedItem:(DonatedItem *)item statusCode:(int)status withCompletionBlock:(void (^)(BOOL success))completionBlock;
+
+- (NSArray *)allDonorItems;
+
+- (NSArray *)allDriverItems;
 @end

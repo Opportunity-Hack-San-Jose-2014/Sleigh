@@ -10,6 +10,7 @@
 #import "UIView+Additions.h"
 #import "ImageCell.h"
 #import "InfoCell.h"
+#import "UserDataManager.h"
 
 #define kCellClass @"cellClass"
 
@@ -17,13 +18,16 @@
 
 #define kCellTitle @"cellTitle"
 
-@interface ItemTableViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ItemTableViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
+@property(weak, nonatomic) IBOutlet UIButton *callPhoneButton;
 @property(weak, nonatomic) IBOutlet UIView *donorButtonView;
 @property(weak, nonatomic) IBOutlet UIView *driverButtonsView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomInset;
 @property(nonatomic, strong) NSArray *itemDetailCellsToDisplay;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewBottomInset;
+
 @end
 
 @implementation ItemTableViewController
@@ -37,16 +41,18 @@
 
 	[self setupItemDetailCells];
 
-    if (self.itemContext == ViewItemContextDonor)
-    {
-        self.driverButtonsView.hidden = YES;
+	if (self.itemContext == (int *) ViewItemContextDonor)
+	{
+		self.driverButtonsView.hidden = YES;
 		self.tableViewBottomInset.constant = self.donorButtonView.height;
-    }
-    else if (self.itemContext == ViewItemContextDriver)
-    {
-        self.donorButtonView.hidden = YES;
+	}
+	else if (self.itemContext == (int *) ViewItemContextDriver)
+	{
+		self.donorButtonView.hidden = YES;
+		self.callPhoneButton.titleLabel.text = [NSString stringWithFormat:@"Call: %@", self.donatedItem.itemPhoneNumber];
 		self.tableViewBottomInset.constant = self.driverButtonsView.height;
-    }
+	}
+
 }
 
 - (void)dismissViewController
@@ -54,7 +60,28 @@
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)callPhone:(id)sender
+- (IBAction)deleteButtonTapped:(id)sender
+{
+
+}
+
+- (IBAction)updateItemStatusButtonTapped:(id)sender
+{
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Pick an Item Status:"
+															 delegate:self
+													cancelButtonTitle:@"Cancel"
+											   destructiveButtonTitle:nil
+													otherButtonTitles:@"Ready for Pickup",
+																	  @"Driver en Route",
+																	  @"Item picked up",
+																	  @"Item at Warehouse",
+																	  @"Delivered",
+																	  nil];
+
+	[actionSheet showInView:self.view];
+}
+
+- (IBAction)callPhoneButtonTapped:(id)sender
 {
 	NSString *phoneDeepLink = [NSString stringWithFormat:@"tel:%@", self.donatedItem.itemPhoneNumber];
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneDeepLink]];
@@ -62,33 +89,17 @@
 
 #pragma mark - Table View Cells
 
-- (void)setupItemDetailCells
+- (void)reloadData
 {
-	NSArray *displayableCellConfigs = [self displayableCellConfigs];
-	NSMutableArray *cellsToDisplay = [NSMutableArray new];
+	[self setupItemDetailCells];
 
-	for (NSDictionary *cellConfig in displayableCellConfigs)
-	{
-		UITableViewCell *cell = [self setupCellForTableView:cellConfig];
-		[cellsToDisplay addObject:cell];
-	}
-
-	self.itemDetailCellsToDisplay = [cellsToDisplay copy];
-}
-
-- (UITableViewCell *)setupCellForTableView:(NSDictionary *)cellConfig
-{
-	NSString *className = NSStringFromClass([cellConfig objectForKey:kCellClass]);
-	UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
-	[self.tableView registerNib:nib forCellReuseIdentifier:className];
-
-	BaseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:className];
-	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
-	[cell setNeedsLayout];
-
-	[cell setCellTitle:[cellConfig objectForKey:kCellTitle] andData:[cellConfig objectForKey:kCellData]];
-
-	return cell;
+	[UIView transitionWithView:self.tableView
+					  duration:0.4
+					   options:UIViewAnimationOptionTransitionCrossDissolve
+					animations:^(void)
+					{
+						[self.tableView reloadData];
+					} completion:nil];
 }
 
 - (NSArray *)displayableCellConfigs
@@ -120,6 +131,36 @@
 	return @[image, code, address, availability, status];
 }
 
+- (void)setupItemDetailCells
+{
+	NSArray *displayableCellConfigs = [self displayableCellConfigs];
+	NSMutableArray *cellsToDisplay = [NSMutableArray new];
+
+	for (NSDictionary *cellConfig in displayableCellConfigs)
+	{
+		UITableViewCell *cell = [self setupCellForTableView:cellConfig];
+		[cellsToDisplay addObject:cell];
+	}
+
+	self.itemDetailCellsToDisplay = [cellsToDisplay copy];
+}
+
+- (UITableViewCell *)setupCellForTableView:(NSDictionary *)cellConfig
+{
+	NSString *className = NSStringFromClass([cellConfig objectForKey:kCellClass]);
+	UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
+	[self.tableView registerNib:nib forCellReuseIdentifier:className];
+
+	BaseTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:className];
+	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
+	[cell setNeedsLayout];
+
+	[cell setCellTitle:[cellConfig objectForKey:kCellTitle]
+			   andData:[cellConfig objectForKey:kCellData]];
+
+	return cell;
+}
+
 #pragma mark - Table View Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -136,8 +177,28 @@
 {
 	UITableViewCell *cell = [self.itemDetailCellsToDisplay objectAtIndex:indexPath.row];
 	return cell.height;
-
 }
 
+#pragma mark - Action Sheet
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+	[[UserDataManager sharedInstance] updateDonatedItem:self.donatedItem
+											 statusCode:buttonIndex
+									withCompletionBlock:^(BOOL success)
+									{
+										if (success)
+											[self reloadData];
+										else
+										{
+											UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+																								  message:@"Couldn't save to server, please try again."
+																								 delegate:nil
+																						cancelButtonTitle:@"OK"
+																						otherButtonTitles:nil];
+											[myAlertView show];
+										}
+									}];
+}
 
 @end

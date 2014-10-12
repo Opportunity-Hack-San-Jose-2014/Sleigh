@@ -29,7 +29,7 @@
 {
 	[self.imageView sd_setImageWithURL:[NSURL URLWithString:urlString] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL)
 	{
-		if (image)
+		if (image && cacheType == SDImageCacheTypeNone)
 		{
 			self.imageView.alpha = 0.0;
 
