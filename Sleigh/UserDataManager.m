@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Wolfpack. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "UserDataManager.h"
 #import "DonatedItem.h"
 
@@ -15,7 +16,6 @@
 
 @interface UserDataManager ()
 
-@property(nonatomic, copy) NSString *username;
 @property(nonatomic, strong) NSMutableArray *userItems;
 @property(nonatomic) BOOL isDemo;
 @end
@@ -45,22 +45,25 @@
 
 #pragma mark - User Management
 
-- (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(BOOL success))completionBlock
+- (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(NSError *error))completionBlock
 {
-	self.userItems = [NSMutableArray new];
-
-	self.username = username;
-	//log user in
-	BOOL isSuccessful = YES;
-	completionBlock(isSuccessful);
+	[PFUser logInWithUsernameInBackground:username password:password
+									block:^(PFUser *user, NSError *error)
+									{
+										if (user)
+										{
+											self.userItems = [NSMutableArray new];
+										}
+										completionBlock(error);
+									}];
 }
 
 - (void)logoutUser
 {
-	self.username = nil;
+	[PFUser logOut];
 }
 
-- (void)addMultipleDemoItems:(DonatedItem *)item
+- (void)addMultipleDemoItemCopies:(DonatedItem *)item
 {
 	for (int i = 0; i < 8; ++i)
 	{
@@ -88,7 +91,7 @@
 	if (isSuccessful)
 	{
 		if (self.isDemo)
-			[self addMultipleDemoItems:item];
+			[self addMultipleDemoItemCopies:item];
 		else
 			[self.userItems addObject:item];
 	}

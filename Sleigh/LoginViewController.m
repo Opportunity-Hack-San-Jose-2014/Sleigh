@@ -19,25 +19,25 @@
 
 @implementation LoginViewController
 
--(void)viewDidLoad
-{[super viewDidLoad];
-    [self performSelector:@selector(demoData) withObject:nil afterDelay:1];
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+	[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 }
 
 - (void)demoData
 {
-    self.usernameTextField.text = @"driver_account";
-    self.passwordTextField.text = @"testing";
+	self.usernameTextField.text = @"driver_account";
+	self.passwordTextField.text = @"testing";
 }
 
 - (IBAction)loginButtonTapped:(id)sender
 {
 	NSString *username = self.usernameTextField.text;
 	NSString *password = self.passwordTextField.text;
+    
 	if (username.length > 0 && password.length > 0)
-	{
-	[self loginUser:username withPassword:password];
-	}
+		[self loginUser:username withPassword:password];
 	else
 	{
 		UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -54,9 +54,9 @@
 {
 	[[UserDataManager sharedInstance] loginUserWithName:username
 											andPassword:password
-									withCompletionBlock:^(BOOL success)
+									withCompletionBlock:^(NSError *error)
 									{
-										if (success)
+										if (!error)
 											[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
 										else
 										{

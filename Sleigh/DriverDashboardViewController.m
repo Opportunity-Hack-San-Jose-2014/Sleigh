@@ -50,7 +50,7 @@
 					animations:^(void)
 					{
 						[self updateOverlayVisibility];
-                        [self.tableView reloadData];
+						[self.tableView reloadData];
 					} completion:nil];
 }
 

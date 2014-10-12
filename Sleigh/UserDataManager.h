@@ -14,7 +14,7 @@
 
 + (UserDataManager *)sharedInstance;
 
-- (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(BOOL success))completionBlock;
+- (void)loginUserWithName:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void (^)(NSError *))completionBlock;
 
 - (void)logoutUser;
 
