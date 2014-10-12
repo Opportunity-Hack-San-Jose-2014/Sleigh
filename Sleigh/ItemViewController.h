@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DonatedItem;
+
 @interface ItemViewController : UIViewController
 
+@property(nonatomic, strong) DonatedItem *donatedItem;
 @end

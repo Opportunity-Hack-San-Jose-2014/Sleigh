@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gx0-74-2Fh">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -207,7 +208,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-kZ-Hyp">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-kZ-Hyp">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1K-St-fRO" userLabel="Date">
@@ -292,11 +293,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6L-zk-CMI">
-                                <rect key="frame" x="10" y="10" width="580" height="178.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z6L-zk-CMI">
+                                <rect key="frame" x="10" y="10" width="580" height="259"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDw-6Z-Ad2">
-                                <rect key="frame" x="150" y="322" width="300" height="20.5"/>
+                                <rect key="frame" x="150" y="279" width="300" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="keF-Fd-cq9"/>
                                 </constraints>
@@ -305,23 +306,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Code or Short Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-OL-t3F" userLabel="Item Code # Text Field">
-                                <rect key="frame" x="150" y="353" width="300" height="30"/>
+                                <rect key="frame" x="150" y="310" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address to pick up item" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xYj-np-acQ" userLabel="Pickup Address Text Field">
-                                <rect key="frame" x="150" y="393" width="300" height="30"/>
+                                <rect key="frame" x="150" y="350" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pickup Availability (ex. M-F 3-5pm)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10b-hb-TJG" userLabel="Schedule Text Field">
-                                <rect key="frame" x="150" y="433" width="300" height="30"/>
+                                <rect key="frame" x="150" y="390" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YK9-7D-UrT">
-                                <rect key="frame" x="100" y="543" width="400" height="37"/>
+                                <rect key="frame" x="50" y="500" width="500" height="80"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="qqq-JK-NDh"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Submit Pickup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -332,7 +336,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number to reach you" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-47-i0x" userLabel="Phone Number Text Field">
-                                <rect key="frame" x="150" y="473" width="300" height="30"/>
+                                <rect key="frame" x="150" y="430" width="300" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
@@ -347,7 +351,7 @@
                             <constraint firstAttribute="centerX" secondItem="XDw-6Z-Ad2" secondAttribute="centerX" id="AaI-rt-4mk"/>
                             <constraint firstItem="z6L-zk-CMI" firstAttribute="leading" secondItem="3cE-TX-piB" secondAttribute="leading" constant="10" id="AhA-xF-uyU"/>
                             <constraint firstAttribute="trailing" secondItem="z6L-zk-CMI" secondAttribute="trailing" constant="10" id="CoR-FR-X80"/>
-                            <constraint firstItem="YK9-7D-UrT" firstAttribute="leading" secondItem="3cE-TX-piB" secondAttribute="leading" constant="100" id="HFL-fR-Cyf"/>
+                            <constraint firstItem="YK9-7D-UrT" firstAttribute="leading" secondItem="3cE-TX-piB" secondAttribute="leading" constant="50" id="HFL-fR-Cyf"/>
                             <constraint firstItem="9YD-47-i0x" firstAttribute="top" secondItem="10b-hb-TJG" secondAttribute="bottom" constant="10" id="II1-6d-lnc"/>
                             <constraint firstItem="10b-hb-TJG" firstAttribute="height" secondItem="IIV-OL-t3F" secondAttribute="height" id="KSb-8M-BjH"/>
                             <constraint firstItem="IIV-OL-t3F" firstAttribute="width" secondItem="XDw-6Z-Ad2" secondAttribute="width" id="OCm-AY-xNY"/>
@@ -357,7 +361,7 @@
                             <constraint firstItem="bbs-zU-6cR" firstAttribute="top" secondItem="YK9-7D-UrT" secondAttribute="bottom" constant="20" id="ebn-Bl-IES"/>
                             <constraint firstAttribute="centerX" secondItem="xYj-np-acQ" secondAttribute="centerX" id="fVZ-qN-0pG"/>
                             <constraint firstAttribute="centerX" secondItem="9YD-47-i0x" secondAttribute="centerX" id="gQ7-eS-b3Q"/>
-                            <constraint firstAttribute="trailing" secondItem="YK9-7D-UrT" secondAttribute="trailing" constant="100" id="gUs-23-sKN"/>
+                            <constraint firstAttribute="trailing" secondItem="YK9-7D-UrT" secondAttribute="trailing" constant="50" id="gUs-23-sKN"/>
                             <constraint firstItem="YK9-7D-UrT" firstAttribute="top" secondItem="9YD-47-i0x" secondAttribute="bottom" constant="40" id="ii0-BK-Poq"/>
                             <constraint firstItem="9YD-47-i0x" firstAttribute="width" secondItem="XDw-6Z-Ad2" secondAttribute="width" id="k9c-Nh-kdo"/>
                             <constraint firstAttribute="centerX" secondItem="IIV-OL-t3F" secondAttribute="centerX" id="pd2-hd-9aP"/>

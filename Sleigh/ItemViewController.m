@@ -7,6 +7,7 @@
 //
 
 #import "ItemViewController.h"
+#import "DonatedItem.h"
 
 @interface ItemViewController ()
 

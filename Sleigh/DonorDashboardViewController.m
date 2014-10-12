@@ -10,8 +10,11 @@
 #import "UserDataManager.h"
 #import "DonatedItem.h"
 #import "DonatedItemCell.h"
+#import "ItemViewController.h"
 
 #define kAnimationDuration 0.4
+
+#define kViewItemIdentifier @"viewItem"
 
 @interface DonorDashboardViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -25,6 +28,16 @@
 {
 	[super viewWillAppear:animated];
 	[self reloadData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if ([segue.identifier isEqualToString:kViewItemIdentifier]) {
+		NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+		DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
+
+		ItemViewController *viewController = segue.destinationViewController;
+		viewController.donatedItem = donatedItem;
+	}
 }
 
 - (void)reloadData
@@ -45,12 +58,17 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
+    DonatedItem *donatedItem = [[[UserDataManager sharedInstance] allUserItems] objectAtIndex:indexPath.item];
 
 	DonatedItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([DonatedItemCell class]) forIndexPath:indexPath];
 	[cell setCellWithItem:donatedItem];
 
 	return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:kViewItemIdentifier sender:self];
 }
 
 @end
