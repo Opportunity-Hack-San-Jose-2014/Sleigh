@@ -37,7 +37,7 @@
 
 - (void)demoData
 {
-	[self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://middleearthnews.com/wp-content/uploads/2014/04/The-Lego-Movie.jpg"]];
+	[self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41MCTMPZVML.jpg"]];
 	self.itemCodeTextField.text = @"123456";
 	self.itemAddressTextField.text = @"123 Address Avenue San Jose, CA 95125";
 	self.itemAvailabilityTextField.text = @"M-F 5-6pm";
