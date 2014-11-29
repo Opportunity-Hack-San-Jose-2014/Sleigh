@@ -22,7 +22,7 @@
 - (void)demoData
 {
 	self.usernameTextField.text = @"driver_account";
-	self.passwordTextField.text = @"testing";
+	self.passwordTextField.text = @"admin";
 }
 
 - (IBAction)loginButtonTapped:(id)sender

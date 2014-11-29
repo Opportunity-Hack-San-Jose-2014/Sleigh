@@ -36,7 +36,7 @@
 								 password:password
 									block:^(PFUser *user, NSError *error)
 									{
-										if (user && [user objectForKey:@"isActivated"])
+										if (user && [[user objectForKey:@"isActivated"]  boolValue])
 										{
 											self.userItems = [NSMutableArray new];
 											[self queryServerForAllUserItemsWithCompletionBlock:^(NSArray *objects, NSError *error)
