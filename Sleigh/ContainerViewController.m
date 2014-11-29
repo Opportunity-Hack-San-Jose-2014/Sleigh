@@ -8,19 +8,13 @@
 //
 
 #import "ContainerViewController.h"
-#import "DonorDashboardViewController.h"
-#import "DriverDashboardViewController.h"
-
-#define SegueIdentifierFirst @"embedFirst"
-#define SegueIdentifierSecond @"embedSecond"
 
 @interface ContainerViewController ()
 
-@property(strong, nonatomic) NSString *currentSegueIdentifier;
-@property(strong, nonatomic) DonorDashboardViewController *donorDashboardViewController;
-@property(strong, nonatomic) DriverDashboardViewController *driverDashboardViewController;
+@property(strong, nonatomic) NSMutableDictionary *segueViewControllers;
 @property(assign, nonatomic) BOOL transitionInProgress;
 
+@property(strong, nonatomic) NSString *currentSegueIdentifier;
 @end
 
 @implementation ContainerViewController
@@ -30,7 +24,9 @@
 	[super viewDidLoad];
 
 	self.transitionInProgress = NO;
-	self.currentSegueIdentifier = SegueIdentifierFirst;
+	self.segueViewControllers = [NSMutableDictionary new];
+	self.currentSegueIdentifier = [self segueIdentifierForIndex:0];
+
 	[self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
 }
 
@@ -38,90 +34,90 @@
 {
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 
-	// Instead of creating new VCs on each seque we want to hang on to existing
-	// instances if we have it. Remove the second condition of the following
-	// two if statements to get new VC instances instead.
-	if ([segue.identifier isEqualToString:SegueIdentifierFirst])
-	{
-		self.donorDashboardViewController = segue.destinationViewController;
-	}
-	else if ([segue.identifier isEqualToString:SegueIdentifierSecond])
-	{
-		self.driverDashboardViewController = segue.destinationViewController;
-	}
+	// Instead of creating new VCs on each segue we want to hang on to existing instances if we have it.
+	if ([self.segueViewControllers objectForKey:segue.identifier] == nil)
+		[self.segueViewControllers setValue:segue.destinationViewController forKey:segue.identifier];
 
-	// If we're going to the first view controller.
-	if ([segue.identifier isEqualToString:SegueIdentifierFirst])
+	// If we're going to the first view controller & this is the very first time we're loading
+	if ([segue.identifier isEqualToString:self.currentSegueIdentifier] && [self.childViewControllers count] == 0)
 	{
-		// If this is not the first time we're loading this.
-		if (self.childViewControllers.count > 0)
-			[self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:self.donorDashboardViewController];
-		else
-		{
-			// If this is the very first time we're loading this we need to do
-			// an initial load and not a swap.
-			[self addChildViewController:segue.destinationViewController];
-			UIView *destView = ((UIViewController *) segue.destinationViewController).view;
-			destView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-			destView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+		[self addChildViewController:segue.destinationViewController];
 
-			[self.view addSubview:destView];
-			[segue.destinationViewController didMoveToParentViewController:self];
-		}
+		UIView *destinationView = ((UIViewController *) segue.destinationViewController).view;
+		destinationView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+		destinationView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+
+		[self.view addSubview:destinationView];
+		[segue.destinationViewController didMoveToParentViewController:self];
 	}
-	else if ([segue.identifier isEqualToString:SegueIdentifierSecond])
+	else
 	{
-		[self swapFromViewController:[self.childViewControllers objectAtIndex:0] toViewController:self.driverDashboardViewController];
+		UIViewController *currentViewController = [self.segueViewControllers objectForKey:self.currentSegueIdentifier];
+		[self swapFromViewController:currentViewController toViewController:segue.destinationViewController];
 	}
 }
 
-- (void)swapFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController
+#pragma mark - Public Methods
+
+- (void)cycleToNextViewController
+{
+	NSString *nextIndex = [[self.currentSegueIdentifier componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+														componentsJoinedByString:@""];
+
+	[self swapToViewControllerAtIndex:[nextIndex intValue]];
+}
+
+- (void)swapToViewControllerAtIndex:(NSInteger)index
 {
 	NSLog(@"%s", __PRETTY_FUNCTION__);
 
-	toViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+	if (self.transitionInProgress == NO)
+	{
+		self.transitionInProgress = YES;
 
-	[fromViewController willMoveToParentViewController:nil];
-	[self addChildViewController:toViewController];
+		NSString *identifierForIndex = [self segueIdentifierForIndex:index];
+		UIViewController *destinationViewController = [self.segueViewControllers objectForKey:identifierForIndex];
 
-	[self transitionFromViewController:fromViewController
-					  toViewController:toViewController
-							  duration:0.3
+		if (destinationViewController != nil)
+		{
+			UIViewController *currentViewController = [self.segueViewControllers objectForKey:self.currentSegueIdentifier];
+			[self swapFromViewController:currentViewController toViewController:destinationViewController];
+		}
+		else
+			[self performSegueWithIdentifier:identifierForIndex sender:nil];
+
+		self.currentSegueIdentifier = identifierForIndex;
+	}
+}
+
+#pragma mark - Helpers
+
+- (NSString *)segueIdentifierForIndex:(NSInteger)index
+{
+	return [NSString stringWithFormat:@"SegueIdentifierIndex%li", (long)index];
+}
+
+- (void)swapFromViewController:(UIViewController *)currentViewController toViewController:(UIViewController *)destinationViewController
+{
+	NSLog(@"%s", __PRETTY_FUNCTION__);
+
+	destinationViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+
+	[currentViewController willMoveToParentViewController:nil];
+	[self addChildViewController:destinationViewController];
+
+	[self transitionFromViewController:currentViewController
+					  toViewController:destinationViewController
+							  duration:0.35
 							   options:UIViewAnimationOptionTransitionCrossDissolve
 							animations:nil
 							completion:^(BOOL finished)
 							{
-								[fromViewController removeFromParentViewController];
-								[toViewController didMoveToParentViewController:self];
+								[currentViewController removeFromParentViewController];
+								[destinationViewController didMoveToParentViewController:self];
+
 								self.transitionInProgress = NO;
 							}];
-}
-
-- (void)swapViewControllers
-{
-	NSLog(@"%s", __PRETTY_FUNCTION__);
-
-	if (self.transitionInProgress)
-	{
-		return;
-	}
-
-	self.transitionInProgress = YES;
-	self.currentSegueIdentifier = ([self.currentSegueIdentifier isEqualToString:SegueIdentifierFirst]) ? SegueIdentifierSecond : SegueIdentifierFirst;
-
-	if (([self.currentSegueIdentifier isEqualToString:SegueIdentifierFirst]) && self.donorDashboardViewController)
-	{
-		[self swapFromViewController:self.driverDashboardViewController toViewController:self.donorDashboardViewController];
-		return;
-	}
-
-	if (([self.currentSegueIdentifier isEqualToString:SegueIdentifierSecond]) && self.driverDashboardViewController)
-	{
-		[self swapFromViewController:self.donorDashboardViewController toViewController:self.driverDashboardViewController];
-		return;
-	}
-
-	[self performSegueWithIdentifier:self.currentSegueIdentifier sender:nil];
 }
 
 @end

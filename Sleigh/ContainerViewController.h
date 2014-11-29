@@ -12,4 +12,7 @@
 
 - (void)swapViewControllers;
 
+- (void)cycleToNextViewController;
+
+- (void)swapToViewControllerAtIndex:(NSInteger)index;
 @end

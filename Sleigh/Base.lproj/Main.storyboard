@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gx0-74-2Fh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gx0-74-2Fh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -70,7 +70,7 @@
                                     <action selector="loginButtonTapped:" destination="4fu-xy-qtb" eventType="touchUpInside" id="LbP-Zh-9yf"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZM6-TB-8id">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZM6-TB-8id">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="LRF-0j-LKu"/>
                                 </constraints>
@@ -141,10 +141,11 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="60"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d2M-cD-V1V">
-                                        <rect key="frame" x="50" y="16" width="500" height="29"/>
+                                        <rect key="frame" x="30" y="16" width="540" height="29"/>
                                         <segments>
                                             <segment title="Donor"/>
                                             <segment title="Driver"/>
+                                            <segment title="Items Map"/>
                                         </segments>
                                         <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -155,8 +156,8 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="d2M-cD-V1V" secondAttribute="centerY" id="XHR-7t-dRC"/>
-                                    <constraint firstAttribute="trailing" secondItem="d2M-cD-V1V" secondAttribute="trailing" constant="50" id="Y20-qt-mjd"/>
-                                    <constraint firstItem="d2M-cD-V1V" firstAttribute="leading" secondItem="mWO-WW-L5B" secondAttribute="leading" constant="50" id="ZuU-ce-GWw"/>
+                                    <constraint firstAttribute="trailing" secondItem="d2M-cD-V1V" secondAttribute="trailing" constant="30" id="Y20-qt-mjd"/>
+                                    <constraint firstItem="d2M-cD-V1V" firstAttribute="leading" secondItem="mWO-WW-L5B" secondAttribute="leading" constant="30" id="ZuU-ce-GWw"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH6-2b-J3c">
@@ -530,6 +531,41 @@
             </objects>
             <point key="canvasLocation" x="3169" y="347"/>
         </scene>
+        <!--Map Dashboard View Controller-->
+        <scene sceneID="XaN-yn-LCE">
+            <objects>
+                <viewController id="d18-IL-rxL" customClass="MapDashboardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B3T-6o-vxC"/>
+                        <viewControllerLayoutGuide type="bottom" id="85W-dk-9gd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9nb-bu-xlM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f8E-24-o0R">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <outlet property="delegate" destination="d18-IL-rxL" id="RTb-lc-Qhc"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="f8E-24-o0R" secondAttribute="trailing" id="B62-KY-yTw"/>
+                            <constraint firstItem="f8E-24-o0R" firstAttribute="leading" secondItem="9nb-bu-xlM" secondAttribute="leading" id="dyN-95-Bd2"/>
+                            <constraint firstItem="85W-dk-9gd" firstAttribute="top" secondItem="f8E-24-o0R" secondAttribute="bottom" id="eFo-KI-qxW"/>
+                            <constraint firstItem="f8E-24-o0R" firstAttribute="top" secondItem="9nb-bu-xlM" secondAttribute="top" id="rPr-d8-XZ1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="f8E-24-o0R" id="3RO-ZY-rkq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xbf-cY-L6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="-1273"/>
+        </scene>
         <!--Container View Controller-->
         <scene sceneID="aDz-Bx-4Nu">
             <objects>
@@ -545,8 +581,9 @@
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <segue destination="5wE-0l-F08" kind="custom" identifier="embedFirst" customClass="EmptySegue" id="wPR-EM-bFd"/>
-                        <segue destination="HXK-aN-3c1" kind="custom" identifier="embedSecond" customClass="EmptySegue" id="14s-cU-cwv"/>
+                        <segue destination="5wE-0l-F08" kind="custom" identifier="SegueIdentifierIndex0" customClass="EmptySegue" id="wPR-EM-bFd"/>
+                        <segue destination="HXK-aN-3c1" kind="custom" identifier="SegueIdentifierIndex1" customClass="EmptySegue" id="14s-cU-cwv"/>
+                        <segue destination="d18-IL-rxL" kind="custom" identifier="SegueIdentifierIndex2" customClass="EmptySegue" id="Ft1-lj-1pF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1t-QP-ldA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -640,6 +677,6 @@
         <image name="logo_bigger.png" width="643" height="576"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rcf-gb-WZu"/>
+        <segue reference="FJj-6e-mvN"/>
     </inferredMetricsTieBreakers>
 </document>

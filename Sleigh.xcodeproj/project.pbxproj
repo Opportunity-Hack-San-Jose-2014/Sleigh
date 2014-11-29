@@ -37,6 +37,9 @@
 		2B7D8EE419EADFEB00B8D737 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D8EE319EADFEB00B8D737 /* Social.framework */; };
 		2B7D8EEC19EAE04900B8D737 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D8EEB19EAE04900B8D737 /* FacebookSDK.framework */; };
 		2B7D8EED19EAE06200B8D737 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D8EE719EAE00000B8D737 /* Accounts.framework */; };
+		2B98A3631A2A57B50024F99B /* MapDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98A3621A2A57B50024F99B /* MapDashboardViewController.m */; };
+		2B98A3651A2A6A160024F99B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98A3641A2A6A160024F99B /* MapKit.framework */; };
+		2B98A3681A2A6F8A0024F99B /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */; };
 		2BDAE75719EA5BE7008FA1FA /* ItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */; };
 		2BDAE75A19EA6413008FA1FA /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE75919EA6413008FA1FA /* UIView+Additions.m */; };
 		2BE6861D19EA67DD00FFE4B4 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6861C19EA67DD00FFE4B4 /* ImageCell.m */; };
@@ -111,6 +114,11 @@
 		2B7D8EE719EAE00000B8D737 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2B7D8EE919EAE00700B8D737 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		2B7D8EEB19EAE04900B8D737 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		2B98A3611A2A57B50024F99B /* MapDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDashboardViewController.h; sourceTree = "<group>"; };
+		2B98A3621A2A57B50024F99B /* MapDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDashboardViewController.m; sourceTree = "<group>"; };
+		2B98A3641A2A6A160024F99B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		2BDAE75519EA5BE7008FA1FA /* ItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewController.h; sourceTree = "<group>"; };
 		2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewController.m; sourceTree = "<group>"; };
 		2BDAE75819EA6413008FA1FA /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B98A3651A2A6A160024F99B /* MapKit.framework in Frameworks */,
 				2B7D8EED19EAE06200B8D737 /* Accounts.framework in Frameworks */,
 				2B7D8EE419EADFEB00B8D737 /* Social.framework in Frameworks */,
 				2B7D8ED919EADF8700B8D737 /* AudioToolbox.framework in Frameworks */,
@@ -189,10 +198,12 @@
 		2B05379E19E9CC3C005FE95E /* Sleigh */ = {
 			isa = PBXGroup;
 			children = (
-				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
-				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
+				2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */,
+				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
 				2BDAE75819EA6413008FA1FA /* UIView+Additions.h */,
+				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
+				2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */,
 				2BDAE75919EA6413008FA1FA /* UIView+Additions.m */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
 				2B2DE83E19EA1BD6004E8A7F /* Classes */,
@@ -236,6 +247,7 @@
 		2B2DE81919E9E64D004E8A7F /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				2B98A3601A2A578E0024F99B /* Map */,
 				2B2DE84B19EA3283004E8A7F /* Custom Child Segues */,
 				2B2DE81219E9E4FA004E8A7F /* DashboardViewController.h */,
 				2B2DE81319E9E4FA004E8A7F /* DashboardViewController.m */,
@@ -322,6 +334,15 @@
 			name = "Custom Child Segues";
 			sourceTree = "<group>";
 		};
+		2B98A3601A2A578E0024F99B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				2B98A3611A2A57B50024F99B /* MapDashboardViewController.h */,
+				2B98A3621A2A57B50024F99B /* MapDashboardViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
 		2BE6861A19EA67C600FFE4B4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +361,7 @@
 		74DF3107199944AD8D7A0EFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B98A3641A2A6A160024F99B /* MapKit.framework */,
 				2B7D8EEB19EAE04900B8D737 /* FacebookSDK.framework */,
 				2B7D8EE919EAE00700B8D737 /* Twitter.framework */,
 				2B7D8EE719EAE00000B8D737 /* Accounts.framework */,
@@ -506,8 +528,10 @@
 				2B0537A819E9CC3C005FE95E /* LoginViewController.m in Sources */,
 				2B2DE84E19EA32D7004E8A7F /* DriverDashboardViewController.m in Sources */,
 				2BDAE75A19EA6413008FA1FA /* UIView+Additions.m in Sources */,
+				2B98A3681A2A6F8A0024F99B /* MKMapView+ZoomLevel.m in Sources */,
 				2B2DE81819E9E583004E8A7F /* UserDataManager.m in Sources */,
 				2BE694A119EB19F5007CEF77 /* DriverItemCell.m in Sources */,
+				2B98A3631A2A57B50024F99B /* MapDashboardViewController.m in Sources */,
 				2B2DE84A19EA327F004E8A7F /* EmptySegue.m in Sources */,
 				2BE6862319EA683600FFE4B4 /* InfoCell.m in Sources */,
 				2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */,

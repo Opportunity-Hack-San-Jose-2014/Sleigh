@@ -32,9 +32,9 @@
 
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
     {
-        self.containerViewTopOffset.constant = 0;
         self.title=@"My Donated Items";
-    }
+		[self.segmentedControl removeSegmentAtIndex:1 animated:YES];
+	}
     else
         self.title=@"My Item Dashboard";
 }
@@ -47,7 +47,7 @@
 
 - (IBAction)segmentedControlValueChanged:(UISegmentedControl *)sender
 {
-	[self.containerViewController swapViewControllers];
+	[self.containerViewController swapToViewControllerAtIndex:sender.selectedSegmentIndex];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
