@@ -8,46 +8,44 @@
 
 #import "MapDashboardViewController.h"
 #import "MKMapView+ZoomLevel.h"
-#import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
 
-@interface MapDashboardViewController () <MKMapViewDelegate,CLLocationManagerDelegate>
+@interface MapDashboardViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property(weak, nonatomic) IBOutlet MKMapView *mapView;
+@property(strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
 @implementation MapDashboardViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
 
-    self.locationManager = [[CLLocationManager alloc]init];
-    self.locationManager.delegate = self;
+	self.locationManager = [[CLLocationManager alloc] init];
+	self.locationManager.delegate = self;
 
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
-        [self.locationManager requestWhenInUseAuthorization];
-    else
-        [self.locationManager startUpdatingLocation];
+	if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+		[self.locationManager requestWhenInUseAuthorization];
+	else
+		[self.locationManager startUpdatingLocation];
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation: (MKUserLocation *)userLocation
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
 	[self.mapView setCenterCoordinate:userLocation.location.coordinate zoomLevel:12 animated:YES];
 
-    [self setMapViewPointDemoNearPoint:userLocation.location.coordinate];
+	[self setMapViewPointDemoNearPoint:userLocation.location.coordinate];
 }
 
--(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)authorizationStatus
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)authorizationStatus
 {
-    if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
-        authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
-        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse)
-        [manager startUpdatingLocation];
+	if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
+			authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse)
+		[manager startUpdatingLocation];
 }
 
--(void)setMapViewPointDemoNearPoint:(CLLocationCoordinate2D)coordinate
+- (void)setMapViewPointDemoNearPoint:(CLLocationCoordinate2D)coordinate
 {
 	MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc] init];
 	myAnnotation.coordinate = CLLocationCoordinate2DMake(coordinate.latitude * 1.0001, coordinate.longitude * 1.0001);

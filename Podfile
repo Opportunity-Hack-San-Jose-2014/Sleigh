@@ -1,1 +1,2 @@
 pod 'SDWebImage'
+pod 'MBProgressHUD'

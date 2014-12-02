@@ -11,9 +11,10 @@
 @class DonatedItem;
 
 @interface DriverItemCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *cellTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *cellDetailLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *cellImageView;
+
+@property(weak, nonatomic) IBOutlet UILabel *cellTitleLabel;
+@property(weak, nonatomic) IBOutlet UILabel *cellDetailLabel;
+@property(weak, nonatomic) IBOutlet UIImageView *cellImageView;
 
 - (void)setCellWithItem:(DonatedItem *)item;
 @end

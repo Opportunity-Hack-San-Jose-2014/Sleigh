@@ -14,7 +14,7 @@
 
 @property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewTopOffset;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewTopOffset;
 @property(nonatomic, strong) ContainerViewController *containerViewController;
 @end
 
@@ -31,12 +31,12 @@
 	self.navigationItem.leftBarButtonItem = backButton;
 
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
-    {
-        self.title=@"My Donated Items";
+	{
+		self.title = @"My Donated Items";
 		[self.segmentedControl removeSegmentAtIndex:1 animated:YES];
 	}
-    else
-        self.title=@"My Item Dashboard";
+	else
+		self.title = @"My Item Dashboard";
 }
 
 - (void)logoutUser:(id)sender

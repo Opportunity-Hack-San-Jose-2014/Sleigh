@@ -22,13 +22,13 @@
 
 @implementation DriverDashboardViewController
 
--(void)viewDidLoad
+- (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 
-    NSString *className = NSStringFromClass([DriverItemCell class]);
-    UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
-    [self.tableView registerNib:nib forCellReuseIdentifier:className];
+	NSString *className = NSStringFromClass([DriverItemCell class]);
+	UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
+	[self.tableView registerNib:nib forCellReuseIdentifier:className];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,11 +91,10 @@
 {
 	static NSString *cellIdentifier = @"DriverItemCell";
 
-
 	DriverItemCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 	cell.width = self.tableView.width - self.tableView.contentInset.left - self.tableView.contentInset.right;
 
-    DonatedItem *donatedItem = [[[[UserDataManager sharedInstance] allDriverItems] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	DonatedItem *donatedItem = [[[[UserDataManager sharedInstance] allDriverItems] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 	[cell setCellWithItem:donatedItem];
 
 	return cell;

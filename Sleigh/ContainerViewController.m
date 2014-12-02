@@ -94,7 +94,7 @@
 
 - (NSString *)segueIdentifierForIndex:(NSInteger)index
 {
-	return [NSString stringWithFormat:@"SegueIdentifierIndex%li", (long)index];
+	return [NSString stringWithFormat:@"SegueIdentifierIndex%li", (long) index];
 }
 
 - (void)swapFromViewController:(UIViewController *)currentViewController toViewController:(UIViewController *)destinationViewController
