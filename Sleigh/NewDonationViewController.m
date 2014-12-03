@@ -83,6 +83,7 @@
 																	cancelButtonTitle:@"Cancel"
 															   destructiveButtonTitle:nil
 																	otherButtonTitles:[addresses componentsJoinedByString:@","], nil];
+					[actionSheet showInView:self.view];
 				}
 				else
 					[self saveNewItemWithId:code address:[addresses objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber];
@@ -135,10 +136,12 @@
 {
 	if (buttonIndex != actionSheet.cancelButtonIndex)
 	{
+		self.itemAddressTextField.text = [actionSheet buttonTitleAtIndex:buttonIndex];
+
 		NSString *schedule = self.itemAvailabilityTextField.text;
 		NSString *code = self.itemCodeTextField.text;
 		NSString *phoneNumber = self.itemPhoneNumberTextField.text;
-		NSString *address = [actionSheet buttonTitleAtIndex:buttonIndex];
+		NSString *address = self.itemAddressTextField.text;
 
 		[self saveNewItemWithId:code address:address schedule:schedule phoneNumber:phoneNumber];
 	}

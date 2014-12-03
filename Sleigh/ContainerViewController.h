@@ -10,9 +10,8 @@
 
 @interface ContainerViewController : UIViewController
 
-- (void)swapViewControllers;
-
 - (void)cycleToNextViewController;
 
 - (void)swapToViewControllerAtIndex:(NSInteger)index;
+
 @end
