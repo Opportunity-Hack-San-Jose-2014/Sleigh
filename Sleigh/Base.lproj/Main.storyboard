@@ -144,9 +144,9 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="d2M-cD-V1V">
                                         <rect key="frame" x="30" y="16" width="540" height="29"/>
                                         <segments>
-                                            <segment title="Donor"/>
-                                            <segment title="Driver"/>
-                                            <segment title="Items Map"/>
+                                            <segment title="Donations"/>
+                                            <segment title="Deliveries"/>
+                                            <segment title="Items"/>
                                         </segments>
                                         <color key="tintColor" red="0.20000000000000001" green="0.40000000000000002" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
@@ -695,6 +695,6 @@
         <image name="logo_bigger.png" width="643" height="576"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rcf-gb-WZu"/>
+        <segue reference="FJj-6e-mvN"/>
     </inferredMetricsTieBreakers>
 </document>

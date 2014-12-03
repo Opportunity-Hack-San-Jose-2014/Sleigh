@@ -106,13 +106,12 @@
 
 - (NSArray *)allDriverItems
 {
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"itemDriverId.objectId == %@", [PFUser currentUser].objectId];
-	NSArray *pickupItems = [self.userItems filteredArrayUsingPredicate:predicate];
+    NSPredicate *currentItemsPredicate = [NSPredicate predicateWithFormat:@"(itemDriverId.objectId == %@)AND(itemStatusCode != 4)", [PFUser currentUser].objectId];
+    NSPredicate *deliveredItemsPredicate = [NSPredicate predicateWithFormat:@"(itemDriverId.objectId == %@)AND(itemStatusCode == 4)", [PFUser currentUser].objectId];
+    NSArray *currentItems = [self.userItems filteredArrayUsingPredicate:currentItemsPredicate];
+    NSArray *deliveredItems = [self.userItems filteredArrayUsingPredicate:deliveredItemsPredicate];
 
-	NSMutableArray *availableItems = [self.userItems mutableCopy];
-	[availableItems removeObjectsInArray:pickupItems];
-
-	return @[pickupItems, availableItems];
+	return @[currentItems, deliveredItems];
 }
 
 - (NSArray *)allDonorItems
