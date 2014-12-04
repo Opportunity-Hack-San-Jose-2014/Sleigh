@@ -10,4 +10,6 @@
 
 @interface NewDonationViewController : UIViewController
 
+@property(nonatomic, strong) NSArray *currentAddressPlacemarks;
+@property(nonatomic, strong) NSArray *currentAddressStrings;
 @end

@@ -11,7 +11,7 @@
 
 @interface ImageCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+@property(weak, nonatomic) IBOutlet UIImageView *itemImageView;
 
 @end
 

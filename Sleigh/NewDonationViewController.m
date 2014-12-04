@@ -7,7 +7,6 @@
 //
 
 #import <AddressBookUI/AddressBookUI.h>
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "NewDonationViewController.h"
 #import "UserDataManager.h"
 #import "DonatedItem.h"
@@ -74,12 +73,15 @@
 		{
 			[MBProgressHUD hideHUDForView:self.view animated:YES];
 
+			self.currentAddressPlacemarks = placemarks;
+			
 			if (error == nil)
 			{
 				NSMutableArray *addresses = [NSMutableArray new];
 				for (CLPlacemark *placemark in placemarks)
 					[addresses addObject:ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO)];
 
+				self.currentAddressStrings = [NSArray arrayWithArray:addresses];
 				if ([placemarks count] > 1)
 				{
 					UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Please confirm your address"
@@ -90,7 +92,7 @@
 					[actionSheet showInView:self.view];
 				}
 				else
-					[self saveNewItemWithId:code address:[addresses objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber itemImage:self.imageView.image];
+					[self saveNewItemWithId:code address:[placemarks objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber itemImage:self.imageView.image];
 			}
 			else
 				[self displayErrorAlertWithMessage:@"The address you entered is not valid."];
@@ -102,15 +104,15 @@
 		[self displayErrorAlertWithMessage:@"Please answer all text fields."];
 }
 
-- (void)saveNewItemWithId:(NSString *)code address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(UIImage *)image
+- (void)saveNewItemWithId:(NSString *)code address:(CLPlacemark *)placemark schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(UIImage *)image
 {
 	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHUD.labelText = @"Saving Item";
 
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.6f);
-    PFFile *imageFile = [PFFile fileWithName:@"itemImage.jpg" data:imageData];
+	NSData *imageData = UIImageJPEGRepresentation(image, 0.6f);
+	PFFile *imageFile = [PFFile fileWithName:@"itemImage.jpg" data:imageData];
 
-	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code address:address schedule:schedule phoneNumber:phoneNumber itemImage:imageFile];
+	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code address:placemark schedule:schedule phoneNumber:phoneNumber itemImage:imageFile];
 
 	[[UserDataManager sharedInstance] saveDonatedItemToDatabase:newDonation withCompletionBlock:^(NSError *error)
 	{
@@ -140,10 +142,15 @@
 {
 	if (buttonIndex != actionSheet.cancelButtonIndex)
 	{
-		self.itemAddressTextField.text = [actionSheet buttonTitleAtIndex:buttonIndex];
+		NSString *address = [actionSheet buttonTitleAtIndex:buttonIndex];
+
+		self.itemAddressTextField.text = address;
+
+		NSUInteger index = [self.currentAddressStrings indexOfObject:address];
+		CLPlacemark *placemark = [self.currentAddressPlacemarks objectAtIndex:index];
 
 		[self saveNewItemWithId:self.itemCodeTextField.text
-						address:self.itemAddressTextField.text
+						address:placemark
 					   schedule:self.itemAvailabilityTextField.text
 					phoneNumber:self.itemPhoneNumberTextField.text
 					  itemImage:self.imageView.image];

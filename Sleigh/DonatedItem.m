@@ -6,13 +6,16 @@
 //  Copyright (c) 2014 Wolfpack. All rights reserved.
 //
 
+#import <AddressBookUI/AddressBookUI.h>
 #import <Parse/PFObject+Subclass.h>
+#import <CoreLocation/CoreLocation.h>
 #import "DonatedItem.h"
 
 @implementation DonatedItem
 
 @dynamic itemCode;
 @dynamic itemAddress;
+@dynamic itemGeopoint;
 @dynamic itemPhoneNumber;
 @dynamic itemImage;
 @dynamic itemAvailabilitySchedule;
@@ -31,15 +34,16 @@
 	return NSStringFromClass([self class]);
 }
 
-- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(PFFile *)image
+- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(CLPlacemark *)placemark schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(PFFile *)image
 {
 	self = [self init];
 	if (self)
 	{
 		self.itemCode = descriptionCode;
-		self.itemAddress = address;
 		self.itemAvailabilitySchedule = schedule;
 		self.itemPhoneNumber = phoneNumber;
+
+		[self setItemLocation:placemark];
 
 		self.itemImage = image;
 
@@ -54,6 +58,14 @@
 		self.itemDonorId = [PFUser currentUser];
 	}
 	return self;
+}
+
+- (void)setItemLocation:(CLPlacemark *)placemark
+{
+	self.itemAddress = ABCreateStringWithAddressDictionary(placemark.addressDictionary, NO);
+	PFGeoPoint *point = [PFGeoPoint geoPointWithLatitude:placemark.location.coordinate.latitude
+											   longitude:placemark.location.coordinate.longitude];
+	self.itemGeopoint = point;
 }
 
 - (void)updateItemStatusWithIndex:(int)index
