@@ -9,12 +9,18 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "ImageCell.h"
 
+@interface ImageCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *itemImageView;
+
+@end
+
 @implementation ImageCell
 
 - (void)setCellTitle:(NSString *)title andData:(NSString *)data
 {
 	[super setCellTitle:title andData:data];
-	[self.imageView sd_setImageWithURL:[NSURL URLWithString:self.dataString]];
+	[self.itemImageView sd_setImageWithURL:[NSURL URLWithString:self.dataString]];
 }
 
 @end
