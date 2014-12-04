@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09C9DA7F1A3043550000C180 /* ebay_paypal_logos copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9DA7E1A3043550000C180 /* ebay_paypal_logos copy.png */; };
+		09C9DA831A3046090000C180 /* fgt_trns.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9DA821A3046090000C180 /* fgt_trns.png */; };
+		09C9DA851A3046BE0000C180 /* fgt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C9DA841A3046BE0000C180 /* fgt_logo.png */; };
 		2B0537A219E9CC3C005FE95E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A119E9CC3C005FE95E /* main.m */; };
 		2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A419E9CC3C005FE95E /* AppDelegate.m */; };
 		2B0537A819E9CC3C005FE95E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A719E9CC3C005FE95E /* LoginViewController.m */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09C9DA7E1A3043550000C180 /* ebay_paypal_logos copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ebay_paypal_logos copy.png"; sourceTree = "<group>"; };
+		09C9DA821A3046090000C180 /* fgt_trns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fgt_trns.png; sourceTree = "<group>"; };
+		09C9DA841A3046BE0000C180 /* fgt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fgt_logo.png; sourceTree = "<group>"; };
 		2B05379C19E9CC3C005FE95E /* Sleigh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sleigh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0537A019E9CC3C005FE95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0537A119E9CC3C005FE95E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -138,7 +144,8 @@
 		2BE6949F19EB19F5007CEF77 /* DriverItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverItemCell.m; sourceTree = "<group>"; };
 		2BE694A019EB19F5007CEF77 /* DriverItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DriverItemCell.xib; sourceTree = "<group>"; };
 		E261560044794A20A447A5E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E996331675AE4D58B14CD7AE /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		FAF37C2F28571A433898D0C5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FEAFCB4070E0D57EB9201D4B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,11 +185,11 @@
 		2B05379319E9CC3C005FE95E = {
 			isa = PBXGroup;
 			children = (
-				E996331675AE4D58B14CD7AE /* Pods.xcconfig */,
 				74DF3107199944AD8D7A0EFB /* Frameworks */,
 				2B05379D19E9CC3C005FE95E /* Products */,
 				2B05379E19E9CC3C005FE95E /* Sleigh */,
 				2B0537B819E9CC3C005FE95E /* SleighTests */,
+				6BD5B0DC601B646A8F9A3BF5 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -217,6 +224,9 @@
 		2B05379F19E9CC3C005FE95E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				09C9DA841A3046BE0000C180 /* fgt_logo.png */,
+				09C9DA821A3046090000C180 /* fgt_trns.png */,
+				09C9DA7E1A3043550000C180 /* ebay_paypal_logos copy.png */,
 				2BE6949819EB0444007CEF77 /* add_photo.png */,
 				2BE6949919EB0444007CEF77 /* logo_bigger.png */,
 				2BE6949A19EB0444007CEF77 /* logo.png */,
@@ -358,6 +368,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		6BD5B0DC601B646A8F9A3BF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FEAFCB4070E0D57EB9201D4B /* Pods.debug.xcconfig */,
+				FAF37C2F28571A433898D0C5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		74DF3107199944AD8D7A0EFB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,14 +483,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C9DA7F1A3043550000C180 /* ebay_paypal_logos copy.png in Resources */,
 				2BE6949B19EB0444007CEF77 /* add_photo.png in Resources */,
 				2BE694A219EB19F5007CEF77 /* DriverItemCell.xib in Resources */,
 				2B0537AB19E9CC3C005FE95E /* Main.storyboard in Resources */,
+				09C9DA851A3046BE0000C180 /* fgt_logo.png in Resources */,
 				2BE6949C19EB0444007CEF77 /* logo_bigger.png in Resources */,
 				2BE6862419EA683600FFE4B4 /* InfoCell.xib in Resources */,
 				2BE6949D19EB0444007CEF77 /* logo.png in Resources */,
 				2BE6861F19EA680400FFE4B4 /* ImageCell.xib in Resources */,
 				2B0537B019E9CC3C005FE95E /* LaunchScreen.xib in Resources */,
+				09C9DA831A3046090000C180 /* fgt_trns.png in Resources */,
 				2B0537AD19E9CC3C005FE95E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,7 +535,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -666,7 +688,7 @@
 		};
 		2B0537C019E9CC3C005FE95E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E996331675AE4D58B14CD7AE /* Pods.xcconfig */;
+			baseConfigurationReference = FEAFCB4070E0D57EB9201D4B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -681,7 +703,7 @@
 		};
 		2B0537C119E9CC3C005FE95E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E996331675AE4D58B14CD7AE /* Pods.xcconfig */;
+			baseConfigurationReference = FAF37C2F28571A433898D0C5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
