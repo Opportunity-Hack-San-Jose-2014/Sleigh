@@ -33,15 +33,19 @@
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
-	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignAllResponders)];
-	[self.view addGestureRecognizer:tapGestureRecognizer];
+
+	UITapGestureRecognizer *cancelTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignAllResponders)];
+	[self.view addGestureRecognizer:cancelTapGesture];
+
+	UITapGestureRecognizer *cameraTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showCameraController)];
+	[self.imageView addGestureRecognizer:cameraTapGesture];
 
 	//[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 }
 
 - (void)demoData
 {
-	[self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41MCTMPZVML.jpg"]];
+//	[self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41MCTMPZVML.jpg"]];
 	self.itemCodeTextField.text = @"123456";
 	self.itemAddressTextField.text = @"1234 Hicks Avenue San Jose, CA 95125";
 	self.itemAvailabilityTextField.text = @"M-F 5-6pm";
@@ -86,7 +90,7 @@
 					[actionSheet showInView:self.view];
 				}
 				else
-					[self saveNewItemWithId:code address:[addresses objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber];
+					[self saveNewItemWithId:code address:[addresses objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber itemImage:self.imageView.image];
 			}
 			else
 				[self displayErrorAlertWithMessage:@"The address you entered is not valid."];
@@ -98,15 +102,15 @@
 		[self displayErrorAlertWithMessage:@"Please answer all text fields."];
 }
 
-- (void)saveNewItemWithId:(NSString *)code address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber
+- (void)saveNewItemWithId:(NSString *)code address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(UIImage *)image
 {
 	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHUD.labelText = @"Saving Item";
 
-	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code
-																		   address:address
-																		  schedule:schedule
-																	   phoneNumber:phoneNumber];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.6f);
+    PFFile *imageFile = [PFFile fileWithName:@"itemImage.jpg" data:imageData];
+
+	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code address:address schedule:schedule phoneNumber:phoneNumber itemImage:imageFile];
 
 	[[UserDataManager sharedInstance] saveDonatedItemToDatabase:newDonation withCompletionBlock:^(NSError *error)
 	{
@@ -138,12 +142,11 @@
 	{
 		self.itemAddressTextField.text = [actionSheet buttonTitleAtIndex:buttonIndex];
 
-		NSString *schedule = self.itemAvailabilityTextField.text;
-		NSString *code = self.itemCodeTextField.text;
-		NSString *phoneNumber = self.itemPhoneNumberTextField.text;
-		NSString *address = self.itemAddressTextField.text;
-
-		[self saveNewItemWithId:code address:address schedule:schedule phoneNumber:phoneNumber];
+		[self saveNewItemWithId:self.itemCodeTextField.text
+						address:self.itemAddressTextField.text
+					   schedule:self.itemAvailabilityTextField.text
+					phoneNumber:self.itemPhoneNumberTextField.text
+					  itemImage:self.imageView.image];
 	}
 }
 
@@ -183,7 +186,6 @@
 {
 	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 	picker.delegate = self;
-	picker.allowsEditing = YES;
 	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 
 	[self presentViewController:picker animated:YES completion:nil];
@@ -191,7 +193,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-	UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+	UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
 	self.imageView.image = chosenImage;
 
 	[picker dismissViewControllerAnimated:YES completion:nil];

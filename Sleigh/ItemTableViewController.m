@@ -107,7 +107,7 @@
 {
 	NSDictionary *image = @{
 			kCellClass : [ImageCell class],
-			kCellData  : self.donatedItem.itemImageUrl
+			kCellData  : self.donatedItem.itemImage.url
 	};
 	NSDictionary *code = @{
 			kCellClass : [InfoCell class],

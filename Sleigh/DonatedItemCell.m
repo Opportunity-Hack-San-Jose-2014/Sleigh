@@ -21,7 +21,7 @@
 
 - (void)setCellWithItem:(DonatedItem *)item
 {
-	[self setImageWithImageURL:item.itemImageUrl];
+	[self setImageWithImageURL:item.itemImage.url];
 	self.statusLabel.text = [item currentStatusString];
 }
 

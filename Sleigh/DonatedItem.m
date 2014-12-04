@@ -14,7 +14,7 @@
 @dynamic itemCode;
 @dynamic itemAddress;
 @dynamic itemPhoneNumber;
-@dynamic itemImageUrl;
+@dynamic itemImage;
 @dynamic itemAvailabilitySchedule;
 @dynamic itemListingDate;
 @dynamic itemStatusCode;
@@ -31,7 +31,7 @@
 	return NSStringFromClass([self class]);
 }
 
-- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber
+- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(PFFile *)image
 {
 	self = [self init];
 	if (self)
@@ -41,7 +41,7 @@
 		self.itemAvailabilitySchedule = schedule;
 		self.itemPhoneNumber = phoneNumber;
 
-		self.itemImageUrl = @"http://ecx.images-amazon.com/images/I/41MCTMPZVML.jpg";
+		self.itemImage = image;
 
 		self.itemListingDate = [NSDate date];
 		self.itemStatusCode = ItemStatusPickupReady;

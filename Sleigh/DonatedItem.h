@@ -23,9 +23,9 @@ typedef enum : NSUInteger
 @property(retain) NSString *itemCode;
 @property(retain) NSString *itemAddress;
 @property(retain) NSString *itemPhoneNumber;
-@property(retain) NSString *itemImageUrl;
 @property(retain) NSString *itemAvailabilitySchedule;
 @property(retain) NSDate *itemListingDate;
+@property(retain) PFFile *itemImage;
 
 @property int itemStatusCode;
 
@@ -34,7 +34,7 @@ typedef enum : NSUInteger
 
 + (NSString *)parseClassName;
 
-- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber;
+- (instancetype)initDonatedItemWithDescription:(NSString *)descriptionCode address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(PFFile *)image;
 
 + (NSArray *)statusStrings;
 
