@@ -42,7 +42,7 @@
 
 		[myAlertView show];
 
-		[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
+		//[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 	}
 }
 

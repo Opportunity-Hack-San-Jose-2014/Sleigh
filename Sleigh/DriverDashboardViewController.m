@@ -29,7 +29,11 @@
 	NSString *className = NSStringFromClass([DriverItemCell class]);
 	UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
 	[self.tableView registerNib:nib forCellReuseIdentifier:className];
+    [self.tableView setBackgroundColor:[UIColor whiteColor]];
+    [self.tableView setTintColor:[UIColor colorWithRed:0.055 green:0 blue:0.549 alpha:1]]; /*#0e008c*/
+
 }
+     
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -70,6 +74,14 @@
 	NSUInteger count = [[driverItems objectAtIndex:0] count];
 	count += [[driverItems objectAtIndex:1] count];
 	self.overlayView.alpha = (count == 0);
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor =  [UIColor colorWithRed:140/255.0f green:49/255.0f blue:109/255.0f alpha:1.0f];
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor whiteColor]];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

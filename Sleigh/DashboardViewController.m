@@ -32,11 +32,11 @@
 
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
 	{
-		self.title = @"My Donated Items";
+		self.title = @"";
 		[self.segmentedControl removeSegmentAtIndex:1 animated:YES];
 	}
 	else
-		self.title = @"My Item Dashboard";
+		self.title = @"";
 }
 
 - (void)logoutUser:(id)sender
