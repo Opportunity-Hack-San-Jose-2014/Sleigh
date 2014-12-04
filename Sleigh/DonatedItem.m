@@ -59,7 +59,12 @@
 - (void)updateItemStatusWithIndex:(int)index
 {
 	self.itemStatusCode = index;
-	self.itemDriverId = [PFUser currentUser];
+    if (self.itemStatusCode == 0) {
+        self.itemDriverId = Nil;
+    }
+    else{
+        self.itemDriverId = [PFUser currentUser];
+    }
 }
 
 - (NSString *)currentStatusString
