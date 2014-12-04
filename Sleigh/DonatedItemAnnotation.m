@@ -13,16 +13,6 @@ NSString *const reuseIdentifier = @"locationAnnotation";
 
 @implementation DonatedItemAnnotation
 
-- (MKAnnotationView *)annotationView
-{
-
-	MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:self reuseIdentifier:reuseIdentifier];
-	annotationView.canShowCallout = YES;
-	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-
-	return annotationView;
-}
-
 - (instancetype)initWithDonatedItem:(DonatedItem *)item
 {
 	self = [self init];
@@ -36,13 +26,13 @@ NSString *const reuseIdentifier = @"locationAnnotation";
 	return self;
 }
 
+- (MKAnnotationView *)annotationView
+{
+	MKAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:self reuseIdentifier:reuseIdentifier];
+	annotationView.canShowCallout = YES;
+	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+	return annotationView;
 }
-*/
 
 @end

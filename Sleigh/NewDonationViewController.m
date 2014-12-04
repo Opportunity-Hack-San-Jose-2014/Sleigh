@@ -74,7 +74,7 @@
 			[MBProgressHUD hideHUDForView:self.view animated:YES];
 
 			self.currentAddressPlacemarks = placemarks;
-			
+
 			if (error == nil)
 			{
 				NSMutableArray *addresses = [NSMutableArray new];
