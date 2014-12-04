@@ -8,6 +8,10 @@
 
 #import "MapDashboardViewController.h"
 #import "MKMapView+ZoomLevel.h"
+#import "UserDataManager.h"
+#import "DonatedItem.h"
+#import "ItemTableViewController.h"
+#import "DonatedItemAnnotation.h"
 
 @interface MapDashboardViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
@@ -29,13 +33,47 @@
 		[self.locationManager requestWhenInUseAuthorization];
 	else
 		[self.locationManager startUpdatingLocation];
+
+	NSArray *itemsAvailable = [[UserDataManager sharedInstance] allItemsAvailableForPickup];
+	for (DonatedItem *item in itemsAvailable)
+		[self setMapViewPointForItem:item];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	if ([segue.identifier isEqualToString:kViewItemIdentifier] && [sender isKindOfClass:[DonatedItemAnnotation class]])
+	{
+		DonatedItemAnnotation *itemAnnotation = (DonatedItemAnnotation *) sender;
+
+		ItemTableViewController *viewController = [[(UINavigationController *) segue.destinationViewController childViewControllers] firstObject];
+		viewController.donatedItem = itemAnnotation.item;
+		viewController.itemContext = (int *) ViewItemContextDriver;
+	}
 }
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
 	[self.mapView setCenterCoordinate:userLocation.location.coordinate zoomLevel:12 animated:YES];
+}
 
-	[self setMapViewPointDemoNearPoint:userLocation.location.coordinate];
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+	MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+	DonatedItemAnnotation *itemAnnotation = (DonatedItemAnnotation *) annotation;
+
+	if (annotationView == nil)
+		annotationView = itemAnnotation.annotationView;
+	else
+		annotationView.annotation = itemAnnotation;
+
+	return annotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+	DonatedItemAnnotation *itemAnnotation = (DonatedItemAnnotation *) view.annotation;
+
+	[self performSegueWithIdentifier:kViewItemIdentifier sender:itemAnnotation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)authorizationStatus
@@ -45,14 +83,11 @@
 		[manager startUpdatingLocation];
 }
 
-- (void)setMapViewPointDemoNearPoint:(CLLocationCoordinate2D)coordinate
+- (void)setMapViewPointForItem:(DonatedItem *)item
 {
-	MKPointAnnotation *myAnnotation = [[MKPointAnnotation alloc] init];
-	myAnnotation.coordinate = CLLocationCoordinate2DMake(coordinate.latitude * 1.0001, coordinate.longitude * 1.0001);
-	myAnnotation.title = @"Some geopoint";
-	myAnnotation.subtitle = @"Please pickup my item!";
+	DonatedItemAnnotation *annotation = [[DonatedItemAnnotation alloc] initWithDonatedItem:item];
 
-	[self.mapView addAnnotation:myAnnotation];
+	[self.mapView addAnnotation:annotation];
 }
 
 @end

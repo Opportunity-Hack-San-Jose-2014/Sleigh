@@ -33,4 +33,5 @@
 
 - (NSArray *)allDonorItems;
 
+- (NSArray *)allItemsAvailableForPickup;
 @end

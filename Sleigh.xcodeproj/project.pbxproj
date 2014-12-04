@@ -43,6 +43,7 @@
 		2B98A3631A2A57B50024F99B /* MapDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98A3621A2A57B50024F99B /* MapDashboardViewController.m */; };
 		2B98A3651A2A6A160024F99B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98A3641A2A6A160024F99B /* MapKit.framework */; };
 		2B98A3681A2A6F8A0024F99B /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */; };
+		2BC778ED1A305AF200CD86F0 /* DonatedItemAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC778EC1A305AF200CD86F0 /* DonatedItemAnnotation.m */; };
 		2BDAE75719EA5BE7008FA1FA /* ItemTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */; };
 		2BDAE75A19EA6413008FA1FA /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BDAE75919EA6413008FA1FA /* UIView+Additions.m */; };
 		2BE6861D19EA67DD00FFE4B4 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BE6861C19EA67DD00FFE4B4 /* ImageCell.m */; };
@@ -125,6 +126,8 @@
 		2B98A3641A2A6A160024F99B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
 		2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		2BC778EB1A305AF200CD86F0 /* DonatedItemAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonatedItemAnnotation.h; sourceTree = "<group>"; };
+		2BC778EC1A305AF200CD86F0 /* DonatedItemAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonatedItemAnnotation.m; sourceTree = "<group>"; };
 		2BDAE75519EA5BE7008FA1FA /* ItemTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTableViewController.h; sourceTree = "<group>"; };
 		2BDAE75619EA5BE7008FA1FA /* ItemTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTableViewController.m; sourceTree = "<group>"; };
 		2BDAE75819EA6413008FA1FA /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 			children = (
 				2B98A3611A2A57B50024F99B /* MapDashboardViewController.h */,
 				2B98A3621A2A57B50024F99B /* MapDashboardViewController.m */,
+				2BC778EB1A305AF200CD86F0 /* DonatedItemAnnotation.h */,
+				2BC778EC1A305AF200CD86F0 /* DonatedItemAnnotation.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -558,6 +563,7 @@
 				2BE6862319EA683600FFE4B4 /* InfoCell.m in Sources */,
 				2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */,
 				2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */,
+				2BC778ED1A305AF200CD86F0 /* DonatedItemAnnotation.m in Sources */,
 				2B2DE83A19EA01F8004E8A7F /* DonatedItem.m in Sources */,
 				2BE6861D19EA67DD00FFE4B4 /* ImageCell.m in Sources */,
 				2B0537A219E9CC3C005FE95E /* main.m in Sources */,

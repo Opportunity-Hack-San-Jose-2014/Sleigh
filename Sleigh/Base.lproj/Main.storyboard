@@ -302,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWK-TT-afm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1635" y="-399"/>
+            <point key="canvasLocation" x="2357" y="-399"/>
         </scene>
         <!--Donate Item-->
         <scene sceneID="pHn-aE-1op">
@@ -423,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJn-9a-ZhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="-399"/>
+            <point key="canvasLocation" x="3075" y="-399"/>
         </scene>
         <!--Donated Item-->
         <scene sceneID="oIn-fq-IVI">
@@ -539,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4b-sN-ChP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3169" y="347"/>
+            <point key="canvasLocation" x="3075" y="729"/>
         </scene>
         <!--Map Dashboard View Controller-->
         <scene sceneID="XaN-yn-LCE">
@@ -570,11 +570,12 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="f8E-24-o0R" id="3RO-ZY-rkq"/>
+                        <segue destination="Pdq-w8-RVu" kind="presentation" identifier="viewItem" id="d1p-LR-1Qs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xbf-cY-L6q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="-1273"/>
+            <point key="canvasLocation" x="1641" y="285"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="aDz-Bx-4Nu">
@@ -662,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Tg-Hp-NRp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862.5" y="347"/>
+            <point key="canvasLocation" x="862" y="729"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cxm-i4-z6j">
@@ -680,7 +681,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oip-cZ-aST" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2357" y="347"/>
+            <point key="canvasLocation" x="2357" y="729"/>
         </scene>
     </scenes>
     <resources>
@@ -689,7 +690,7 @@
         <image name="fgt_logo.png" width="966" height="1008"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="FJj-6e-mvN"/>
+        <segue reference="d1p-LR-1Qs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.54901960780000003" green="0.19215686269999999" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
