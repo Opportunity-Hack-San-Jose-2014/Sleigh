@@ -14,7 +14,7 @@
 
 - (void)setCellWithItem:(DonatedItem *)item
 {
-	[self setImageWithImageURL:item.itemImageUrl];
+	[self setImageWithImageURL:item.itemImage.url];
 
 	self.cellTitleLabel.text = item.itemAddress;
 	self.cellDetailLabel.text = item.itemAvailabilitySchedule;

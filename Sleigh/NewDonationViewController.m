@@ -86,7 +86,7 @@
 					[actionSheet showInView:self.view];
 				}
 				else
-					[self saveNewItemWithId:code address:[addresses objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber];
+					[self saveNewItemWithId:code address:[addresses objectAtIndex:0] schedule:schedule phoneNumber:phoneNumber itemImage:self.imageView.image];
 			}
 			else
 				[self displayErrorAlertWithMessage:@"The address you entered is not valid."];
@@ -98,15 +98,15 @@
 		[self displayErrorAlertWithMessage:@"Please answer all text fields."];
 }
 
-- (void)saveNewItemWithId:(NSString *)code address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber
+- (void)saveNewItemWithId:(NSString *)code address:(NSString *)address schedule:(NSString *)schedule phoneNumber:(NSString *)phoneNumber itemImage:(UIImage *)image
 {
 	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHUD.labelText = @"Saving Item";
 
-	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code
-																		   address:address
-																		  schedule:schedule
-																	   phoneNumber:phoneNumber];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    PFFile *imageFile = [PFFile fileWithName:@"itemImage.png" data:imageData];
+
+	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code address:address schedule:schedule phoneNumber:phoneNumber itemImage:imageFile];
 
 	[[UserDataManager sharedInstance] saveDonatedItemToDatabase:newDonation withCompletionBlock:^(NSError *error)
 	{
@@ -138,12 +138,11 @@
 	{
 		self.itemAddressTextField.text = [actionSheet buttonTitleAtIndex:buttonIndex];
 
-		NSString *schedule = self.itemAvailabilityTextField.text;
-		NSString *code = self.itemCodeTextField.text;
-		NSString *phoneNumber = self.itemPhoneNumberTextField.text;
-		NSString *address = self.itemAddressTextField.text;
-
-		[self saveNewItemWithId:code address:address schedule:schedule phoneNumber:phoneNumber];
+		[self saveNewItemWithId:self.itemCodeTextField.text
+						address:self.itemAddressTextField.text
+					   schedule:self.itemAvailabilityTextField.text
+					phoneNumber:self.itemPhoneNumberTextField.text
+					  itemImage:self.imageView.image];
 	}
 }
 
