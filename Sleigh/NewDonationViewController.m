@@ -33,15 +33,19 @@
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
-	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignAllResponders)];
-	[self.view addGestureRecognizer:tapGestureRecognizer];
+
+	UITapGestureRecognizer *cancelTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignAllResponders)];
+	[self.view addGestureRecognizer:cancelTapGesture];
+
+	UITapGestureRecognizer *cameraTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showCameraController)];
+	[self.imageView addGestureRecognizer:cameraTapGesture];
 
 	[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 }
 
 - (void)demoData
 {
-	[self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41MCTMPZVML.jpg"]];
+//	[self.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41MCTMPZVML.jpg"]];
 	self.itemCodeTextField.text = @"123456";
 	self.itemAddressTextField.text = @"1234 Hicks Avenue San Jose, CA 95125";
 	self.itemAvailabilityTextField.text = @"M-F 5-6pm";
@@ -103,8 +107,8 @@
 	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHUD.labelText = @"Saving Item";
 
-    NSData *imageData = UIImagePNGRepresentation(image);
-    PFFile *imageFile = [PFFile fileWithName:@"itemImage.png" data:imageData];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.6f);
+    PFFile *imageFile = [PFFile fileWithName:@"itemImage.jpg" data:imageData];
 
 	DonatedItem *newDonation = [[DonatedItem alloc] initDonatedItemWithDescription:code address:address schedule:schedule phoneNumber:phoneNumber itemImage:imageFile];
 
