@@ -645,7 +645,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "FGT Gift Drive";
+				PRODUCT_NAME = "FGT Drive";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -682,7 +682,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "FGT Gift Drive";
+				PRODUCT_NAME = "FGT Drive";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
