@@ -33,7 +33,7 @@
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
 	{
 		self.title = @"";
-		[self.segmentedControl removeSegmentAtIndex:1 animated:YES];
+		self.containerViewTopOffset.constant = 0;
 	}
 	else
 		self.title = @"";

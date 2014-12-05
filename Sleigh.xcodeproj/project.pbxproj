@@ -25,6 +25,7 @@
 		2B2DE84919EA327F004E8A7F /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84619EA327F004E8A7F /* ContainerViewController.m */; };
 		2B2DE84A19EA327F004E8A7F /* EmptySegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84819EA327F004E8A7F /* EmptySegue.m */; };
 		2B2DE84E19EA32D7004E8A7F /* DriverDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B2DE84D19EA32D7004E8A7F /* DriverDashboardViewController.m */; };
+		2B515C131A313D6500AE9E6E /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */; };
 		2B7D8ECC19EADE3200B8D737 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D8EC919EADE3200B8D737 /* Parse.framework */; };
 		2B7D8ED919EADF8700B8D737 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D8ECF19EADF8700B8D737 /* AudioToolbox.framework */; };
 		2B7D8EDA19EADF8700B8D737 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7D8ED019EADF8700B8D737 /* CFNetwork.framework */; };
@@ -104,6 +105,8 @@
 		2B2DE84C19EA32D7004E8A7F /* DriverDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DriverDashboardViewController.h; sourceTree = "<group>"; };
 		2B2DE84D19EA32D7004E8A7F /* DriverDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DriverDashboardViewController.m; sourceTree = "<group>"; };
 		2B3F4FDA19EA3B34002FF874 /* RGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGB.h; sourceTree = "<group>"; };
+		2B515C111A313D6400AE9E6E /* UIDevice+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Additions.h"; sourceTree = "<group>"; };
+		2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Additions.m"; sourceTree = "<group>"; };
 		2B7D8EC919EADE3200B8D737 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		2B7D8ECF19EADF8700B8D737 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2B7D8ED019EADF8700B8D737 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -206,6 +209,8 @@
 		2B05379E19E9CC3C005FE95E /* Sleigh */ = {
 			isa = PBXGroup;
 			children = (
+				2B515C111A313D6400AE9E6E /* UIDevice+Additions.h */,
+				2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */,
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
 				2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */,
 				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
@@ -557,6 +562,7 @@
 				2B98A3631A2A57B50024F99B /* MapDashboardViewController.m in Sources */,
 				2B2DE84A19EA327F004E8A7F /* EmptySegue.m in Sources */,
 				2BE6862319EA683600FFE4B4 /* InfoCell.m in Sources */,
+				2B515C131A313D6500AE9E6E /* UIDevice+Additions.m in Sources */,
 				2B2DE82319E9F364004E8A7F /* NewDonationViewController.m in Sources */,
 				2B0537A519E9CC3C005FE95E /* AppDelegate.m in Sources */,
 				2BC778ED1A305AF200CD86F0 /* DonatedItemAnnotation.m in Sources */,

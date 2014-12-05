@@ -188,10 +188,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dRd-cR-oPQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="510"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="syO-Pg-7mW">
-                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="itemSize" width="140" height="140"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -201,13 +201,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-kZ-Hyp">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-kZ-Hyp">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1K-St-fRO" userLabel="Date">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1K-St-fRO" userLabel="Date">
                                                     <rect key="frame" x="0.0" y="110" width="150" height="40"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -242,10 +242,10 @@
                                 </connections>
                             </collectionView>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEb-EU-vQG">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="510"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The items you have submitted for donation will appear here.  Please start by tapping the button below!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-Bh-rM8">
-                                        <rect key="frame" x="175" y="165" width="250" height="150"/>
+                                        <rect key="frame" x="175" y="180" width="250" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="3xe-P3-nPY"/>
                                             <constraint firstAttribute="height" constant="150" id="njI-z0-t3s"/>
@@ -263,10 +263,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7U-Hi-qmv">
-                                <rect key="frame" x="50" y="500" width="500" height="80"/>
+                                <rect key="frame" x="175" y="525" width="250" height="60"/>
                                 <color key="backgroundColor" red="0.54901960780000003" green="0.19215686269999999" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="K5O-Ji-Zr5"/>
+                                    <constraint firstAttribute="height" constant="60" id="K5O-Ji-Zr5"/>
+                                    <constraint firstAttribute="width" constant="250" id="OIO-uy-mvh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
                                 <state key="normal" title="Donate an Item">
@@ -281,21 +282,21 @@
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="nEb-EU-vQG" firstAttribute="leading" secondItem="dRd-cR-oPQ" secondAttribute="leading" id="5fT-f6-2Zz"/>
-                            <constraint firstAttribute="trailing" secondItem="m7U-Hi-qmv" secondAttribute="trailing" constant="50" id="O2M-8i-i8v"/>
                             <constraint firstItem="nEb-EU-vQG" firstAttribute="bottom" secondItem="dRd-cR-oPQ" secondAttribute="bottom" id="a6e-kM-0ul"/>
                             <constraint firstItem="dRd-cR-oPQ" firstAttribute="leading" secondItem="7Kq-dM-3Cj" secondAttribute="leading" id="aqU-XR-vhB"/>
                             <constraint firstAttribute="trailing" secondItem="dRd-cR-oPQ" secondAttribute="trailing" id="dyo-rL-ls9"/>
-                            <constraint firstItem="m7U-Hi-qmv" firstAttribute="top" secondItem="dRd-cR-oPQ" secondAttribute="bottom" constant="20" id="ewM-1W-GSR"/>
+                            <constraint firstItem="m7U-Hi-qmv" firstAttribute="top" secondItem="dRd-cR-oPQ" secondAttribute="bottom" constant="15" id="ewM-1W-GSR"/>
+                            <constraint firstAttribute="centerX" secondItem="m7U-Hi-qmv" secondAttribute="centerX" id="hrp-Ue-gGS"/>
                             <constraint firstItem="nEb-EU-vQG" firstAttribute="trailing" secondItem="dRd-cR-oPQ" secondAttribute="trailing" id="jvj-Wf-T13"/>
                             <constraint firstItem="dRd-cR-oPQ" firstAttribute="top" secondItem="00j-Gu-vnM" secondAttribute="bottom" id="m4L-Ja-1IS"/>
-                            <constraint firstItem="A0X-gr-mZf" firstAttribute="top" secondItem="m7U-Hi-qmv" secondAttribute="bottom" constant="20" id="nZf-eE-6bM"/>
+                            <constraint firstItem="A0X-gr-mZf" firstAttribute="top" secondItem="m7U-Hi-qmv" secondAttribute="bottom" constant="15" id="nZf-eE-6bM"/>
                             <constraint firstItem="nEb-EU-vQG" firstAttribute="top" secondItem="dRd-cR-oPQ" secondAttribute="top" id="oKU-xg-jYR"/>
-                            <constraint firstItem="m7U-Hi-qmv" firstAttribute="leading" secondItem="7Kq-dM-3Cj" secondAttribute="leading" constant="50" id="zL4-N4-QP1"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
                         <outlet property="collectionView" destination="dRd-cR-oPQ" id="hHR-sy-nhu"/>
+                        <outlet property="collectionViewFlowLayout" destination="syO-Pg-7mW" id="I4t-nS-rVg"/>
                         <outlet property="overlayView" destination="nEb-EU-vQG" id="GWK-0m-jJ2"/>
                         <segue destination="Pdq-w8-RVu" kind="presentation" identifier="viewItem" id="rcf-gb-WZu"/>
                     </connections>
@@ -690,7 +691,7 @@
         <image name="fgt_logo.png" width="966" height="1008"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d1p-LR-1Qs"/>
+        <segue reference="rcf-gb-WZu"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.54901960780000003" green="0.19215686269999999" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -16,24 +16,31 @@
 
 @property(weak, nonatomic) IBOutlet UIView *overlayView;
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 
 @end
 
 @implementation DonorDashboardViewController
-
-- (void)viewDidLoad
-{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
-}
 
 - (void)dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (void)viewDidLoad
+{
+	[super viewDidLoad];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
+
+
+
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+
 	[self reloadData];
 }
 
@@ -46,7 +53,7 @@
 
 		ItemTableViewController *viewController = [[(UINavigationController *) segue.destinationViewController childViewControllers] firstObject];
 		viewController.donatedItem = donatedItem;
-		viewController.itemContext = ViewItemContextDonor;
+		viewController.itemContext = (int *) ViewItemContextDonor;
 	}
 }
 
