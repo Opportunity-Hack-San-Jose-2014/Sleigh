@@ -354,22 +354,22 @@
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Code or Short Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-OL-t3F" userLabel="Item Code # Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Code or Short Description" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="IIV-OL-t3F" userLabel="Item Code # Text Field">
                                         <rect key="frame" x="150" y="335" width="300" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address to pick up item" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xYj-np-acQ" userLabel="Pickup Address Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address to pick up item" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="xYj-np-acQ" userLabel="Pickup Address Text Field">
                                         <rect key="frame" x="150" y="375" width="300" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pickup Availability (ex. M-F 3-5pm)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="10b-hb-TJG" userLabel="Schedule Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pickup Availability (ex. M-F 3-5pm)" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="10b-hb-TJG" userLabel="Schedule Text Field">
                                         <rect key="frame" x="150" y="415" width="300" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number to reach you" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-47-i0x" userLabel="Phone Number Text Field">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone number to reach you" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-47-i0x" userLabel="Phone Number Text Field">
                                         <rect key="frame" x="150" y="455" width="300" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>

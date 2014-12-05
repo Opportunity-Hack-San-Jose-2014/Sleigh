@@ -73,7 +73,7 @@
 		09C9DA7E1A3043550000C180 /* ebay_paypal_logos copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ebay_paypal_logos copy.png"; sourceTree = "<group>"; };
 		09C9DA821A3046090000C180 /* fgt_trns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fgt_trns.png; sourceTree = "<group>"; };
 		09C9DA841A3046BE0000C180 /* fgt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fgt_logo.png; sourceTree = "<group>"; };
-		2B05379C19E9CC3C005FE95E /* FGT-Gift-Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FGT-Gift-Drive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B05379C19E9CC3C005FE95E /* FGT Gift Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FGT Gift Drive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0537A019E9CC3C005FE95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0537A119E9CC3C005FE95E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B0537A319E9CC3C005FE95E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 		2B05379D19E9CC3C005FE95E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B05379C19E9CC3C005FE95E /* FGT-Gift-Drive.app */,
+				2B05379C19E9CC3C005FE95E /* FGT Gift Drive.app */,
 				2B0537B519E9CC3C005FE95E /* FGT-Gift-DriveTests.xctest */,
 			);
 			name = Products;
@@ -427,7 +427,7 @@
 			);
 			name = Sleigh;
 			productName = Sleigh;
-			productReference = 2B05379C19E9CC3C005FE95E /* FGT-Gift-Drive.app */;
+			productReference = 2B05379C19E9CC3C005FE95E /* FGT Gift Drive.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2B0537B419E9CC3C005FE95E /* SleighTests */ = {
@@ -700,7 +700,6 @@
 				);
 				INFOPLIST_FILE = Sleigh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "${PRODUCT_NAME:rfc1034identifier}";
 			};
 			name = Debug;
 		};
@@ -716,7 +715,6 @@
 				);
 				INFOPLIST_FILE = Sleigh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "${PRODUCT_NAME:rfc1034identifier}";
 			};
 			name = Release;
 		};
