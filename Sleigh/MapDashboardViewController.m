@@ -58,15 +58,19 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-	MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
-	DonatedItemAnnotation *itemAnnotation = (DonatedItemAnnotation *) annotation;
+	if ([annotation isKindOfClass:[DonatedItemAnnotation class]])
+	{
+		MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:reuseIdentifier];
+		DonatedItemAnnotation *itemAnnotation = (DonatedItemAnnotation *) annotation;
 
-	if (annotationView == nil)
-		annotationView = itemAnnotation.annotationView;
-	else
-		annotationView.annotation = itemAnnotation;
+		if (annotationView == nil)
+			annotationView = itemAnnotation.annotationView;
+		else
+			annotationView.annotation = itemAnnotation;
 
-	return annotationView;
+		return annotationView;
+	}
+	return nil;
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control

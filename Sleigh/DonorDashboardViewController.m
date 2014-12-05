@@ -32,9 +32,6 @@
 	[super viewDidLoad];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
-
-
-
 }
 
 - (void)viewWillAppear:(BOOL)animated

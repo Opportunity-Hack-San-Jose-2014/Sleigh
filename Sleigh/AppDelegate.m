@@ -18,7 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//	[[UILabel appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:18.0]];
 	[[UITextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:16.0]];
 
 	[[UISegmentedControl appearance] setTitleTextAttributes:@{
@@ -27,12 +26,10 @@
 	 }
 												   forState:UIControlStateSelected];
 	[[UISegmentedControl appearance] setTitleTextAttributes:@{
-			 NSForegroundColorAttributeName : RGB(0, 122, 255),
+			 NSForegroundColorAttributeName : RGB(140, 49, 109),
 			 NSFontAttributeName            : [UIFont fontWithName:@"AvenirNext-Regular" size:16.0]
 	 }
 												   forState:UIControlStateNormal];
-
-//	[self.window setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:1]];
 
 	[Parse setApplicationId:@"LdJQPv5TdX8f7W93mAO8FkpcEqe55ciGomTOH4es"
 				  clientKey:@"jQtxcBGGCwiYzZLFiB7tTLBt5uEE4jRPZPNfTRz4"];
