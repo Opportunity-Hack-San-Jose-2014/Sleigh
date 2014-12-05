@@ -24,8 +24,6 @@
 {
     [super viewDidLoad];
 
-    self.loginButton.layer.cornerRadius = 3;
-
 	[self demoDataIfSimulator];
 }
 

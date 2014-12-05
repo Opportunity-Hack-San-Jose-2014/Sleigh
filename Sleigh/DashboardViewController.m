@@ -32,11 +32,11 @@
 
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
 	{
-		self.title = @"";
 		self.containerViewTopOffset.constant = 0;
+        self.title = @"Donated Items";
 	}
 	else
-		self.title = @"";
+        self.title = @"Item Dashboard";
 }
 
 - (void)logoutUser:(id)sender
