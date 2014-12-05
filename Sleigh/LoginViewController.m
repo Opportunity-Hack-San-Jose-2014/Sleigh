@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "UserDataManager.h"
+#import "UIDevice+Additions.h"
 
 @interface LoginViewController ()
 
@@ -19,10 +20,11 @@
 
 @implementation LoginViewController
 
-- (void)demoData
+- (void)viewDidLoad
 {
-	self.usernameTextField.text = @"driver_account";
-	self.passwordTextField.text = @"admin";
+    [super viewDidLoad];
+
+	[self demoDataIfSimulator];
 }
 
 - (IBAction)loginButtonTapped:(id)sender
@@ -41,8 +43,6 @@
 													otherButtonTitles:nil];
 
 		[myAlertView show];
-
-		//[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
 	}
 }
 
@@ -70,6 +70,18 @@
 											[myAlertView show];
 										}
 									}];
+}
+
+- (void)demoDataIfSimulator
+{
+	if (isDeviceSimulator())
+		[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
+}
+
+- (void)demoData
+{
+	self.usernameTextField.text = @"driver_account";
+	self.passwordTextField.text = @"admin";
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "DonatedItem.h"
 #import "MBProgressHUD.h"
 #import "UIView+Additions.h"
+#import "UIDevice+Additions.h"
 
 @interface NewDonationViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIActionSheetDelegate>
 
@@ -191,11 +192,14 @@
 
 - (void)showCameraController
 {
-	UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-	picker.delegate = self;
-	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+	if (isDeviceSimulator() == NO)
+	{
+		UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+		picker.delegate = self;
+		picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 
-	[self presentViewController:picker animated:YES completion:nil];
+		[self presentViewController:picker animated:YES completion:nil];
+	}
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
