@@ -35,7 +35,7 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardWillHideNotification object:nil];
 
 	UITapGestureRecognizer *cancelTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(resignAllResponders)];
-	[self.view addGestureRecognizer:cancelTapGesture];
+	[self.scrollView addGestureRecognizer:cancelTapGesture];
 
 	UITapGestureRecognizer *cameraTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showCameraController)];
 	[self.imageView addGestureRecognizer:cameraTapGesture];

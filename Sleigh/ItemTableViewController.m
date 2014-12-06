@@ -41,28 +41,26 @@
 	[self.navigationItem setLeftBarButtonItem:closeButton animated:YES];
 
 	[self setupItemDetailCells];
-
-	if (self.itemContext == (int *) ViewItemContextDonor)
-	{
-		self.driverButtonsView.hidden = YES;
-		self.tableViewBottomInset.constant = self.donorButtonView.height;
-	}
-	else if (self.itemContext == (int *) ViewItemContextDriver)
-	{
-		self.donorButtonView.hidden = YES;
-		self.callPhoneButton.titleLabel.text = [NSString stringWithFormat:@"Call: %@", self.donatedItem.itemPhoneNumber];
-		self.tableViewBottomInset.constant = self.driverButtonsView.height;
-	}
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 
-	BOOL canDelete = self.donatedItem.itemStatusCode == ItemStatusPickupReady;
-	self.driverButtonsView.hidden = !canDelete;
-	self.donorButtonView.hidden = !canDelete;
+    if (self.itemContext == (int *) ViewItemContextDonor)
+    {
+        self.tableViewBottomInset.constant = self.donorButtonView.height;
+
+        BOOL canDelete = self.donatedItem.itemStatusCode != ItemStatusDelivered;
+        self.driverButtonsView.hidden = !canDelete;
+        self.donorButtonView.hidden = !canDelete;
+    }
+    else if (self.itemContext == (int *) ViewItemContextDriver)
+    {
+        self.donorButtonView.hidden = YES;
+        self.callPhoneButton.titleLabel.text = [NSString stringWithFormat:@"Call: %@", self.donatedItem.itemPhoneNumber];
+        self.tableViewBottomInset.constant = self.driverButtonsView.height;
+    }
 }
 
 - (void)dismissViewController
@@ -197,7 +195,7 @@
 	if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Cancel"] == NO)
 	{
 		[[UserDataManager sharedInstance] updateDonatedItem:self.donatedItem
-												 statusCode:buttonIndex
+												 statusCode:(int) buttonIndex
 										withCompletionBlock:^(NSError *success)
 										{
 											if (success == nil)

@@ -50,7 +50,7 @@
 
 		ItemTableViewController *viewController = [[(UINavigationController *) segue.destinationViewController childViewControllers] firstObject];
 		viewController.donatedItem = donatedItem;
-		viewController.itemContext = ViewItemContextDriver;
+		viewController.itemContext = (int *)ViewItemContextDriver;
 	}
 }
 
