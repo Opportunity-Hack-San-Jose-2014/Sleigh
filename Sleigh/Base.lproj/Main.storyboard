@@ -596,7 +596,7 @@
                     <connections>
                         <outlet property="callPhoneButton" destination="u8O-5E-UKu" id="gp1-tA-hZt"/>
                         <outlet property="deleteButton" destination="p0G-eP-QUy" id="LNp-Od-Foa"/>
-                        <outlet property="donorButtonView" destination="hgx-5u-zDl" id="oBb-VQ-fUD"/>
+                        <outlet property="deleteButtonView" destination="hgx-5u-zDl" id="oBb-VQ-fUD"/>
                         <outlet property="driverButtonsView" destination="3ng-54-h9H" id="sdZ-t2-SJP"/>
                         <outlet property="tableView" destination="Caw-CR-IwV" id="PBN-9u-fzJ"/>
                         <outlet property="tableViewBottomInset" destination="ZCZ-wC-JJK" id="lie-TZ-6j5"/>

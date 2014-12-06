@@ -22,7 +22,7 @@
 
 @property(weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property(weak, nonatomic) IBOutlet UIButton *callPhoneButton;
-@property(weak, nonatomic) IBOutlet UIView *donorButtonView;
+@property(weak, nonatomic) IBOutlet UIView *deleteButtonView;
 @property(weak, nonatomic) IBOutlet UIView *driverButtonsView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -49,15 +49,15 @@
 
     if (self.itemContext == (int *) ViewItemContextDonor)
     {
-        self.tableViewBottomInset.constant = self.donorButtonView.height;
+        self.tableViewBottomInset.constant = self.deleteButtonView.height;
+		self.driverButtonsView.hidden = YES;
 
-        BOOL canDelete = self.donatedItem.itemStatusCode != ItemStatusDelivered;
-        self.driverButtonsView.hidden = !canDelete;
-        self.donorButtonView.hidden = !canDelete;
+//		BOOL canDelete = self.donatedItem.itemStatusCode != ItemStatusDelivered;
+//		self.deleteButtonView.hidden = !canDelete;
     }
     else if (self.itemContext == (int *) ViewItemContextDriver)
     {
-        self.donorButtonView.hidden = YES;
+        self.deleteButtonView.hidden = YES;
         self.callPhoneButton.titleLabel.text = [NSString stringWithFormat:@"Call: %@", self.donatedItem.itemPhoneNumber];
         self.tableViewBottomInset.constant = self.driverButtonsView.height;
     }
