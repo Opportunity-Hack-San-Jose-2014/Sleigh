@@ -32,6 +32,7 @@
 	[self.tableView setBackgroundColor:[UIColor whiteColor]];
 	[self.tableView setTintColor:[UIColor colorWithRed:0.055 green:0 blue:0.549 alpha:1]]; /*#0e008c*/
 
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

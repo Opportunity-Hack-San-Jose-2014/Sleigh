@@ -36,7 +36,7 @@
 								 password:password
 									block:^(PFUser *user, NSError *error)
 									{
-										if (user && [[user objectForKey:@"isActivated"] boolValue])
+										if (user && [self isUserActivated])
 										{
 											self.userItems = [NSMutableArray new];
 											[self queryServerForAllUserItemsWithCompletionBlock:^(NSArray *objects, NSError *error)
@@ -65,7 +65,24 @@
 	return [[[PFUser currentUser] objectForKey:@"isDriver"] boolValue];
 }
 
+- (BOOL)isUserActivated
+{
+	return [[[PFUser currentUser] objectForKey:@"isActivated"] boolValue];
+}
+
 #pragma mark - Server Queries
+
+- (void)refreshCachedItems
+{
+	if ([PFUser currentUser] && [self isUserActivated])
+	{
+		[self queryServerForAllUserItemsWithCompletionBlock:^(NSArray *objects, NSError *error)
+		{
+			self.userItems = [objects mutableCopy];
+			[[NSNotificationCenter defaultCenter] postNotificationName:kItemsDownloadedFromServerNotification object:self];
+		}];
+	}
+}
 
 - (void)queryServerForAllUserItemsWithCompletionBlock:(void (^)(NSArray *objects, NSError *error))completionBlock
 {

@@ -13,7 +13,6 @@
 @interface DashboardViewController ()
 
 @property(weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
-
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewTopOffset;
 @property(nonatomic, strong) ContainerViewController *containerViewController;
 @end
@@ -31,12 +30,9 @@
 	self.navigationItem.leftBarButtonItem = backButton;
 
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
-	{
 		self.containerViewTopOffset.constant = 0;
-        self.title = @"Donated Items";
-	}
-	else
-        self.title = @"Item Dashboard";
+
+	self.title = @"FGT Drive";
 }
 
 - (void)logoutUser:(id)sender

@@ -20,6 +20,7 @@
 
 @interface ItemTableViewController () <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
 
+@property(weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property(weak, nonatomic) IBOutlet UIButton *callPhoneButton;
 @property(weak, nonatomic) IBOutlet UIView *donorButtonView;
 @property(weak, nonatomic) IBOutlet UIView *driverButtonsView;
@@ -53,6 +54,15 @@
 		self.tableViewBottomInset.constant = self.driverButtonsView.height;
 	}
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+
+	BOOL canDelete = self.donatedItem.itemStatusCode == ItemStatusPickupReady;
+	self.driverButtonsView.hidden = !canDelete;
+	self.donorButtonView.hidden = !canDelete;
 }
 
 - (void)dismissViewController

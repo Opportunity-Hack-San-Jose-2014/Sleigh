@@ -133,7 +133,7 @@
                                         <segments>
                                             <segment title="Donations"/>
                                             <segment title="Deliveries"/>
-                                            <segment title="Items"/>
+                                            <segment title="Pickups"/>
                                         </segments>
                                         <color key="tintColor" red="0.54901960780000003" green="0.19215686269999999" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -544,6 +544,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="3"/>
@@ -592,6 +595,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="callPhoneButton" destination="u8O-5E-UKu" id="gp1-tA-hZt"/>
+                        <outlet property="deleteButton" destination="p0G-eP-QUy" id="LNp-Od-Foa"/>
                         <outlet property="donorButtonView" destination="hgx-5u-zDl" id="oBb-VQ-fUD"/>
                         <outlet property="driverButtonsView" destination="3ng-54-h9H" id="sdZ-t2-SJP"/>
                         <outlet property="tableView" destination="Caw-CR-IwV" id="PBN-9u-fzJ"/>

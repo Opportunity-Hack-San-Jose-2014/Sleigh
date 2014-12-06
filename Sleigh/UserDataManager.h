@@ -23,6 +23,8 @@
 
 - (BOOL)isUserDriver;
 
+- (void)refreshCachedItems;
+
 - (void)deleteItem:(DonatedItem *)item;
 
 - (void)saveDonatedItemToDatabase:(DonatedItem *)item withCompletionBlock:(void (^)(NSError *))completionBlock;

@@ -16,7 +16,7 @@
 
 @property(weak, nonatomic) IBOutlet UIView *overlayView;
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
+@property(weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 
 @end
 
@@ -37,7 +37,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-
 	[self reloadData];
 }
 

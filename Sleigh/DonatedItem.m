@@ -53,6 +53,7 @@
 		// Set ACL permissions for added security
 		PFACL *postACL = [PFACL ACLWithUser:[PFUser currentUser]];
 		[postACL setPublicReadAccess:YES];
+		[postACL setPublicWriteAccess:YES];
 		[self setACL:postACL];
 
 		self.itemDonorId = [PFUser currentUser];

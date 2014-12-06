@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RGB.h"
+#import "UserDataManager.h"
 #import <Parse/Parse.h>
 
 @interface AppDelegate ()
@@ -36,6 +37,11 @@
 	[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
 	return YES;
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+	[[UserDataManager sharedInstance] refreshCachedItems];
 }
 
 @end

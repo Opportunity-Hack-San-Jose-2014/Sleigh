@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Wolfpack. All rights reserved.
 //
 
+#import <MBProgressHUD/MBProgressHUD.h>
 #import "LoginViewController.h"
 #import "UserDataManager.h"
 #import "UIDevice+Additions.h"
@@ -22,7 +23,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 
 	[self demoDataIfSimulator];
 }
@@ -48,10 +49,14 @@
 
 - (void)loginUser:(NSString *)username withPassword:(NSString *)password
 {
+	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	progressHUD.labelText = @"Signing In";
+
 	[[UserDataManager sharedInstance] loginUserWithName:username
 											andPassword:password
 									withCompletionBlock:^(NSError *error)
 									{
+										[MBProgressHUD hideHUDForView:self.view animated:YES];
 										if (!error)
 											[self performSegueWithIdentifier:@"loginSuccessful" sender:self];
 										else

@@ -17,10 +17,16 @@
 
 @property(weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(strong, nonatomic) CLLocationManager *locationManager;
+@property(nonatomic, strong) NSArray *itemsAvailable;
 
 @end
 
 @implementation MapDashboardViewController
+
+- (void)dealloc
+{
+	[self.locationManager stopUpdatingLocation];
+}
 
 - (void)viewDidLoad
 {
@@ -34,9 +40,21 @@
 	else
 		[self.locationManager startUpdatingLocation];
 
-	NSArray *itemsAvailable = [[UserDataManager sharedInstance] allItemsAvailableForPickup];
-	for (DonatedItem *item in itemsAvailable)
-		[self setMapViewPointForItem:item];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetMapViewPoints) name:kItemsDownloadedFromServerNotification object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[super viewWillAppear:animated];
+
+	[self resetMapViewPoints];
+}
+
+- (void)resetMapViewPoints
+{
+	[self removeMapViewPoints];
+
+	[self setMapViewPointsForItems:[[UserDataManager sharedInstance] allItemsAvailableForPickup]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -87,11 +105,24 @@
 		[manager startUpdatingLocation];
 }
 
-- (void)setMapViewPointForItem:(DonatedItem *)item
+- (void)setMapViewPointsForItems:(NSArray *)items
 {
-	DonatedItemAnnotation *annotation = [[DonatedItemAnnotation alloc] initWithDonatedItem:item];
+	NSMutableArray *array = [NSMutableArray new];
+	for (DonatedItem *item in items)
+	{
+		DonatedItemAnnotation *annotation = [[DonatedItemAnnotation alloc] initWithDonatedItem:item];
+		[array addObject:annotation];
+	}
 
-	[self.mapView addAnnotation:annotation];
+	self.itemsAvailable = [NSArray arrayWithArray:array];
+
+	[self.mapView addAnnotations:self.itemsAvailable];
+
+}
+
+- (void)removeMapViewPoints
+{
+	[self.mapView removeAnnotations:self.itemsAvailable];
 }
 
 @end
