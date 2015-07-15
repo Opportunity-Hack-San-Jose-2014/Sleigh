@@ -73,7 +73,7 @@
 		09C9DA7E1A3043550000C180 /* ebay_paypal_logos copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ebay_paypal_logos copy.png"; sourceTree = "<group>"; };
 		09C9DA821A3046090000C180 /* fgt_trns.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fgt_trns.png; sourceTree = "<group>"; };
 		09C9DA841A3046BE0000C180 /* fgt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fgt_logo.png; sourceTree = "<group>"; };
-		2B05379C19E9CC3C005FE95E /* FGT Gift Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FGT Gift Drive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B05379C19E9CC3C005FE95E /* FGT Drive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FGT Drive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0537A019E9CC3C005FE95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0537A119E9CC3C005FE95E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B0537A319E9CC3C005FE95E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		2B0537A719E9CC3C005FE95E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2B0537AA19E9CC3C005FE95E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B0537AC19E9CC3C005FE95E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2B0537B519E9CC3C005FE95E /* FGT-Gift-DriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FGT-Gift-DriveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B0537B519E9CC3C005FE95E /* FGT-DriveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FGT-DriveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B0537BA19E9CC3C005FE95E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0537BB19E9CC3C005FE95E /* SleighTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleighTests.m; sourceTree = "<group>"; };
 		2B2DE81219E9E4FA004E8A7F /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 		2B05379D19E9CC3C005FE95E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B05379C19E9CC3C005FE95E /* FGT Gift Drive.app */,
-				2B0537B519E9CC3C005FE95E /* FGT-Gift-DriveTests.xctest */,
+				2B05379C19E9CC3C005FE95E /* FGT Drive.app */,
+				2B0537B519E9CC3C005FE95E /* FGT-DriveTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -209,14 +209,14 @@
 		2B05379E19E9CC3C005FE95E /* Sleigh */ = {
 			isa = PBXGroup;
 			children = (
-				2B515C111A313D6400AE9E6E /* UIDevice+Additions.h */,
-				2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */,
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
 				2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */,
 				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
+				2B515C111A313D6400AE9E6E /* UIDevice+Additions.h */,
 				2BDAE75819EA6413008FA1FA /* UIView+Additions.h */,
 				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
 				2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */,
+				2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */,
 				2BDAE75919EA6413008FA1FA /* UIView+Additions.m */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
 				2B2DE83E19EA1BD6004E8A7F /* Classes */,
@@ -427,7 +427,7 @@
 			);
 			name = Sleigh;
 			productName = Sleigh;
-			productReference = 2B05379C19E9CC3C005FE95E /* FGT Gift Drive.app */;
+			productReference = 2B05379C19E9CC3C005FE95E /* FGT Drive.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2B0537B419E9CC3C005FE95E /* SleighTests */ = {
@@ -445,7 +445,7 @@
 			);
 			name = SleighTests;
 			productName = SleighTests;
-			productReference = 2B0537B519E9CC3C005FE95E /* FGT-Gift-DriveTests.xctest */;
+			productReference = 2B0537B519E9CC3C005FE95E /* FGT-DriveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

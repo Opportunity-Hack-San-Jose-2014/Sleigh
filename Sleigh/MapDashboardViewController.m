@@ -16,6 +16,7 @@
 @interface MapDashboardViewController () <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property(weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIToolbar *mapToolbar;
 @property(strong, nonatomic) CLLocationManager *locationManager;
 @property(nonatomic, strong) NSArray *itemsAvailable;
 
@@ -37,10 +38,13 @@
 
 	if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
 		[self.locationManager requestWhenInUseAuthorization];
-	else
-		[self.locationManager startUpdatingLocation];
+//	else
+//		[self.locationManager startUpdatingLocation];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetMapViewPoints) name:kItemsDownloadedFromServerNotification object:nil];
+    
+    MKUserTrackingBarButtonItem *trackButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapView];
+    [self.mapToolbar setItems:@[ trackButton ]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,11 +73,6 @@
 	}
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-	[self.mapView setCenterCoordinate:userLocation.location.coordinate zoomLevel:12 animated:YES];
-}
-
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
 	if ([annotation isKindOfClass:[DonatedItemAnnotation class]])
@@ -100,9 +99,9 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)authorizationStatus
 {
-	if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
-			authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse)
-		[manager startUpdatingLocation];
+//	if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
+//			authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse)
+//		[manager startUpdatingLocation];
 }
 
 - (void)setMapViewPointsForItems:(NSArray *)items
