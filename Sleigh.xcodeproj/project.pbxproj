@@ -210,16 +210,10 @@
 			isa = PBXGroup;
 			children = (
 				2B0537A319E9CC3C005FE95E /* AppDelegate.h */,
-				2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */,
-				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
-				2B515C111A313D6400AE9E6E /* UIDevice+Additions.h */,
-				2BDAE75819EA6413008FA1FA /* UIView+Additions.h */,
 				2B0537A419E9CC3C005FE95E /* AppDelegate.m */,
-				2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */,
-				2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */,
-				2BDAE75919EA6413008FA1FA /* UIView+Additions.m */,
 				2B0537AC19E9CC3C005FE95E /* Images.xcassets */,
 				2B2DE83E19EA1BD6004E8A7F /* Classes */,
+				2B6C62C91B57053B0028FD8A /* Helpers */,
 				2B0537A919E9CC3C005FE95E /* Main.storyboard */,
 				2B05379F19E9CC3C005FE95E /* Supporting Files */,
 			);
@@ -347,6 +341,20 @@
 				2B2DE84819EA327F004E8A7F /* EmptySegue.m */,
 			);
 			name = "Custom Child Segues";
+			sourceTree = "<group>";
+		};
+		2B6C62C91B57053B0028FD8A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2B98A3661A2A6F8A0024F99B /* MKMapView+ZoomLevel.h */,
+				2B3F4FDA19EA3B34002FF874 /* RGB.h */,
+				2B515C111A313D6400AE9E6E /* UIDevice+Additions.h */,
+				2BDAE75819EA6413008FA1FA /* UIView+Additions.h */,
+				2B98A3671A2A6F8A0024F99B /* MKMapView+ZoomLevel.m */,
+				2B515C121A313D6500AE9E6E /* UIDevice+Additions.m */,
+				2BDAE75919EA6413008FA1FA /* UIView+Additions.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		2B98A3601A2A578E0024F99B /* Map */ = {

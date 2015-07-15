@@ -7,6 +7,7 @@
 //
 
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <Parse/Parse.h>
 #import "LoginViewController.h"
 #import "UserDataManager.h"
 #import "UIDevice+Additions.h"
@@ -26,6 +27,19 @@
 	[super viewDidLoad];
 
 	[self demoDataIfSimulator];
+    
+    [PFConfig getConfigInBackgroundWithBlock:^(PFConfig *config, NSError *error) {
+        NSString *message = [config objectForKey:@"WelcomeMessage"];
+        if ([message length] > 0) {
+            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:nil
+                                                                  message:message
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+
+            [myAlertView show];
+        }
+    }];
 }
 
 - (IBAction)loginButtonTapped:(id)sender
