@@ -47,20 +47,20 @@
 {
 	[super viewWillAppear:animated];
 
-    if (self.itemContext == (int *) ViewItemContextDonor)
-    {
-        self.tableViewBottomInset.constant = self.deleteButtonView.height;
+	if (self.itemContext == (int *) ViewItemContextDonor)
+	{
+		self.tableViewBottomInset.constant = self.deleteButtonView.height;
 		self.driverButtonsView.hidden = YES;
 
 //		BOOL canDelete = self.donatedItem.itemStatusCode != ItemStatusDelivered;
 //		self.deleteButtonView.hidden = !canDelete;
-    }
-    else if (self.itemContext == (int *) ViewItemContextDriver)
-    {
-        self.deleteButtonView.hidden = YES;
-        self.callPhoneButton.titleLabel.text = [NSString stringWithFormat:@"Call: %@", self.donatedItem.itemPhoneNumber];
-        self.tableViewBottomInset.constant = self.driverButtonsView.height;
-    }
+	}
+	else if (self.itemContext == (int *) ViewItemContextDriver)
+	{
+		self.deleteButtonView.hidden = YES;
+		self.callPhoneButton.titleLabel.text = [NSString stringWithFormat:@"Call: %@", self.donatedItem.itemPhoneNumber];
+		self.tableViewBottomInset.constant = self.driverButtonsView.height;
+	}
 }
 
 - (void)dismissViewController
@@ -115,27 +115,27 @@
 {
 	NSDictionary *image = @{
 			kCellClass : [ImageCell class],
-			kCellData  : self.donatedItem.itemImage.url
+			kCellData : self.donatedItem.itemImage.url
 	};
 	NSDictionary *code = @{
 			kCellClass : [InfoCell class],
 			kCellTitle : @"Item Code/Description",
-			kCellData  : self.donatedItem.itemCode
+			kCellData : self.donatedItem.itemCode
 	};
 	NSDictionary *address = @{
 			kCellClass : [InfoCell class],
 			kCellTitle : @"Pickup Address",
-			kCellData  : self.donatedItem.itemAddress
+			kCellData : self.donatedItem.itemAddress
 	};
 	NSDictionary *availability = @{
 			kCellClass : [InfoCell class],
 			kCellTitle : @"Pickup Availability",
-			kCellData  : self.donatedItem.itemAvailabilitySchedule
+			kCellData : self.donatedItem.itemAvailabilitySchedule
 	};
 	NSDictionary *status = @{
 			kCellClass : [InfoCell class],
 			kCellTitle : @"Item Status",
-			kCellData  : [self.donatedItem currentStatusString]
+			kCellData : [self.donatedItem currentStatusString]
 	};
 	return @[image, code, address, availability, status];
 }

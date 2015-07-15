@@ -22,14 +22,14 @@
 	[[UITextField appearance] setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:16.0]];
 
 	[[UISegmentedControl appearance] setTitleTextAttributes:@{
-			 NSForegroundColorAttributeName : [UIColor whiteColor],
-			 NSFontAttributeName            : [UIFont fontWithName:@"AvenirNext-Bold" size:16.0]
-	 }
+					NSForegroundColorAttributeName : [UIColor whiteColor],
+					NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Bold" size:16.0]
+			}
 												   forState:UIControlStateSelected];
 	[[UISegmentedControl appearance] setTitleTextAttributes:@{
-			 NSForegroundColorAttributeName : RGB(140, 49, 109),
-			 NSFontAttributeName            : [UIFont fontWithName:@"AvenirNext-Regular" size:16.0]
-	 }
+					NSForegroundColorAttributeName : RGB(140, 49, 109),
+					NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Regular" size:16.0]
+			}
 												   forState:UIControlStateNormal];
 
 	[Parse setApplicationId:@"LdJQPv5TdX8f7W93mAO8FkpcEqe55ciGomTOH4es"

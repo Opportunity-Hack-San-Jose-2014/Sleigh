@@ -18,6 +18,7 @@
 @property(weak, nonatomic) IBOutlet UIView *overlayView;
 @property(weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property(nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation DriverDashboardViewController
@@ -26,19 +27,35 @@
 {
 	[super viewDidLoad];
 
-	NSString *className = NSStringFromClass([DriverItemCell class]);
-	UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
-	[self.tableView registerNib:nib forCellReuseIdentifier:className];
-	[self.tableView setBackgroundColor:[UIColor whiteColor]];
-	[self.tableView setTintColor:[UIColor colorWithRed:0.055 green:0 blue:0.549 alpha:1]]; /*#0e008c*/
+	[self setupTableView];
 
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
+	[self setupRefreshControl];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self reloadData];
+}
+
+- (void)setupTableView
+{
+	NSString *className = NSStringFromClass([DriverItemCell class]);
+	UINib *nib = [UINib nibWithNibName:className bundle:self.nibBundle];
+	[self.tableView registerNib:nib forCellReuseIdentifier:className];
+	[self.tableView setBackgroundColor:[UIColor whiteColor]];
+	[self.tableView setTintColor:[UIColor colorWithRed:0.055 green:0 blue:0.549 alpha:1]]; /*#0e008c*/}
+
+- (void)setupRefreshControl
+{
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	[self.refreshControl addTarget:[UserDataManager sharedInstance]
+							action:@selector(refreshCachedItems)
+				  forControlEvents:UIControlEventValueChanged];
+	[self.tableView addSubview:self.refreshControl];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -50,7 +67,7 @@
 
 		ItemTableViewController *viewController = [[(UINavigationController *) segue.destinationViewController childViewControllers] firstObject];
 		viewController.donatedItem = donatedItem;
-		viewController.itemContext = (int *)ViewItemContextDriver;
+		viewController.itemContext = (int *) ViewItemContextDriver;
 	}
 }
 
@@ -58,6 +75,8 @@
 
 - (void)reloadData
 {
+	[self.refreshControl endRefreshing];
+
 	[UIView transitionWithView:self.view
 					  duration:0.4
 					   options:UIViewAnimationOptionTransitionCrossDissolve

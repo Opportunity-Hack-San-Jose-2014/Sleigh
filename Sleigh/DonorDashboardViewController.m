@@ -18,6 +18,7 @@
 @property(weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property(weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 
+@property(nonatomic, strong) UIRefreshControl *refreshControl;
 @end
 
 @implementation DonorDashboardViewController
@@ -31,13 +32,29 @@
 {
 	[super viewDidLoad];
 
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kItemsDownloadedFromServerNotification object:nil];
+	[self setupRefreshControl];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
 	[self reloadData];
+}
+
+- (void)setupRefreshControl
+{
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	[self.refreshControl addTarget:[UserDataManager sharedInstance]
+							action:@selector(refreshCachedItems)
+				  forControlEvents:UIControlEventValueChanged];
+	[self.collectionView addSubview:self.refreshControl];
+	self.collectionView.alwaysBounceVertical = YES;
+
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(reloadData)
+												 name:kItemsDownloadedFromServerNotification
+											   object:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -55,6 +72,8 @@
 
 - (void)reloadData
 {
+	[self.refreshControl endRefreshing];
+
 	[UIView transitionWithView:self.view
 					  duration:0.4
 					   options:UIViewAnimationOptionTransitionCrossDissolve

@@ -26,20 +26,26 @@
 {
 	[super viewDidLoad];
 
+	[self getWelcomeMessage];
 	[self demoDataIfSimulator];
-    
-    [PFConfig getConfigInBackgroundWithBlock:^(PFConfig *config, NSError *error) {
-        NSString *message = [config objectForKey:@"WelcomeMessage"];
-        if ([message length] > 0) {
-            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:nil
-                                                                  message:message
-                                                                 delegate:nil
-                                                        cancelButtonTitle:@"OK"
-                                                        otherButtonTitles:nil];
+}
 
-            [myAlertView show];
-        }
-    }];
+- (void)getWelcomeMessage
+{
+	[PFConfig getConfigInBackgroundWithBlock:^(PFConfig *config, NSError *error)
+	{
+		NSString *message = [config objectForKey:@"WelcomeMessage"];
+		if ([message length] > 0)
+		{
+			UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:nil
+																  message:message
+																 delegate:nil
+														cancelButtonTitle:@"OK"
+														otherButtonTitles:nil];
+
+			[myAlertView show];
+		}
+	}];
 }
 
 - (IBAction)loginButtonTapped:(id)sender

@@ -62,7 +62,7 @@
 - (void)cycleToNextViewController
 {
 	NSString *nextIndex = [[self.currentSegueIdentifier componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-														componentsJoinedByString:@""];
+			componentsJoinedByString:@""];
 
 	[self swapToViewControllerAtIndex:[nextIndex intValue]];
 }

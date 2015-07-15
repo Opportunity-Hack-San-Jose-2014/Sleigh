@@ -29,6 +29,11 @@
 																  action:@selector(logoutUser:)];
 	self.navigationItem.leftBarButtonItem = backButton;
 
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																				   target:[UserDataManager sharedInstance]
+																				   action:@selector(refreshCachedItems)];
+	self.navigationItem.rightBarButtonItem = refreshButton;
+
 	if ([[UserDataManager sharedInstance] isUserDriver] == NO)
 		self.containerViewTopOffset.constant = 0;
 
