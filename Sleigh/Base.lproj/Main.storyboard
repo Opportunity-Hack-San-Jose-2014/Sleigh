@@ -249,7 +249,7 @@
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEb-EU-vQG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="510"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The items you have submitted for donation will appear here.  Please start by tapping the button below!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-Bh-rM8">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Click below to schedule a new Pickup!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3y-Bh-rM8">
                                         <rect key="frame" x="20" y="231" width="560" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="3xe-P3-nPY"/>
@@ -449,7 +449,7 @@
             </objects>
             <point key="canvasLocation" x="3075" y="-399"/>
         </scene>
-        <!--Donated Item-->
+        <!--Pickup Details-->
         <scene sceneID="oIn-fq-IVI">
             <objects>
                 <viewController modalPresentationStyle="currentContext" id="ceV-Up-7KT" customClass="ItemTableViewController" sceneMemberID="viewController">
@@ -590,7 +590,7 @@
                             <constraint firstAttribute="bottom" secondItem="3ng-54-h9H" secondAttribute="bottom" id="vfn-SF-W6v"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Donated Item" id="cAa-CI-bS7">
+                    <navigationItem key="navigationItem" title="Pickup Details" id="cAa-CI-bS7">
                         <barButtonItem key="backBarButtonItem" title="Close" id="fk5-ub-HdL"/>
                     </navigationItem>
                     <connections>
@@ -703,7 +703,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PmN-ZF-iHm">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There doesn't seem to be any pickups in your area, please try again later!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnM-4r-ujh">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Volunteer for a pickup by checking out the &quot;Pickups&quot; pane above!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnM-4r-ujh">
                                         <rect key="frame" x="20" y="276" width="560" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="JSI-hD-NKA"/>
