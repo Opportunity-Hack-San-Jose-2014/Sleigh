@@ -323,7 +323,7 @@
             </objects>
             <point key="canvasLocation" x="2357" y="-399"/>
         </scene>
-        <!--Donate Item-->
+        <!--New Pickup-->
         <scene sceneID="pHn-aE-1op">
             <objects>
                 <viewController id="zHF-Gv-vO6" customClass="NewDonationViewController" sceneMemberID="viewController">
@@ -435,7 +435,7 @@
                             <constraint firstItem="NDb-vI-hXX" firstAttribute="top" secondItem="3cE-TX-piB" secondAttribute="top" id="wom-g9-w3b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Donate Item" id="dJo-Wj-WKF"/>
+                    <navigationItem key="navigationItem" title="New Pickup" id="dJo-Wj-WKF"/>
                     <connections>
                         <outlet property="imageView" destination="z6L-zk-CMI" id="fqV-kc-Lro"/>
                         <outlet property="itemAddressTextField" destination="xYj-np-acQ" id="tEI-rK-5Lw"/>

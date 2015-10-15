@@ -122,7 +122,7 @@
 		if (error == nil)
 			[self.navigationController popViewControllerAnimated:YES];
 		else
-			[self displayErrorAlertWithMessage:@"Unable to save item, please try again."];
+			[self displayErrorAlertWithMessage:@"Unable to save pickup, please try again."];
 	}];
 }
 
