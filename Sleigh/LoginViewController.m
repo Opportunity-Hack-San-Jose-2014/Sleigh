@@ -27,7 +27,8 @@
 	[super viewDidLoad];
 
 	[self getWelcomeMessage];
-	[self demoDataIfSimulator];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self.view action:@selector(endEditing:)]];
+
 }
 
 - (void)getWelcomeMessage
@@ -47,6 +48,7 @@
 		}
 	}];
 }
+
 
 - (IBAction)loginButtonTapped:(id)sender
 {
@@ -95,18 +97,6 @@
 											[myAlertView show];
 										}
 									}];
-}
-
-- (void)demoDataIfSimulator
-{
-	if (isDeviceSimulator())
-		[self performSelector:@selector(demoData) withObject:nil afterDelay:1];
-}
-
-- (void)demoData
-{
-	self.usernameTextField.text = @"driver_account";
-	self.passwordTextField.text = @"admin";
 }
 
 @end
